@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useState } from "react";
 import { eventData } from "../../Data/EventData";
 
@@ -9,6 +10,7 @@ function EventCard() {
   function handleClick() {
     setShow(!show);
   }
+
   console.log(eventData);
   return (
     <>
