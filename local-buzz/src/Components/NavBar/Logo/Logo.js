@@ -4,7 +4,6 @@ import './Logo.css';
 import LogoWhiteOutline from '../../../assets/LogoWhiteOutline.png';
 // import LogoBlackOutline from '../../../assets/LogoBlackOutline.png';
 export default function Logo() {
-	console.log('LOGO RENDERED');
 	return (
 		<div className='logo-container'>
 			<img id='logo' src={LogoWhiteOutline} alt='logo' />
