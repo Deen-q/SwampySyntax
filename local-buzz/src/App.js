@@ -1,15 +1,13 @@
 import './App.css';
-import Logo from './Components/NavBar/Logo/Logo';
-import SearchBar from './Components/NavBar/SearchBar/SearchBar';
+import NavBar from './Components/NavBar/NavBar';
 
 function App() {
-	console.log('APP');
-	return (
-		<>
-			<Logo />
-			<SearchBar/>
-		</>
-	);
+  console.log('APP');
+  return (
+    <>
+<NavBar />
+    </>
+  );
 }
 
 export default App;
