@@ -1,15 +1,23 @@
 import React from "react";
+import {useState} from "react";
 
-function EventCard(){
-    
-    return(
-        <div>
-            <img alt="CardImage"></img>
-            <h1>Event Name</h1>
-            <h3>*insert date*</h3>
-            <p>*insert description*</p>
-        </div>
-    )
+function EventCard(props) {
+  const [show, setShow] = useState(false);
+
+  function handleClick() {
+    setShow(!show);
+  }
+  return (
+    <div key={id}>
+      <img onClick={handleClick} alt='CardImage'>
+        {image}
+      </img>
+      <h1>{title}</h1>
+      <h3>{date}</h3>
+
+      {!show && <p>{description}</p>}
+    </div>
+  );
 }
 
 export default EventCard;
