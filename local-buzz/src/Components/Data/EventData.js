@@ -9,7 +9,7 @@ export const eventData = [
     image: "./Images/Beer-festival-Beer-drinkers-at-Oktoberfest-Munich.jpg",
   },
   {
-    id: uuidv4(),
+    id: uuidv4(), 
     title: "Reading Club",
     description:
       "Let's get together and read and discuss educated by Tara Westover",
