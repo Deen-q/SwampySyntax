@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './SearchBar.css';
 import { eventData } from '../../Data/EventData';
-import EventCard from '../../HomePage/EventCard/EventCard';
-import Logo from '../Logo/Logo';
-export default function SearchBar() {
+
+let filteredEventsList = [];
+function SearchBar() {
 	// Declare state for input value
 	const [input, setInput] = useState('');
 	// Copy eventData array using spread operator
@@ -16,21 +16,17 @@ export default function SearchBar() {
 	const filteredEvents = events.filter(event =>
 		event.title.toLowerCase().startsWith(input.toLowerCase())
 	);
+	filteredEventsList = filteredEvents;
 
 	return (
-		<>
-			{/* Navbar with logo and search input */}
-			<div id='navbar'>
-				<Logo />
-				<input
-					id='search'
-					onKeyUp={handleFilteredData}
-					type='text'
-					placeholder='Search for an event'
-				/>
-			</div>
-			{/* Render EventCard component with filtered events */}
-			<EventCard data={filteredEvents} />
-		</>
+		<input
+			id='search'
+			onKeyUp={handleFilteredData}
+			type='text'
+			placeholder='Search for an event'
+		/>
 	);
 }
+
+export { filteredEventsList };
+export default SearchBar;

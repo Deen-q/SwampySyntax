@@ -1,12 +1,13 @@
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
-import SearchBar from './Components/NavBar/SearchBar/SearchBar';
+import EventCard from './Components/HomePage/EventCard/EventCard';
+import { filteredEventsList } from './Components/NavBar/SearchBar/SearchBar';
 
 function App() {
 	return (
 		<>
-			{/* <NavBar /> */}
-			<SearchBar />
+			<NavBar />
+			<EventCard data={filteredEventsList} />
 		</>
 	);
 }
