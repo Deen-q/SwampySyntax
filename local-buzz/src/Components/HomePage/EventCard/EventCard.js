@@ -1,30 +1,31 @@
-import React from "react";
-
-import { useState } from "react";
-import { eventData } from "../../Data/EventData";
-
+import React, {useState} from "react";
+import {eventData} from "../../Data/EventData";
 
 function EventCard() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState({});
 
-  function handleClick() {
-    setShow(!show);
+  function handleClick(eventId) {
+    setShow((prevShow) => ({
+      ...prevShow,
+      [eventId]: !prevShow[eventId],
+    }));
   }
 
-  console.log(eventData);
   return (
     <>
-    {eventData.map((event) => (
-    <div key={event.id}>
-      <img onClick={handleClick} alt='CardImage'>
-        {event.image}
-      </img>
-      <h1>{event.title}</h1>
-      <h3>{event.date}</h3>
+      {eventData.map((event) => (
+        <div key={event.id}>
+          <img
+            onClick={() => handleClick(event.id)}
+            alt='CardImage'
+            src={event.image}
+          />
+          <h1>{event.title}</h1>
+          <h3>{event.date}</h3>
 
-      {!show && <p>{event.description}</p>}
-    </div>
-    ))}
+          {show[event.id] && <p>{event.description}</p>}
+        </div>
+      ))}
     </>
   );
 }

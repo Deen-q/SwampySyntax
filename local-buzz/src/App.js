@@ -1,11 +1,12 @@
-import './App.css';
-import NavBar from './Components/NavBar/NavBar';
+import "./App.css";
+import NavBar from "./Components/NavBar/NavBar";
+import EventCard from "./Components/HomePage/EventCard/EventCard";
 
 function App() {
-  console.log('APP');
+  console.log("APP");
   return (
     <>
-<NavBar />
+      <EventCard />
     </>
   );
 }
