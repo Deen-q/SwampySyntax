@@ -6,7 +6,7 @@ export default function NavBar(props) {
 	return (
 		<div id='navbar'>
 			<Logo />
-			<SearchBar handleFilterData={props.handleFilterData } input={props.input}/>
+			<SearchBar handleFilteredData={props.handleFilteredData} />
 		</div>
 	);
 }
