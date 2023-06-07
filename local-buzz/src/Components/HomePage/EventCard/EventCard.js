@@ -4,13 +4,16 @@ import { eventData } from '../../Data/EventData';
 function EventCard(props) {
   const [show, setShow] = useState({});
 
+  // when the image is clicked, the description will show
   function handleClick(eventId) {
     setShow(prevShow => ({
       ...prevShow,
+	  // if the description is showing, hide it
       [eventId]: !prevShow[eventId],
     }));
   }
 
+  // if the input is empty, show all events
   return (
 	<div>
 	  {eventData.map(event => (

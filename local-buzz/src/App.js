@@ -7,11 +7,13 @@ import HomePage from './Components/HomePage/HomePage'
 function App() {
 	// Declare state for input value
 	const [input, setInput] = useState('');
-
+	
+	const [filteredData, setFilteredData] = useState ([]);
+	
 	// Copy eventData array using spread operator
 	const events = [...eventData];
 
-	// Update input value in state on change
+	// Tracks what is typed in to the search bar
 	function handleFilteredData(event) {
 		setInput(event.target.value);
 	}
@@ -19,6 +21,11 @@ function App() {
 	const filteredEvents = events.filter(event =>
 		event.title.toLowerCase().startsWith(input.toLowerCase())
 	);
+
+	function filterEvents() {
+		setFilteredData(filteredEvents);
+	}
+	
 
 	return (
 		<div>
