@@ -1,14 +1,14 @@
-import "./App.css";
-import NavBar from "./Components/NavBar/NavBar";
-import EventCard from "./Components/HomePage/EventCard/EventCard";
+import './App.css';
+import NavBar from './Components/NavBar/NavBar';
+import SearchBar from './Components/NavBar/SearchBar/SearchBar';
 
 function App() {
-  console.log("APP");
-  return (
-    <>
-      <EventCard />
-    </>
-  );
+	return (
+		<>
+			{/* <NavBar /> */}
+			<SearchBar />
+		</>
+	);
 }
 
 export default App;

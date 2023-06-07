@@ -1,26 +1,36 @@
 import { useState } from 'react';
-import './SearchBar.css'
+import './SearchBar.css';
 import { eventData } from '../../Data/EventData';
+import EventCard from '../../HomePage/EventCard/EventCard';
+import Logo from '../Logo/Logo';
+export default function SearchBar() {
+	// Declare state for input value
+	const [input, setInput] = useState('');
+	// Copy eventData array using spread operator
+	const events = [...eventData];
+	// Update input value in state on change
+	function handleFilteredData(event) {
+		setInput(event.target.value);
+	}
+	// Filter events based on input value
+	const filteredEvents = events.filter(event =>
+		event.title.toLowerCase().startsWith(input.toLowerCase())
+	);
 
-// when clicked, opens up into a search bar
-// when search button clicked, render event cards on to page
-export default function SearchBar (){
-
-    const [input, setInput] = useState ('');
-    const [filteredData, setFilteredData] = useState (eventData);
-    const events = [...eventData]
-
-    function handleFilteredData (event){
-        setInput(event.target.value);
-        const filteredEvents = events.filter(event => event.title.toLowerCase().startsWith(input.toLowerCase())
-        )
-        setFilteredData(filteredEvents);
-        console.log(filteredData)
-    }
-
-return(
-    <>
-    <input id='search' onChange={handleFilteredData} type='text' placeholder='Search for an event'/>
-    </>
-);
+	return (
+		<>
+			{/* Navbar with logo and search input */}
+			<div id='navbar'>
+				<Logo />
+				<input
+					id='search'
+					onKeyUp={handleFilteredData}
+					type='text'
+					placeholder='Search for an event'
+				/>
+			</div>
+			{/* Render EventCard component with filtered events */}
+			<EventCard data={filteredEvents} />
+		</>
+	);
 }
