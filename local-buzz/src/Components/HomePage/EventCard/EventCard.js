@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 
 function EventCard(props) {
+	// Define state variable for showing event description
 	const [show, setShow] = useState({});
-	// when the image is clicked, the description will show
+
+	// Define function to handle click event on image
 	function handleClick(eventId) {
+		// Update the show state variable to toggle the description of the clicked event
 		setShow(prevShow => ({
-			...prevShow,
-			// if the description is showing, hide it
-			[eventId]: !prevShow[eventId],
+			...prevShow, // copy the previous state object
+
+			[eventId]: !prevShow[eventId], // toggle the show property of the clicked event id
 		}));
 	}
-	// if the input is empty, show all events
+
+	// Render the EventCard component
 	return (
 		<>
 			<div>
 				{props.filteredData.map(event => (
 					<div key={event.id}>
+						{/* add click event listener to toggle the description of the clicked event  */}
 						<img
 							onClick={() => handleClick(event.id)}
 							alt='CardImage'
@@ -23,6 +28,7 @@ function EventCard(props) {
 						/>
 						<h1>{event.title}</h1>
 						<h3>{event.date}</h3>
+						{/* show the description of the clicked event if the show property is true  */}
 						{show[event.id] && <p>{event.description}</p>}
 					</div>
 				))}
@@ -30,4 +36,5 @@ function EventCard(props) {
 		</>
 	);
 }
+
 export default EventCard;
