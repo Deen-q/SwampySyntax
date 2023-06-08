@@ -1,9 +1,9 @@
 import {v4 as uuidv4} from "uuid";
 // import image from file
 import BeerFestival from "../Data/Images/Beer-festival-Beer-drinkers-at-Oktoberfest-Munich.jpg";
-import ReadingClub from "../Data/Images/ReadingClub.jpeg";
+import ReadingClub from "../Data/Images/bookClub.jpg";
 import AllotmentImage from "../Data/Images/AllotmentImage.jpg";
-import ClassicCar from "../Data/Images/Classic Car.jpg";
+import ClassicCar from "../Data/Images/classicCar.jpg";
 
 export const eventData = [
   {
@@ -15,7 +15,7 @@ export const eventData = [
   },
   {
     id: uuidv4(),
-    title: "Reading Club",
+    title: "Book Club",
     description:
       "Let's get together and read and discuss educated by Tara Westover",
     date: new Date(2023, 8, 20).toLocaleDateString(),

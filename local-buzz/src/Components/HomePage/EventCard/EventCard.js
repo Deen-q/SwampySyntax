@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./EventCard.css"
 
 function EventCard(props) {
 	// Define state variable for showing event description
@@ -17,7 +18,7 @@ function EventCard(props) {
 	// Render the EventCard component
 	return (
 		<>
-			<div>
+			<div className="EventCardContainer">
 				{props.filteredData.map(event => (
 					<div key={event.id}>
 						{/* add click event listener to toggle the description of the clicked event  */}
