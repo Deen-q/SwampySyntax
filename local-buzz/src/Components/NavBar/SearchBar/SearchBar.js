@@ -1,12 +1,12 @@
 import './SearchBar.css';
 function SearchBar(props) {
 	// Define function to handle enter key press
-	function handleEnterClick(event) {
-		// Check if the pressed key is 'Enter'
-		if (event.key === 'Enter') {
-			props.handleFilteredData(event); // Call the handleFilteredData function passed as a prop
-		}
-	}
+	// function handleEnterClick(event) {
+	// 	// Check if the pressed key is 'Enter'
+	// 	if (event.key === 'Enter') {
+	// 		props.handleFilteredData(event); // Call the handleFilteredData function passed as a prop
+	// 	}
+	// }
 	// Render the SearchBar component
 	return (
 		<input
