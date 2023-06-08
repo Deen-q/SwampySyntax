@@ -27,10 +27,14 @@ function EventCard(props) {
 							alt='CardImage'
 							src={event.image}
 						/>
+            <div className="TextBorder">
+
+            
 						<h1>{event.title}</h1>
 						<h3>{event.date}</h3>
 						{/* show the description of the clicked event if the show property is true  */}
 						{show[event.id] && <p>{event.description}</p>}
+            </div>
 					</div>
 				))}
 			</div>
