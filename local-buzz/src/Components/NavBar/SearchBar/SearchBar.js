@@ -1,26 +1,22 @@
-import { useState } from 'react';
-import './SearchBar.css'
-import { eventData } from '../../Data/EventData';
-
-// when clicked, opens up into a search bar
-// when search button clicked, render event cards on to page
-export default function SearchBar (){
-
-    const [input, setInput] = useState ('');
-    const [filteredData, setFilteredData] = useState (eventData);
-    const events = [...eventData]
-
-    function handleFilteredData (event){
-        setInput(event.target.value);
-        const filteredEvents = events.filter(event => event.title.toLowerCase().startsWith(input.toLowerCase())
-        )
-        setFilteredData(filteredEvents);
-        console.log(filteredData)
-    }
-
-return(
-    <>
-    <input id='search' onChange={handleFilteredData} type='text' placeholder='Search for an event'/>
-    </>
-);
+import './SearchBar.css';
+function SearchBar(props) {
+	// Define function to handle enter key press
+	function handleEnterClick(event) {
+		// Check if the pressed key is 'Enter'
+		if (event.key === 'Enter') {
+			props.handleFilteredData(event); // Call the handleFilteredData function passed as a prop
+		}
+	}
+	// Render the SearchBar component
+	return (
+		<input
+			id='search'
+			// onKeyUp={handleEnterClick} // Commented out because it is not being used
+			type='text'
+			placeholder='Search for an event'
+			value={props.input}
+			onChange={props.handleFilteredData} // Call the handleFilteredData function passed as a prop on input change
+		/>
+	);
 }
+export default SearchBar;

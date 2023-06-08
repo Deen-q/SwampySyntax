@@ -1,33 +1,40 @@
-import React, {useState} from "react";
-import {eventData} from "../../Data/EventData";
+import React, { useState } from 'react';
 
-function EventCard() {
-  const [show, setShow] = useState({});
+function EventCard(props) {
+	// Define state variable for showing event description
+	const [show, setShow] = useState({});
 
-  function handleClick(eventId) {
-    setShow((prevShow) => ({
-      ...prevShow,
-      [eventId]: !prevShow[eventId],
-    }));
-  }
+	// Define function to handle click event on image
+	function handleClick(eventId) {
+		// Update the show state variable to toggle the description of the clicked event
+		setShow(prevShow => ({
+			...prevShow, // copy the previous state object
 
-  return (
-    <>
-      {eventData.map((event) => (
-        <div key={event.id}>
-          <img
-            onClick={() => handleClick(event.id)}
-            alt='CardImage'
-            src={event.image}
-          />
-          <h1>{event.title}</h1>
-          <h3>{event.date}</h3>
+			[eventId]: !prevShow[eventId], // toggle the show property of the clicked event id
+		}));
+	}
 
-          {show[event.id] && <p>{event.description}</p>}
-        </div>
-      ))}
-    </>
-  );
+	// Render the EventCard component
+	return (
+		<>
+			<div>
+				{props.filteredData.map(event => (
+					<div key={event.id}>
+						{/* add click event listener to toggle the description of the clicked event  */}
+						<img
+							onClick={() => handleClick(event.id)}
+							alt='CardImage'
+							src={event.image}
+						/>
+						<h1>{event.title}</h1>
+						<h3>{event.date}</h3>
+						{/* show the description of the clicked event if the show property is true  */}
+						{show[event.id] && <p>{event.description}</p>}
+					</div>
+				))}
+			</div>
+		</>
+	);
 }
 
 export default EventCard;

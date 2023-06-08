@@ -1,12 +1,12 @@
-import SearchBar from "./SearchBar/SearchBar";
-import Logo from "./Logo/Logo.js"
-import './NavBar.css'
+import SearchBar from './SearchBar/SearchBar';
+import Logo from './Logo/Logo.js';
+import './NavBar.css';
 
-export default function NavBar(){
-    return(
-        <div id='navbar'>
-        <Logo/>
-        <SearchBar/>
-        </div>
-    )
+export default function NavBar(props) {
+	return (
+		<div id='navbar'>
+			<Logo />
+			<SearchBar handleFilteredData={props.handleFilteredData} />
+		</div>
+	);
 }
