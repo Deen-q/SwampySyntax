@@ -1,40 +1,40 @@
-import { eventData } from "../../Data/EventData";
+// import { eventData } from "../../Data/EventData";
 
 
 
-export default function AddEventForm({event, setEvent}){
-    const title = [title, setTitle] = useState("");
-    const description = [description, setDescription] = useState("");
-    const date = [date, setDate] = useState("");
-    const time = [time, setTime] = useState("");
-    const location = [location, setLocation] = useState("");
-    const image = [image, setImage] = useState("");
+export default function AddEventForm(){
+    // const title = [title, setTitle] = useState("");
+    // const description = [description, setDescription] = useState("");
+    // const date = [date, setDate] = useState("");
+    // const time = [time, setTime] = useState("");
+    // const location = [location, setLocation] = useState("");
+    // const image = [image, setImage] = useState("");
     // const tags = [tags, setTags] = useState("");
     // const link = [link, setLink] = useState("");
 
 
-function handleSubmit(event){
+// function handleSubmit(event){
 
 
-    const newEvent = {
-        title: title,
-        description: description,
-        date: date,
-        time: time,
-        location: location,
-        image: image,
-        // tags: tags,
-        // link: link,
-    }
+//     const newEvent = {
+//         title: title,
+//         description: description,
+//         date: date,
+//         time: time,
+//         location: location,
+//         image: image,
+//         // tags: tags,
+//         // link: link,
+//     }
 
-const updatedEventData = [...eventData];
-updatedEventData.push(newEvent);
-console.log(updatedEventData);
-}
+// const updatedEventData = [...eventData];
+// updatedEventData.push(newEvent);
+// console.log(updatedEventData);
+// }
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" placeholder="Title of Event"></input>
                 <label for="description">Description:</label>
