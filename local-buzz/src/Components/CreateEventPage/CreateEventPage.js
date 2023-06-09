@@ -1,10 +1,8 @@
 import AddEventForm from './AddEventForm/AddEventForm';
-
-export default function CreateEventPage() {
+export default function CreateEventPage({ addNewEvent }) {
 	return (
 		<div>
-			{/* <h1>Create Event Page</h1> */}
-			<AddEventForm />
+			<AddEventForm addNewEvent={addNewEvent} />
 		</div>
 	);
 }
