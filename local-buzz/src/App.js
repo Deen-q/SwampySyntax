@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { eventData } from './Components/Data/EventData'; // an array of event data
 import NavBar from './Components/NavBar/NavBar'; // component for the navigation bar
 import HomePage from './Components/HomePage/HomePage'; // component for the home page
+import CreateEventPage from './Components/CreateEventPage/CreateEventPage';
+import CreateEventBtn from './Components/HomePage/CreateEventBtn/CreateEventBtn';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 	// Define state variable for filtered data
@@ -23,8 +26,14 @@ function App() {
 	}
 	return (
 		<div>
+		<BrowserRouter>
 			<NavBar handleFilteredData={handleFilteredData} />
-			<HomePage filteredData={filteredData} />
+		 <Routes>
+			<Route path="/" element={<HomePage filteredData={filteredData}/> }/>
+			<Route path="/createeventpage" element={<CreateEventPage/> }/>
+			
+		 </Routes>
+		</BrowserRouter>
 		</div>
 	);
 }
