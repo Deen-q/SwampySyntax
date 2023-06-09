@@ -5,7 +5,6 @@ import { eventData } from './Components/Data/EventData'; // an array of event da
 import NavBar from './Components/NavBar/NavBar'; // component for the navigation bar
 import HomePage from './Components/HomePage/HomePage'; // component for the home page
 import CreateEventPage from './Components/CreateEventPage/CreateEventPage';
-import CreateEventBtn from './Components/HomePage/CreateEventBtn/CreateEventBtn';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
