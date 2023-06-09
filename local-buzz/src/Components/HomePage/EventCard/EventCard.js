@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./EventCard.css"
+import './EventCard.css';
 
 function EventCard(props) {
 	// Define state variable for showing event description
@@ -18,23 +18,22 @@ function EventCard(props) {
 	// Render the EventCard component
 	return (
 		<>
-			<div className="EventCardContainer">
+			<div className='EventCardContainer'>
 				{props.filteredData.map(event => (
 					<div key={event.id}>
 						{/* add click event listener to toggle the description of the clicked event  */}
 						<img
+							className='event-img'
 							onClick={() => handleClick(event.id)}
 							alt='CardImage'
 							src={event.image}
 						/>
-            <div className="TextBorder">
-
-            
-						<h1>{event.title}</h1>
-						<h3>{event.date}</h3>
-						{/* show the description of the clicked event if the show property is true  */}
-						{show[event.id] && <p>{event.description}</p>}
-            </div>
+						<div className='TextBorder'>
+							<h1>{event.title}</h1>
+							<h3>{event.date}</h3>
+							{/* show the description of the clicked event if the show property is true  */}
+							{show[event.id] && <p>{event.description}</p>}
+						</div>
 					</div>
 				))}
 			</div>
