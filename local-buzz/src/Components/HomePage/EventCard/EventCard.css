@@ -1,44 +1,45 @@
 .EventCardContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .EventCardContainer p {
-	width: 80vw;
+  width: 80vw;
 }
 
 .EventCardContainer img {
-	max-width: 80vw;
-	height: auto;
-	border-bottom: 2px solid #474747;
-	border-radius: 25px 25px 0 0;
+  max-width: 80vw;
+  height: auto;
+  border-bottom: 1px solid #47474782;
+  border-radius: 23px 23px 0 0;
 }
 
 .event-img:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .EventDateAndCity {
-	display: flex;
-	justify-content: space-between;
-	align-items: left;
-	width: 80vw;
-	margin: 0 auto;
-	line-height: 0.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  width: 80vw;
+  margin: 0 auto;
+  line-height: 0.4;
 }
 
 .EventAddressAndPostcode {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 80vw;
-	margin: 0 auto;
-	line-height: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  margin: 0 auto;
+  line-height: normal;
 }
 
 .TextBorder {
-	border: 2px solid #474747;
-	border-radius: 25px 25px 25px 25px;
+  border: 1px solid #47474782;
+  border-radius: 25px 25px 25px 25px;
+  width: 80vw;
 }
