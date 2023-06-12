@@ -29,7 +29,7 @@ function EventCard(props) {
               src={event.image}
             />
             <div className='TextBorder'>
-              <h1>{event.title}</h1>
+              <h2>{event.title}</h2>
               <div className='EventDateAndCity'>
                 <h3>{event.date}</h3>
                 <h3>{event.city}</h3>

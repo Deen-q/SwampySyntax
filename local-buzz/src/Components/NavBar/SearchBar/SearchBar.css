@@ -1,4 +1,14 @@
-#search {
+/* #search {
 	margin-top: 10px;
 	margin-right: 10px;
+} */
+
+.SearchIcon {
+	width: 25px;
+	height: auto;
+}
+
+.searchContainer {
+	display: flex;
+	align-items: center;
 }
