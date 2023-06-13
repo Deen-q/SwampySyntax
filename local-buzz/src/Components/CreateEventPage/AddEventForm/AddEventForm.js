@@ -11,6 +11,7 @@ export default function AddEventForm({addNewEvent}) {
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
   const [image, setImage] = useState("");
+  //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
   const navigate = useNavigate();
 
   function handleSubmit(event) {
@@ -26,12 +27,13 @@ export default function AddEventForm({addNewEvent}) {
     };
 
     addNewEvent(newEvent);
-
+    //navigate to the home page automatically after submitting the form (function has been run)
     navigate("/");
   }
 
   return (
     <div>
+    {/*Run the onSubmit once the form has been filled*/}
       <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title:</label>
         <input
@@ -78,7 +80,7 @@ export default function AddEventForm({addNewEvent}) {
         ></input>
         <label htmlFor='image'>Image:</label>
         <input
-          type='file'
+          type='text'
           id='image'
           name='image'
           onChange={(event) => setImage(event.target.value)}

@@ -5,7 +5,7 @@ export default function HomePage(props) {
 	return (
 		<div>
 		<CreateEventBtn/>
-			<EventCard filteredData={props.filteredData} />
+		<EventCard filteredData={props.filteredData} />
 		</div>
 	);
 }

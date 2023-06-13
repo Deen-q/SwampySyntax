@@ -17,7 +17,7 @@ function App() {
 	function handleFilteredData(event) {
 		const inputValue = event.target.value;
 		const filteredData = events.filter(event =>
-			event.title.toLowerCase().includes(inputValue.toLowerCase())
+			event.title.toLowerCase().startsWith(inputValue.toLowerCase())
 		);
 		setFilteredData(filteredData);
 	}

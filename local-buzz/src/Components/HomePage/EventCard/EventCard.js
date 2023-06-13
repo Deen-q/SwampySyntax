@@ -10,7 +10,7 @@ function EventCard(props) {
 		// Update the show state variable to toggle the description of the clicked event
 		setShow(prevShow => ({
 			...prevShow, // copy the previous state object
-
+		// the below is an if statement that checks if the eventId is in the show object, if it is then it will return the opposite of the current value of the show property of the eventId, if it isn't then it will return true
 			[eventId]: !prevShow[eventId], // toggle the show property of the clicked event id
 		}));
 	}
