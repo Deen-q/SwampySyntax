@@ -8,21 +8,29 @@
 
 h2 {
   margin: 5px 10px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #d56b63;
   font-weight: bold;
 }
 
 p {
   margin: 5px 10px 7px 10px;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  align-items: center;
 }
+.img-icon {
+  width: 20px;
+  height: auto;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  
+} 
 
 .EventCardContainer p {
   width: 80vw;
 }
 
-.EventCardContainer img {
+.event-img {
   max-width: 80vw;
   height: auto;
   border-bottom: 1px solid #47474782;
@@ -32,11 +40,25 @@ p {
 .event-img:hover {
   cursor: pointer;
 }
+.EventTitleAndDots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  margin-bottom: 5px;
+}
+
+.eventTitle-dots {
+  width: 23px;
+  height: auto;
+  padding-right: 10px;
+}
 
 .EventDateAndCity {
   display: flex;
   justify-content: space-between;
-  align-items: left;
+  
+  align-items: center;
   width: 80vw;
   /* margin-bottom: 5px; */
 }
