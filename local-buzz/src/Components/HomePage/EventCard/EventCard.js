@@ -44,20 +44,40 @@ function EventCard(props) {
                 />
               </div>
               <div className="EventDateAndCity">
-                <img className="img-icon" src={date} />
+                <img className="img-icon" src={date} alt="date-icon" />
                 <p> {event.date}</p>
-                {!show[event.id] && <p>{event.city}</p>}
+                {!show[event.id] && (
+                  <>
+                    <img
+                      className="img-icon"
+                      src={address}
+                      alt="address-icon"
+                    />{" "}
+                    <p>{event.city}</p>
+                  </>
+                )}
               </div>
               {/* show the description of the clicked event if the show property is true  */}
               {show[event.id] && (
                 <div>
+																<div className="EventDateAndCity">
+                  <img className="img-icon" src={clock} alt="date-icon" />
                   <p>{event.time}</p>
+																		</div>
+																		<div className="EventDateAndCity">
+                  <img className="img-icon-top" src={address} alt="address-icon" />
                   <p>
                     {event.firstLineOfAddress}, {event.city}, {event.postcode}
                   </p>
-                  {/* <p></p> */}
-
+																		</div>
+																		<div className="EventDateAndCity">
+                  <img
+                    className="img-icon-top"
+                    src={speechBubble}
+                    alt="speech-bubble-icon"
+                  />
                   <p className="EventDescription">{event.description}</p>
+																		</div>
                 </div>
               )}
             </div>
