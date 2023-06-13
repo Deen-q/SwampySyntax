@@ -3,6 +3,19 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin: 0px;
+}
+
+h2 {
+  margin: 5px 10px;
+  font-size: 1rem;
+  color: #d56b63;
+  font-weight: bold;
+}
+
+p {
+  margin: 5px 10px 7px 10px;
+  font-size: 0.8rem;
 }
 
 .EventCardContainer p {
@@ -25,8 +38,7 @@
   justify-content: space-between;
   align-items: left;
   width: 80vw;
-  margin: 0 auto;
-  line-height: 0.4;
+  /* margin-bottom: 5px; */
 }
 
 .EventAddressAndPostcode {
@@ -34,12 +46,14 @@
   justify-content: space-between;
   align-items: center;
   width: 80vw;
-  margin: 0 auto;
-  line-height: normal;
 }
 
 .TextBorder {
   border: 1px solid #47474782;
   border-radius: 25px 25px 25px 25px;
   width: 80vw;
+}
+
+.EventDescription {
+  margin-bottom: 10px;
 }
