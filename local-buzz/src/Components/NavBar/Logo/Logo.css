@@ -2,23 +2,23 @@
 	display: flex;
 	align-items: center;
 	margin-top: 10px;
-	margin-left: 10px;
+	/* margin-left: 2px; */
 }
 
 #logo {
-	max-width: 50px;
+	width: 60px;
 	height: auto;
 }
 
-.line {
+/* .line {
 	margin-right: 7px;
 	width: 2px;
 	background-color: #5aaaa6;
-	height: 25px;
-}
+	height: 32px;
+} */
 
 h1 {
 	color: #5aaaa6;
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 1em;
+	font-size: 1.2em;
 }

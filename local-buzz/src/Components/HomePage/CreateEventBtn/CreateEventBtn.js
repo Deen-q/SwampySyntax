@@ -7,7 +7,7 @@ function CreateEventBtn() {
     <div className='btnContainer'>
       <button className='btnPrimary'><Link to = "/createeventpage"
       style={{ textDecoration: 'none', color:"white" }}>
-      Create Event + </Link></button>
+      Create Event</Link></button>
     </div>
   );
 }
