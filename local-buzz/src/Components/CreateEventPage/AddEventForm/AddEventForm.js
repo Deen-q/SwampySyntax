@@ -24,10 +24,10 @@ export default function AddEventForm({ addNewEvent }) {
 			date: date,
 			time: time,
 			location: location,
-			image: image,
+      // changed to hardcoded image for now
+			image: communityEvent,
 		};
 
-		setImage(event.target.value);
 
 		addNewEvent(newEvent);
 		//navigate to the home page automatically after submitting the form (function has been run)
@@ -38,25 +38,23 @@ export default function AddEventForm({ addNewEvent }) {
 		<div id='event-form-container'>
 			{/*Run the onSubmit once the form has been filled*/}
 			<form onSubmit={handleSubmit}>
-				<h1>Create an Event</h1>
+				<h1 className='add-event-title'>Create an Event</h1>
 				{/* <label htmlFor='title'>Title:</label> */}
 				<input
 					required
 					type='text'
 					id='title'
-					className='scrollable'
 					name='title'
 					placeholder='Add title'
 					onChange={event => setTitle(event.target.value)}></input>
 				{/* <label htmlFor='description'>Description:</label> */}
-				<input
+				<textarea
 					required
 					type='text'
 					id='description'
-					className='scrollable'
 					name='description'
 					placeholder='Add description'
-					onChange={event => setDescription(event.target.value)}></input>
+					onChange={event => setDescription(event.target.value)}></textarea>
 				{/* <label htmlFor='date'>Date:</label> */}
 				<input
 					required
@@ -76,7 +74,6 @@ export default function AddEventForm({ addNewEvent }) {
 					required
 					type='text'
 					id='location'
-					className='scrollable'
 					name='location'
 					placeholder='Location of Event'
 					onChange={event => setLocation(event.target.value)}></input>
@@ -85,8 +82,10 @@ export default function AddEventForm({ addNewEvent }) {
 					type='text'
 					id='image'
 					name='image'
-					value='IMG HARDCODED FOR NOW'
-					onChange={event => setImage(communityEvent)}></input>
+					value='IGNORE FOR NOW'
+					onChange={event => setImage(communityEvent)}
+
+          ></input>
 				{/* <label for="tags">Tags:</label>
                 <input type="text" id="tags" name="tags" placeholder="Tags for Event"></input>
                 <label for="link">Link:</label>
