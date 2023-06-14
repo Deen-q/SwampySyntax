@@ -11,7 +11,6 @@ export default function AddEventForm({addNewEvent}) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
-  // const [image, setImage] = useState('');
   //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
   const navigate = useNavigate();
 
