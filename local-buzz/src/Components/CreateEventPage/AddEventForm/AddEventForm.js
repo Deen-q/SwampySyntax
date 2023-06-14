@@ -58,17 +58,21 @@ export default function AddEventForm({addNewEvent}) {
         {/* <label htmlFor='date'>Date:</label> */}
         <input
           required
-          type='date'
+          type='text'
+          placeholder="DD/MM/YYYY 📆"
           id='date'
           name='date'
+          onFocus={event => event.target.type = "date"}
           onChange={(event) => setDate(event.target.value)}
         ></input>
         {/* <label htmlFor='time'>Time:</label> */}
         <input
           required
-          type='time'
+          type='text'
+          placeholder="hh:mm 🕛"
           id='time'
           name='time'
+          onFocus={event => event.target.type = "time"}
           onChange={(event) => setTime(event.target.value)}
         ></input>
         {/* <label htmlFor='location'>Location:</label> */}
