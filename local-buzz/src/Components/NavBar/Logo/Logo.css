@@ -1,13 +1,13 @@
 .logo-container {
-	display: flex;
-	align-items: center;
-	margin-top: 10px;
-	/* margin-left: 2px; */
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  /* margin-left: 2px; */
 }
 
 #logo {
-	width: 60px;
-	height: auto;
+  width: 60px;
+  height: auto;
 }
 
 /* .line {
@@ -18,7 +18,12 @@
 } */
 
 h1 {
-	color: #5aaaa6;
-	font-family: 'Josefin Sans', sans-serif;
-	font-size: 1.2em;
+  color: #5aaaa6;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2em;
+}
+
+.logo-icon {
+  align-items: center;
+  justify-content: center;
 }
