@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { UserContext } from "../Contexts/user.context";
+import { UserContext } from "../contexts/user.context";
  
 const PrivateRoute = () => {
  

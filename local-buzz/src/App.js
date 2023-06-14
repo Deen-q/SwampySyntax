@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./contexts/user.context";
 import Home from "./Pages/Home.Page";
 import Login from "./Pages/Login.Page";
-import PrivateRoute from "./Pages/PrivateRoute.page";
-import Signup from "./Pages/Signup.page";
+import PrivateRoute from "./Pages/PrivateRoute.Page";
+import Signup from "./Pages/SignUp.Page";
 
 function App() {
   return (
