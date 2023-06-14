@@ -13,11 +13,12 @@ const productSchema = new mongoose.Schema({
   time: String,
 });
 
-module.exports = mongoose.model("Product", productSchema);
+module.exports = mongoose.model("Swampy", productSchema);
 
-const mongoose = require("mongoose");
 
 //Detailed notes
+
+// const mongoose = require("mongoose");
 
 // // Define a schema using Mongoose Schema API.
 // // Here, you're describing the shape of the documents within the 'products' collection.
