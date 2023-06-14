@@ -24,7 +24,7 @@ function EventCard(props) {
   return (
     <>
       <div className="EventCardContainer">
-        {props.filteredData.map((event) => (
+        {props.filteredData?.map((event) => ( //'?' is 'Optional Chaining' bypasses the error from undefined. It is still undefined, however.
           <div key={event.id}>
             {/* add click event listener to toggle the description of the clicked event  */}
             <div className="TextBorder">

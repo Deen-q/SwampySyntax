@@ -1,3 +1,4 @@
+// npm run test -- -t '/thePath'
 import NavBar from "./NavBar";
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
