@@ -1,5 +1,5 @@
 import "../App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { eventData } from "../Components/Data/EventData";
 import NavBar from "../Components/NavBar/NavBar";
 import HomePage from "../Components/HomePage/HomePage";
@@ -28,8 +28,19 @@ export default function Home() {
   };
 
   // Defining states for filteredData and events
-  const [filteredData, setFilteredData] = useState([...eventData]);
+  const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([...eventData]);
+
+  const fetchData = () => {
+    fetch("http://localhost:5000/events")
+      .then((response) => response.json())
+      .then((data) => setFilteredData(data))
+      .catch((error) => console.error("Error:", error));
+  };
+
+useEffect(() => {
+  fetchData();
+}, []);
 
   // Function to handle filtered data
   function handleFilteredData(event) {

@@ -1,10 +1,10 @@
 // Import Mongoose, an Object Data Modeling (ODM) library for MongoDB and Node.js
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema({
+const eventSchema = new mongoose.Schema({
   title: String,
   description: String,
-  date: Number,
+  date: String,
   image: String, //💥💥 Check this and make sure we are converting images to strings
   description: String,
   firstLineOfAddress: String,
@@ -13,8 +13,7 @@ const productSchema = new mongoose.Schema({
   time: String,
 });
 
-module.exports = mongoose.model("Swampy", productSchema);
-
+module.exports = mongoose.model("Event", eventSchema);
 
 //Detailed notes
 

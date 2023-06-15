@@ -39,7 +39,7 @@ app.get("/events", async (req, res) => {
     // Send the fetched products as JSON response
     res.json(events);
   } catch (err) {
-    console.error("Error while handling /swampy:", err); // Log any errors
+    console.error("Error while handling /events:", err); // Log any errors
 
     // Send error message as JSON response with status 500 (Internal Server Error)
     res.status(500).json({ message: err.message });
