@@ -1,24 +1,29 @@
 .logo-container {
-	display: flex;
-	align-items: center;
-	margin-top: 10px;
-	margin-left: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  /* margin-left: 2px; */
 }
 
 #logo {
-	max-width: 50px;
-	height: auto;
+  width: 60px;
+  height: auto;
 }
 
-.line {
+/* .line {
 	margin-right: 7px;
 	width: 2px;
 	background-color: #5aaaa6;
-	height: 25px;
-}
+	height: 32px;
+} */
 
 h1 {
-	color: #5aaaa6;
-	font-family: 'Josefin Sans', sans-serif;
-	font-size: 1em;
+  color: #5aaaa6;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2em;
+}
+
+.logo-icon {
+  align-items: center;
+  justify-content: center;
 }

@@ -1,0 +1,56 @@
+* {
+	font-family: 'Josefin Sans', sans-serif;
+	
+}
+
+.add-event-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#event-form-container {
+	background-color: #fbf8f2;
+	padding: 10px;
+	border-radius: 25px;
+	margin: 0px 20px;
+	border: 1px solid #474747;
+	margin-top: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	justify-content: space-around;
+	margin: 30px;
+	align-items: center;
+}
+
+input, textarea {
+	border-radius: 25px;
+	width: 60vw;
+	padding: 3px;
+	height: 25px;
+	border: 1px solid #474747;
+	text-indent: 5px;
+}
+
+
+#description {
+	height: 100px;
+	overflow: auto;
+	border-radius: 10px;
+	padding-top: 10px;
+	border: 1px solid #474747;
+	width: 60vw;
+	resize: vertical;
+}
+
+#submit {
+	background-color: #d56b63;
+	color: white;
+	height: 35px;
+	margin-top: 10px;
+	font-size: 15px;
+	font-weight: bold;
+}

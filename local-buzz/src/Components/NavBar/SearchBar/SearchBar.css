@@ -1,4 +1,15 @@
-#search {
+/* #search {
 	margin-top: 10px;
 	margin-right: 10px;
+} */
+
+.SearchIcon {
+  width: 20px;
+  height: auto;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
