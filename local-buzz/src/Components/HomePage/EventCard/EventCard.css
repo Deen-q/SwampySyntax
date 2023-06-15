@@ -101,10 +101,37 @@ p {
 
 /* show events in rows of 4 on larger screens */
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1200px) {
+	.EventCardContainer {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: flex-start;
+	}
+
+	.event-card {
+		max-width: 40vw;
+		height: auto;
+	}
+	.event-img,
+	.EventTitleAndDots,
+	.EventDateAndCity,
+	.TextBorder,
+	.EventCardContainer p {
+		max-width: 40vw;
+	}
+
+	.event-img {
+		width: auto;
+		height: 30vw;
+		object-fit: cover;
+	}
+}
+
+@media (min-width: 1201px) {
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+		align-items: flex-start;
 	}
 
 	.event-card {
@@ -119,8 +146,9 @@ p {
 		max-width: 20vw;
 	}
 
-	.img-container {
-		width: 20vw;
-		height: auto;
+	.event-img {
+		width: auto;
+		height: 15vw;
+		object-fit: cover;
 	}
 }

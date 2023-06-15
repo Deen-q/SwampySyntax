@@ -31,15 +31,14 @@ function EventCard(props) {
 						<div key={event.id} className='event-card'>
 							{/* add click event listener to toggle the description of the clicked event  */}
 							<div className='TextBorder'>
-								<div className='img-container'>
-									{' '}
-									<img
-										className='event-img'
-										onClick={() => handleClick(event.id)}
-										alt='CardImage'
-										src={event.image}
-									/>
-								</div>
+								{/* <div className='img-container'> */}{' '}
+								<img
+									className='event-img'
+									onClick={() => handleClick(event.id)}
+									alt='CardImage'
+									src={event.image}
+								/>
+								{/* </div> */}
 								<div className='EventTitleAndDots'>
 									<h2>{event.title}</h2>
 									<img
