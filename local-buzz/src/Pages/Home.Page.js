@@ -4,7 +4,7 @@ import { eventData } from "../Components/Data/EventData";
 import NavBar from "../Components/NavBar/NavBar";
 import HomePage from "../Components/HomePage/HomePage";
 import CreateEventPage from "../Components/CreateEventPage/CreateEventPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useContext } from "react";
 import { UserContext } from "../contexts/user.context";
@@ -53,16 +53,14 @@ export default function Home() {
         Logout
       </Button>
 
-      <BrowserRouter>
-        <NavBar handleFilteredData={handleFilteredData} />
-        <Routes>
-          <Route path="/" element={<HomePage filteredData={filteredData} />} />
-          <Route
-            path="/createeventpage"
-            element={<CreateEventPage addNewEvent={addNewEvent} />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <NavBar handleFilteredData={handleFilteredData} />
+      <Routes>
+        <Route path="/" element={<HomePage filteredData={filteredData} />} />
+        <Route
+          path="/createeventpage"
+          element={<CreateEventPage addNewEvent={addNewEvent} />}
+        />
+      </Routes>
     </>
   );
 }
