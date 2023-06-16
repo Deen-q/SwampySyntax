@@ -1,6 +1,6 @@
 import {v4 as uuidv4} from "uuid";
 // import image from file
-import BeerFestival from "../Data/Images/Beer-festival-Beer-drinkers-at-Oktoberfest-Munich.jpg";
+import GardenParty from "../Data/Images/GardenParty.jpeg";
 import ReadingClub from "../Data/Images/bookClub.jpg";
 import AllotmentImage from "../Data/Images/AllotmentImage.jpg";
 import ClassicCar from "../Data/Images/classicCar.jpg";
@@ -8,10 +8,10 @@ import ClassicCar from "../Data/Images/classicCar.jpg";
 export const eventData = [
   {
     id: uuidv4(),
-    title: "Beer Festival",
-    description: "A get together to share local beers from local brewers.",
+    title: "Garden Party",
+    description: "A get together to know your neighbours.",
     date: new Date(2023, 5, 15).toLocaleDateString(), // Note: month is zero-based (0-11)
-    image: BeerFestival,
+    image: GardenParty,
     firstLineOfAddress: "42 Baker Street",
     city: "London",
     postcode: "NW1 6XE",
