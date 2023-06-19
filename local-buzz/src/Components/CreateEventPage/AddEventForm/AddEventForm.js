@@ -4,6 +4,7 @@ import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
 import communityEvent from "../../Data/Images/community-event.png";
+import {Link} from "react-router-dom";
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
@@ -38,10 +39,14 @@ export default function AddEventForm({addNewEvent}) {
 
   return (
     <div id='event-form-container'>
+    <div className='createEventHeader'>
+    <Link to= '/homepage' 
+    style={{textDecoration: "none", color: "white"}}>  <button className="closeFormButton"> X </button>
+    </Link>
+    </div>
       {/*Run the onSubmit once the form has been filled*/}
       <form onSubmit={handleSubmit}>
-        <h1 className='add-event-title'>Create an Event</h1>
-        {/* <label htmlFor='title'>Title:</label> */}
+        <label htmlFor='title'>Title</label>
         <input
           required
           type='text'
@@ -50,7 +55,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Add Title'
           onChange={(event) => setTitle(event.target.value)}
         ></input>
-        {/* <label htmlFor='description'>Description:</label> */}
+        <label htmlFor='description'>Description</label>
         <textarea
           required
           type='text'
@@ -59,7 +64,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Add Description'
           onChange={(event) => setDescription(event.target.value)}
         ></textarea>
-        {/* <label htmlFor='date'>Date:</label> */}
+        <label htmlFor='date'>Date</label>
         <input
           required
           type='date'
@@ -68,7 +73,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Date'
           onChange={(event) => setDate(event.target.value)}
         ></input>
-        {/* <label htmlFor='time'>Time:</label> */}
+        <label htmlFor='time'>Time</label>
         <input
           required
           type='time'
@@ -77,7 +82,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Time'
           onChange={(event) => setTime(event.target.value)}
         ></input>
-        {/* <label htmlFor='location'>Location:</label> */}
+        <label htmlFor='location'>Address Line 1</label>
         <input
           required
           type='text'
@@ -86,7 +91,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='First Line Of Address'
           onChange={(event) => setFirstLineOfAddress(event.target.value)}
         ></input>
-        {/* <label htmlFor='image'>Image:</label> */}
+        <label htmlFor='image'>City</label>
         <input
           required
           type='text'
@@ -95,6 +100,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='City'
           onChange={(event) => setCity(event.target.value)}
         ></input>
+        <label htmlFor='postcode'>Postcode</label>
         <input
           required
           type='text'
@@ -103,6 +109,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Postcode'
           onChange={(event) => setPostcode(event.target.value)}
         ></input>
+        <label htmlFor='image'>Image</label>
         <input
           type='text'
           id='image'
