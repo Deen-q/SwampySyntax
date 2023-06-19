@@ -19,8 +19,8 @@
   .closeFormButton {
     justify-content: center;
     font-family: "Josefin Sans", sans-serif;
-    font-weight: regular;
-    font-size: 1rem;
+    font-weight: bold;
+    font-size: 0.7rem;
     background-color: #d56b63;
     color: white;
     text-decoration: none;
@@ -32,6 +32,7 @@
     height: 1.5rem;
     margin: 1.5rem;
     margin-right: 80px;
+	padding-top: 5px;
   }
   
 
