@@ -3,7 +3,7 @@ import "./AddEventForm.css";
 import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
-import communityEvent from "../../Data/Images/community-event.png";
+import { readAndCompressImage } from 'browser-image-resizer';
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
@@ -13,6 +13,7 @@ export default function AddEventForm({addNewEvent}) {
   const [firstLineOfAddress, setFirstLineOfAddress] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [image, setImage] = useState("");
   //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
   const navigate = useNavigate();
 
@@ -28,13 +29,39 @@ export default function AddEventForm({addNewEvent}) {
       city: city,
       postcode: postcode,
       // changed to hardcoded image for now
-      image: communityEvent,
+      image: image,
     };
 
     addNewEvent(newEvent);
     //navigate to the home page automatically after submitting the form (function has been run)
     navigate("/");
   }
+
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+  
+    const config = {
+      quality: 0.5, // this is the compression rate (1 means no compression)
+      maxWidth: 500, // the max size of the image width
+      maxHeight: 500, // the max size of the image height
+      autoRotate: true,
+      debug: true,
+    };
+  
+    try {
+      const compressedFile = await readAndCompressImage(file, config);
+      const reader = new FileReader();
+      
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+  
+      reader.readAsDataURL(compressedFile);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+    
 
   return (
     <div id='event-form-container'>
@@ -104,11 +131,11 @@ export default function AddEventForm({addNewEvent}) {
           onChange={(event) => setPostcode(event.target.value)}
         ></input>
         <input
-          type='text'
+          type='file'
           id='image'
           name='image'
-          value='IGNORE FOR NOW'
-          // onChange={event => setImage(communityEvent)}
+          placeholder='Upload your image'
+          onChange={(e) => handleImageUpload(e)}
         ></input>
         {/* <label for="tags">Tags:</label>
                 <input type="text" id="tags" name="tags" placeholder="Tags for Event"></input>
