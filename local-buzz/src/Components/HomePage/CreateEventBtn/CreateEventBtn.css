@@ -13,6 +13,8 @@
   background-color: #47474782;
   position: fixed;
   bottom: 0;
+  margin-bottom: 2.2rem;
+
 }
 .btnContainer {
   position: fixed;
@@ -41,7 +43,5 @@
   width: 3.5rem ;
   height: 3.5rem;
   margin: 0.5rem;
-
-
   /* height: 40px; */
 }
