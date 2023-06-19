@@ -13,6 +13,7 @@ export default function AddEventForm({addNewEvent}) {
   const [firstLineOfAddress, setFirstLineOfAddress] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [image, setImage] = useState("");
   //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
   const navigate = useNavigate();
 
@@ -28,13 +29,24 @@ export default function AddEventForm({addNewEvent}) {
       city: city,
       postcode: postcode,
       // changed to hardcoded image for now
-      image: communityEvent,
+      image: image,
     };
 
     addNewEvent(newEvent);
     //navigate to the home page automatically after submitting the form (function has been run)
     navigate("/");
   }
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  };
 
   return (
     <div id='event-form-container'>
@@ -104,11 +116,11 @@ export default function AddEventForm({addNewEvent}) {
           onChange={(event) => setPostcode(event.target.value)}
         ></input>
         <input
-          type='text'
+          type='file'
           id='image'
           name='image'
-          value='IGNORE FOR NOW'
-          // onChange={event => setImage(communityEvent)}
+          placeholder='Upload your image'
+          onChange={(e) => handleImageUpload(e)}
         ></input>
         {/* <label for="tags">Tags:</label>
                 <input type="text" id="tags" name="tags" placeholder="Tags for Event"></input>
