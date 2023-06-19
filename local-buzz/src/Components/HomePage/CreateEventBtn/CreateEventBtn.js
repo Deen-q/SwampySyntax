@@ -4,13 +4,18 @@ import {Link} from "react-router-dom"; // Link is a built in function, we didnt 
 
 function CreateEventBtn() {
   return (
+    <div className='bottomBarContainer'>
+    
+
     <div className='btnContainer'>
       <Link
         to='/createeventpage'
         style={{textDecoration: "none", color: "white"}}
       >
-        <button className='btnPrimary'>Create Event</button>
+        <button className='btnPrimary'>+</button>
       </Link>
+    </div>
+    <div className= 'bottomLine'></div>
     </div>
   );
 }

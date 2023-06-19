@@ -1,26 +1,47 @@
-.btnContainer {
+.bottomBarContainer{
+  width: 100vw;
+  background-color: #FEFEFE;
+  position: fixed;
   display: flex;
   justify-content: center;
-  padding-bottom: 12%;
-  padding-top: 5%;
+  align-items: center;
+}
+
+.bottomLine {
+  width: 100vw;
+  height: 2px;
+  background-color: #47474782;
+  position: fixed;
+  bottom: 0;
+}
+.btnContainer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FEFEFE;
+  width: 100vw;
 }
 
 .btnPrimary {
   font-family: "Josefin Sans", sans-serif;
-  font-weight: bold;
-  font-size: 1.1rem;
-  background-color: #d56b63;
+  font-weight: regular;
+  font-size: 3rem;
+  background-color: #5AAAA6;
   color: white;
   text-decoration: none;
   border: 1px solid #47474782;
-  /* align-items: center; */
-  border-radius: 25px;
-  padding: 5px 0px 2px 0px;
-  width: 60vw;
+  align-items: center;
+  border-radius: 50%;
   /* box-shadow: h-offset v-offset blur spread color */
-  box-shadow: 3px 3px 3px 0px rgb(132, 132, 132);
+  /* box-shadow: 3px 3px 3px 0px rgb(132, 132, 132); */
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 3.5rem ;
+  height: 3.5rem;
+  margin: 0.5rem;
+
+
   /* height: 40px; */
 }
