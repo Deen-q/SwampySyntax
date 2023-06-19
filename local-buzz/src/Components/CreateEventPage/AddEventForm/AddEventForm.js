@@ -3,7 +3,7 @@ import "./AddEventForm.css";
 import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
-import communityEvent from "../../Data/Images/community-event.png";
+import { readAndCompressImage } from 'browser-image-resizer';
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
@@ -37,16 +37,31 @@ export default function AddEventForm({addNewEvent}) {
     navigate("/");
   }
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = async (event) => {
     const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setImage(reader.result);
+  
+    const config = {
+      quality: 0.5, // this is the compression rate (1 means no compression)
+      maxWidth: 500, // the max size of the image width
+      maxHeight: 500, // the max size of the image height
+      autoRotate: true,
+      debug: true,
     };
-
-    reader.readAsDataURL(file);
+  
+    try {
+      const compressedFile = await readAndCompressImage(file, config);
+      const reader = new FileReader();
+      
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+  
+      reader.readAsDataURL(compressedFile);
+    } catch (error) {
+      console.log(error);
+    }
   };
+    
 
   return (
     <div id='event-form-container'>
