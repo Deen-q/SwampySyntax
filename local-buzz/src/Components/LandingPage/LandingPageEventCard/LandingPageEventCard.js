@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import "./EventCard.css";
+import "./LandingPageEventCard.css";
 import Dots from "../../../assets/icons8-3-dots-50.png";
 import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
 import date from "../../../assets/icons8-calendar-100.png";
 import speechBubble from "../../../assets/icons8-speech-90.png";
 
-function EventCard(props) {
+function LandingPageEventCard(props) {
   // Define state variable for showing event description
   const [show, setShow] = useState({});
-  const [showDescription, setShowDescription] = useState(false);
+  //   const [showDescription, setShowDescription] = useState(false);
 
   // Define function to handle click event on image
   function handleClick(eventId) {
@@ -21,9 +21,9 @@ function EventCard(props) {
     }));
   }
 
-  function handleDescriptionClick() {
-    setShowDescription((prevShowDescription) => !prevShowDescription);
-  }
+  //   function handleDescriptionClick() {
+  //     setShowDescription((prevShowDescription) => !prevShowDescription);
+  //   }
 
   // Render the EventCard component
   return (
@@ -104,4 +104,4 @@ function EventCard(props) {
   );
 }
 
-export default EventCard;
+export default LandingPageEventCard;
