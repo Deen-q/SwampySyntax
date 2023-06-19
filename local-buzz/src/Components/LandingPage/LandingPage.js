@@ -5,12 +5,10 @@ import "./LandingPage.css";
 export default function LandingPage(props) {
   return (
     <div className='landing-page'>
-      <button>
-        <Link to='/login'> Login</Link>
-      </button>
-      <button>
-        <Link to='/signup'> Sign Up</Link>
-      </button>
+      <Link to='/login'><button>
+         Login </button> </Link>
+         <Link to='/signup'> <button>
+          Sign Up </button> </Link>
       <LandingPageEventCard filteredData={props.filteredData} />
     </div>
   );
