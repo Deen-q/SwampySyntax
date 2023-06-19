@@ -6,7 +6,6 @@ const eventSchema = new mongoose.Schema({
   description: String,
   date: String,
   image: String, //💥💥 Check this and make sure we are converting images to strings
-  description: String,
   firstLineOfAddress: String,
   city: String,
   postcode: String,
