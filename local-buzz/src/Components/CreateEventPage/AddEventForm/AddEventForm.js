@@ -3,9 +3,9 @@ import "./AddEventForm.css";
 import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
-// import communityEvent from "../../Data/Images/community-event.png";
 import {Link} from "react-router-dom";
-import { readAndCompressImage } from "browser-image-resizer";
+import {readAndCompressImage} from "browser-image-resizer";
+
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
@@ -35,48 +35,48 @@ export default function AddEventForm({addNewEvent}) {
       image: image,
       price: price,
       capacity: capacity,
-      // changed to hardcoded image for now
-      // image: communityEvent,
+      image: image,
+
     };
 
+    addNewEvent(newEvent);
+    //navigate to the home page automatically after submitting the form (function has been run)
+    navigate("/");
+  }
 
-		addNewEvent(newEvent);
-		//navigate to the home page automatically after submitting the form (function has been run)
-		navigate('/');
-	}
-  
-  const handleImageUpload = async event => {
-		const file = event.target.files[0];
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
 
-		const config = {
-			quality: 0.5, // this is the compression rate (1 means no compression)
-			maxWidth: 500, // the max size of the image width
-			maxHeight: 500, // the max size of the image height
-			autoRotate: true,
-			debug: true,
-		};
+    const config = {
+      quality: 0.5, // this is the compression rate (1 means no compression)
+      maxWidth: 500, // the max size of the image width
+      maxHeight: 500, // the max size of the image height
+      autoRotate: true,
+      debug: true,
+    };
 
-		try {
-			const compressedFile = await readAndCompressImage(file, config);
-			const reader = new FileReader();
+    try {
+      const compressedFile = await readAndCompressImage(file, config);
+      const reader = new FileReader();
 
-			reader.onloadend = () => {
-				setImage(reader.result);
-			};
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
 
-			reader.readAsDataURL(compressedFile);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+      reader.readAsDataURL(compressedFile);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div id='event-form-container'>
-    <div className='createEventHeader'>
-    <Link to= '/homepage' 
-    style={{textDecoration: "none", color: "white"}}>  <button className="closeFormButton"> X </button>
-    </Link>
-    </div>
+      <div className='createEventHeader'>
+        <Link to='/homepage' style={{textDecoration: "none", color: "white"}}>
+          {" "}
+          <button className='closeFormButton'> X </button>
+        </Link>
+      </div>
       {/*Run the onSubmit once the form has been filled*/}
       <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title</label>
@@ -143,40 +143,43 @@ export default function AddEventForm({addNewEvent}) {
           onChange={(event) => setPostcode(event.target.value)}
         ></input>
         <div className='price-capacity'>
-        <label htmlFor='price'>Price</label>
-        <input className="price" 
-          required
-          type='number'
-          id='price'
-          name='price'
-          placeholder='£'
-          onChange={(event) => setPrice(event.target.value)}
-        ></input>
-        <label htmlFor='capacity'>Capacity</label>
-        <input className= "capacity"
-          required
-          type='number'
-          id='capacity'
-          name='capacity'
-          placeholder='0'
-          onChange={(event) => setCapacity(event.target.value)}
-        ></input>
+          <label htmlFor='price'>Price</label>
+          <input
+            className='price'
+            required
+            type='number'
+            id='price'
+            name='price'
+            placeholder='£'
+            onChange={(event) => setPrice(event.target.value)}
+          ></input>
+          <label htmlFor='capacity'>Capacity</label>
+          <input
+            className='capacity'
+            required
+            type='number'
+            id='capacity'
+            name='capacity'
+            placeholder='0'
+            onChange={(event) => setCapacity(event.target.value)}
+          ></input>
         </div>
         <label htmlFor='image'>Image</label>
-       <input
-					type='file'
-					required
-					id='image'
-					name='image'
-					placeholder='Upload your image'
-					onChange={e => handleImageUpload(e)}></input>
-				{/* <label for="tags">Tags:</label> 
+        <input
+          type='file'
+          required
+          id='image'
+          name='image'
+          placeholder='Upload your image'
+          onChange={(e) => handleImageUpload(e)}
+        ></input>
+        {/* <label for="tags">Tags:</label> 
                 <input type="text" id="tags" name="tags" placeholder="Tags for Event"></input>
                 <label for="link">Link:</label>
                 <input type="text" id="link" name="link" placeholder="Link to Event"></input>
                 */}
-				<input type='submit' value='Submit' id='submit'></input>
-			</form>
-		</div>
-	);
+        <input type='submit' value='Submit' id='submit'></input>
+      </form>
+    </div>
+  );
 }
