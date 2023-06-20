@@ -3,9 +3,9 @@ import "./AddEventForm.css";
 import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
-import communityEvent from "../../Data/Images/community-event.png";
 import {Link} from "react-router-dom";
 import {readAndCompressImage} from "browser-image-resizer";
+
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
@@ -32,11 +32,11 @@ export default function AddEventForm({addNewEvent}) {
       firstLineOfAddress: firstLineOfAddress,
       city: city,
       postcode: postcode,
+      image: image,
       price: price,
       capacity: capacity,
-      // changed to hardcoded image for now
-      // image: communityEvent,
       image: image,
+
     };
 
     addNewEvent(newEvent);

@@ -42,7 +42,8 @@ const Signup = () => {
   };
  
  return (
- <form className="signUpForm" style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
+  <div className="signUpForm">
+ <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
  <div className='signup-x-button'>
     <Link to= '/' 
     style={{textDecoration: "none", color: "white"}}>  <button className="closeFormButton"> X </button>
@@ -72,6 +73,7 @@ const Signup = () => {
    </Button>
    <p>Have an account already? <Link to="/login">Login</Link></p>
  </form>
+ </div>
 )};
  
 export default Signup;
