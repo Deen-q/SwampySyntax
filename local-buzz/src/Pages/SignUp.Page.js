@@ -71,7 +71,10 @@ const Signup = () => {
    <Button className="signUpButton"variant="contained" color="primary" onClick={onSubmit}>
      Signup
    </Button>
-   <p>Have an account already? <Link to="/login">Login</Link></p>
+   <div className="signupLine">
+      <div className= 'orSignupLine'></div>
+      <p className= "orSignupText">or</p>
+    </div>
  </form>
  </div>
 )};
