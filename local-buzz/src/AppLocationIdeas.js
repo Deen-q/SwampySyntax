@@ -5,14 +5,11 @@
 // WE REALLY NEED TO SORT THIS BEFORE WE PROCEED WITH ANY LOCATION BASED FILTERING.
 // 💥💥💥💥💥💥💥💥💥
 
-
 // ✨✨✨✨✨✨
 
 // This requires users to agree to location services and will need a back up plan for users who do not agree to location services.
 
 // a) HTML5 Geolocation API: This is a standard feature of most modern web browsers, and does not require any external services or libraries. It provides fairly precise coordinates of the user's current location.
-
-
 
 // function App() {
 //  // State for user's location
@@ -23,7 +20,7 @@
 //    navigator.geolocation.getCurrentPosition(
 //      position => {
 //        setLocation({
-//          latitude: position.coords.latitude, 
+//          latitude: position.coords.latitude,
 //          longitude: position.coords.longitude
 //        });
 //      },
@@ -40,7 +37,6 @@
 
 // b) REACT Geolocation API: This is a third-party library that provides a simple React hook to get the user's location. It is a wrapper around the HTML5 Geolocation API, and provides a more convenient way to access the user's location.
 // read docs at this link: https://www.npmjs.com/package/react-geolocation
-
 
 // ✨✨✨✨✨✨
 // c) IP-based Services: These are services that estimate the user's location based on their IP address. They tend to be less accurate than GPS-based solutions, but do not require user permission and work even when GPS is not available. An example of such service is IP Geolocation API.
@@ -72,25 +68,28 @@
 
 // // ...
 
-// function App() {
-//   const [location, setLocation] = useState({});
+// API KEY IN ENV FILE
+// const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
-//   useEffect(() => {
-//     navigator.geolocation.getCurrentPosition(async (position) => {
-//       try {
-//         const response = await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY', {
-//           method: 'POST'
-//         });
-//         if (!response.ok) {
-//           throw new Error('Geolocation API response not ok');
-//         }
-//         const data = await response.json();
-//         setLocation({latitude: data.location.lat, longitude: data.location.lng});
-//       } catch (error) {
-//         console.error("Error:", error);
+function App() {
+// const [location, setLocation] = useState({});
+
+// useEffect(() => {
+//   navigator.geolocation.getCurrentPosition(async (position) => {
+//     try {
+//       const response = await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY', {
+//         method: 'POST'
+//       });
+//       if (!response.ok) {
+//         throw new Error('Geolocation API response not ok');
 //       }
-//     });
-//   }, []);
+//       const data = await response.json();
+//       setLocation({latitude: data.location.lat, longitude: data.location.lng});
+//     } catch (error) {
+//       console.error("Error:", error);
+//     }
+//   });
+// }, []);
 
 //   // ...
 // }
@@ -133,16 +132,16 @@
 
 //   // Differences in coordinates
 //   var x1 = lat2 - lat1;
-//   var dLat = toRad(x1);  
+//   var dLat = toRad(x1);
 //   var x2 = lon2 - lon1;
 //   var dLon = toRad(x2);
 
 //   // Haversine formula
-//   var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
-//                   Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * 
-//                   Math.sin(dLon/2) * Math.sin(dLon/2);  
-//   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-//   var d = R * c; 
+//   var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+//                   Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+//                   Math.sin(dLon/2) * Math.sin(dLon/2);
+//   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+//   var d = R * c;
 
 //   // Convert to miles if specified
 //   if(isMiles) d /= 1.60934;
@@ -157,7 +156,7 @@
 // const nearbyEvents = events.filter(event => {
 //   // Create a location object for the event
 //   const eventLocation = { latitude: event.latitude, longitude: event.longitude };
-  
+
 //   // Calculate the distance between the user and the event
 //   const distance = haversineDistance(userLocation, eventLocation);
 
@@ -166,7 +165,6 @@
 // });
 
 // This nearbyEvents array now contains all events that are within maxDistance kilometers of the user. You could then use this array to display the nearby events to the user.
-
 
 // ✨✨✨✨✨✨
 //CONVERT AN ADDRESS TO GEOGRAPHIC COORDINATES
