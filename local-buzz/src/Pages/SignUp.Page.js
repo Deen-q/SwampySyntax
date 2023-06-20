@@ -28,17 +28,18 @@ const Signup = () => {
    navigate(redirectTo ? redirectTo : "/");
  }
  
- // As explained in the Login page.
- const onSubmit = async () => {
-   try {
-     const user = await emailPasswordSignup(form.email, form.password);
-     if (user) {
-       redirectNow();
-     }
-   } catch (error) {
-     alert(error);
-   }
- };
+  // As explained in the Login page.
+  const onSubmit = async () => {
+    try {
+      const user = await emailPasswordSignup(form.email, form.password);
+      if (user) {
+        redirectNow();
+        navigate("/login");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
  
  return (
  <form className="signUpForm" style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
