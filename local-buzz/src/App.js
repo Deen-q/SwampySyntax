@@ -8,6 +8,7 @@ import Signup from './Pages/SignUp.Page';
 import CreateEventPage from './Components/CreateEventPage/CreateEventPage';
 import NavBar from './Components/NavBar/NavBar';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -15,31 +16,20 @@ function App() {
 	// Defining states for filteredData and events
 	const [filteredData, setFilteredData] = useState([]);
 	const [events, setEvents] = useState([]);
-	const [location, setLocation] = useState({});
+	const [location, setLocation] = useState(null);
 
 	useEffect(() => {
-		navigator.geolocation.getCurrentPosition(async position => {
+		const fetchGeolocation = async () => {
 			try {
-				const response = await fetch(
-					`https://www.googleapis.com/geolocation/v1/geolocate?key=${REACT_APP_API_KEY}`,
-					{
-						method: 'GET',
-					}
-				);
-				if (!response.ok) {
-					throw new Error('Geolocation API response not ok');
-				}
-				const data = await response.json();
-				setLocation({
-					latitude: data.location.lat,
-					longitude: data.location.lng,
-				});
+				const response = await axios.post('http://localhost:5000/geolocate');
+				setLocation(response.data);
 				console.log({ location });
 			} catch (error) {
-				console.error('Error:', error);
+				console.error('Error fetching geolocation', error);
 			}
-		});
-	}, [location]);
+		};
+		fetchGeolocation();
+	}, []);
 
 	const fetchData = () => {
 		fetch('http://localhost:5000/events')
@@ -88,8 +78,6 @@ function App() {
 			{/* our user is accessible through out the app from any page*/}
 			<UserProvider>
 				<NavBar handleFilteredData={handleFilteredData} />
-				<h1>LATTITUDE{location.lattitude}</h1>
-				<h1>LONGITUDE{location.longitude}</h1>
 				<Routes>
 					<Route
 						exact

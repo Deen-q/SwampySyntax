@@ -71,7 +71,7 @@
 // API KEY IN ENV FILE
 // const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
-function App() {
+// function App() {
 // const [location, setLocation] = useState({});
 
 // useEffect(() => {
