@@ -5,6 +5,8 @@ import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
 import date from "../../../assets/icons8-calendar-100.png";
 import speechBubble from "../../../assets/icons8-speech-90.png";
+import coin from "../../../assets/icons8-coin-100.png";
+import ticket from "../../../assets/icons8-ticket-100.png";
 
 function EventCard(props) {
   // Define state variable for showing event description
@@ -110,6 +112,20 @@ function EventCard(props) {
                         alt='speech-bubble-icon'
                       />
                       <p className='EventDescription'>{event.description}</p>
+                    </div>
+                    <div className='PriceAndSpaces'>
+                      <img
+                        className='img-icon-top'
+                        src={coin}
+                        alt='coin-icon'
+                      />
+                      <p>£{event.price}</p>
+                      <img
+                        className='img-icon-top'
+                        src={ticket}
+                        alt='ticket-icon'
+                      />
+                      <p>{event.spaces} spaces left</p>
                     </div>
                   </div>
                 )}
