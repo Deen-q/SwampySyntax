@@ -84,6 +84,7 @@ const Login = () => {
     >
       <h1>Login</h1>
       <TextField
+        required
         label='Email'
         type='email'
         variant='outlined'
@@ -93,6 +94,7 @@ const Login = () => {
         style={{marginBottom: "1rem"}}
       />
       <TextField
+        required
         label='Password'
         type='password'
         variant='outlined'

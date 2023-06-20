@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar/SearchBar";
 import Logo from "./Logo/Logo.js";
 import "./NavBar.css";
-import { useState } from "react";
+import {useState} from "react";
 
 export default function NavBar(props) {
   const [show, setShow] = useState(true);
@@ -11,7 +11,7 @@ export default function NavBar(props) {
   }
 
   return (
-    <div id="navbar">
+    <div id='navbar'>
       <Logo show={show} />
       <SearchBar
         show={show}
