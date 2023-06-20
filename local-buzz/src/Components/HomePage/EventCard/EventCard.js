@@ -10,6 +10,14 @@ function EventCard(props) {
   // Define state variable for showing event description
   const [show, setShow] = useState({});
   const [showDescription, setShowDescription] = useState(false);
+  const [attending, setAttending] = useState(false);
+
+  function handleAttendingClick(eventId) {
+    setAttending((prevAttending) => ({
+      ...prevAttending,
+      [eventId]: !prevAttending[eventId],
+    }));
+  }
 
   // Define function to handle click event on image
   function handleClick(eventId) {
@@ -66,6 +74,16 @@ function EventCard(props) {
                       <p>{event.city}</p>
                     </>
                   )}
+                  {!attending[event._id] && (
+                    <button onClick={() => handleAttendingClick(event._id)}>
+                      Join +
+                    </button>
+                  )}
+                  {attending[event._id] && (
+                    <button onClick={() => handleAttendingClick(event._id)}>
+                      Joined
+                    </button>
+                  )}
                 </div>
                 {/* show the description of the clicked event if the show property is true  */}
                 {show[event._id] && (
@@ -102,7 +120,6 @@ function EventCard(props) {
       </div>
     </>
   );
-
 }
 
 export default EventCard;
