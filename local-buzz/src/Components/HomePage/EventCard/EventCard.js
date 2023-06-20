@@ -56,6 +56,22 @@ function EventCard(props) {
                 {/* </div> */}
                 <div className='EventTitleAndDots'>
                   <h2>{event.title}</h2>
+                  {!attending[event._id] && (
+                    <button
+                      className='JoinButton'
+                      onClick={() => handleAttendingClick(event._id)}
+                    >
+                      Join +
+                    </button>
+                  )}
+                  {attending[event._id] && (
+                    <button
+                      className='JoinedButton'
+                      onClick={() => handleAttendingClick(event._id)}
+                    >
+                      Joined
+                    </button>
+                  )}
                   <img
                     className='eventTitle-dots'
                     onClick={() => handleClick(event._id)}
@@ -75,16 +91,6 @@ function EventCard(props) {
                       />{" "}
                       <p>{event.city}</p>
                     </>
-                  )}
-                  {!attending[event._id] && (
-                    <button onClick={() => handleAttendingClick(event._id)}>
-                      Join +
-                    </button>
-                  )}
-                  {attending[event._id] && (
-                    <button onClick={() => handleAttendingClick(event._id)}>
-                      Joined
-                    </button>
                   )}
                 </div>
                 {/* show the description of the clicked event if the show property is true  */}
