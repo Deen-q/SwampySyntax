@@ -1,5 +1,6 @@
 import SearchBar from "./SearchBar/SearchBar";
 import Logo from "./Logo/Logo.js";
+import PersonIcon from "./LoginIcon/loginIcon";
 import "./NavBar.css";
 import {useState} from "react";
 
@@ -13,6 +14,7 @@ export default function NavBar(props) {
   return (
     <div id='navbar'>
       <Logo show={show} />
+      <PersonIcon />
       <SearchBar
         show={show}
         handleShowSearch={handleShowSearch}

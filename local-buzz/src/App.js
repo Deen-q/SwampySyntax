@@ -11,6 +11,7 @@ import Login from "./Pages/Login.Page";
 import PrivateRoute from "./Pages/PrivateRoute.Page";
 import Signup from "./Pages/SignUp.Page";
 import CreateEventPage from "./Components/CreateEventPage/CreateEventPage";
+import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -104,6 +105,10 @@ function App() {
               exact
               path="/createeventpage"
               element={<CreateEventPage addNewEvent={addNewEvent} />}
+            />
+            <Route
+            exact path="/profilePage"
+            element={<ProfilePage />}
             />
           </Route>
         </Routes>
