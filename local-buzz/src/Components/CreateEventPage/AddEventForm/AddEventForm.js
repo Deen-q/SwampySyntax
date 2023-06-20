@@ -113,8 +113,9 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Postcode'
           onChange={(event) => setPostcode(event.target.value)}
         ></input>
+        <div className='price-capacity'>
         <label htmlFor='price'>Price</label>
-        <input
+        <input className="price" 
           required
           type='number'
           id='price'
@@ -122,8 +123,8 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='£'
           onChange={(event) => setPrice(event.target.value)}
         ></input>
-        <label  htmlFor='capacity'>Capacity</label>
-        <input
+        <label htmlFor='capacity'>Capacity</label>
+        <input className= "capacity"
           required
           type='number'
           id='capacity'
@@ -131,6 +132,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='0'
           onChange={(event) => setCapacity(event.target.value)}
         ></input>
+        </div>
         <label htmlFor='image'>Image</label>
         <input
           type='text'
