@@ -9,6 +9,7 @@
   /* align-items: center; */
   border-radius: 25px;
   padding: 0.3rem 0.5rem;
+  min-width: 72px;
   width: 20vw;
   display: inline-block;
   justify-content: center;
@@ -21,3 +22,5 @@
 .landing-page-container {
   margin-left: 35px;
 }
+
+
