@@ -2,6 +2,7 @@ import {Button, TextField} from "@mui/material";
 import {useContext, useEffect, useState} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {UserContext} from "../contexts/user.context";
+import "./Login.Page.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -101,7 +102,7 @@ const Login = () => {
         onChange={onFormInputChange}
         style={{marginBottom: "1rem"}}
       />
-      <Button variant='contained' color='primary' onClick={onSubmit}>
+      <Button className="loginButton" variant='contained' color='primary' onClick={onSubmit} >
         Login
       </Button>
       <p>

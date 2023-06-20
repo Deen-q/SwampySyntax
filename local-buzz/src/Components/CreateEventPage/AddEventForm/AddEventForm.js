@@ -14,6 +14,8 @@ export default function AddEventForm({addNewEvent}) {
   const [firstLineOfAddress, setFirstLineOfAddress] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [price, setPrice] = useState("");
+  const [capacity, setCapacity] = useState("");
   //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
   const navigate = useNavigate();
 
@@ -28,6 +30,8 @@ export default function AddEventForm({addNewEvent}) {
       firstLineOfAddress: firstLineOfAddress,
       city: city,
       postcode: postcode,
+      price: price,
+      capacity: capacity,
       // changed to hardcoded image for now
       image: communityEvent,
     };
@@ -108,6 +112,24 @@ export default function AddEventForm({addNewEvent}) {
           name='postcode'
           placeholder='Postcode'
           onChange={(event) => setPostcode(event.target.value)}
+        ></input>
+        <label htmlFor='price'>Price</label>
+        <input
+          required
+          type='number'
+          id='price'
+          name='price'
+          placeholder='£'
+          onChange={(event) => setPrice(event.target.value)}
+        ></input>
+        <label  htmlFor='capacity'>Capacity</label>
+        <input
+          required
+          type='number'
+          id='capacity'
+          name='capacity'
+          placeholder='0'
+          onChange={(event) => setCapacity(event.target.value)}
         ></input>
         <label htmlFor='image'>Image</label>
         <input
