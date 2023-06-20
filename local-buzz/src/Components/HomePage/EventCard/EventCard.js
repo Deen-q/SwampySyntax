@@ -5,11 +5,21 @@ import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
 import date from "../../../assets/icons8-calendar-100.png";
 import speechBubble from "../../../assets/icons8-speech-90.png";
+import coin from "../../../assets/icons8-coin-100.png";
+import ticket from "../../../assets/icons8-ticket-100.png";
 
 function EventCard(props) {
   // Define state variable for showing event description
   const [show, setShow] = useState({});
   const [showDescription, setShowDescription] = useState(false);
+  const [attending, setAttending] = useState(false);
+
+  function handleAttendingClick(eventId) {
+    setAttending((prevAttending) => ({
+      ...prevAttending,
+      [eventId]: !prevAttending[eventId],
+    }));
+  }
 
   // Define function to handle click event on image
   function handleClick(eventId) {
@@ -66,6 +76,16 @@ function EventCard(props) {
                       <p>{event.city}</p>
                     </>
                   )}
+                  {!attending[event._id] && (
+                    <button onClick={() => handleAttendingClick(event._id)}>
+                      Join +
+                    </button>
+                  )}
+                  {attending[event._id] && (
+                    <button onClick={() => handleAttendingClick(event._id)}>
+                      Joined
+                    </button>
+                  )}
                 </div>
                 {/* show the description of the clicked event if the show property is true  */}
                 {show[event._id] && (
@@ -93,6 +113,20 @@ function EventCard(props) {
                       />
                       <p className='EventDescription'>{event.description}</p>
                     </div>
+                    <div className='PriceAndSpaces'>
+                      <img
+                        className='img-icon-top'
+                        src={coin}
+                        alt='coin-icon'
+                      />
+                      <p>£{event.price}</p>
+                      <img
+                        className='img-icon-top'
+                        src={ticket}
+                        alt='ticket-icon'
+                      />
+                      <p>{event.spaces} spaces left</p>
+                    </div>
                   </div>
                 )}
               </div>
@@ -102,7 +136,6 @@ function EventCard(props) {
       </div>
     </>
   );
-
 }
 
 export default EventCard;
