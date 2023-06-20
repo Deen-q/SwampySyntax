@@ -75,7 +75,8 @@ const Login = () => {
   };
 
   return (
-    <form className="loginForm"
+    <div className="loginForm">
+    <form
       style={{
         display: "flex",
         flexDirection: "column",
@@ -117,6 +118,7 @@ const Login = () => {
       <p className= "orText">or</p>
       </div>
     </form>
+    </div>
   );
 };
 
