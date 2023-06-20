@@ -3,13 +3,40 @@
 	
 }
 
-.add-event-title {
-	font-size: 20px;
-	font-weight: bold;
-}
+.createEventHeader {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 0;
 
-#event-form-container {
-	background-color: #fbf8f2;
+  }
+  
+  .closeFormButton {
+    justify-content: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: bold;
+    font-size: 0.7rem;
+    background-color: #d56b63;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #47474782;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 1.5rem;
+    margin-right: 80px;
+	padding-top: 5px;
+  }
+  
+
+  #event-form-container {
+	background-color: #fefefe;
 	padding: 10px;
 	border-radius: 25px;
 	margin: 0px 20px;
@@ -22,8 +49,9 @@ form {
 	flex-direction: column;
 	gap: 15px;
 	justify-content: space-around;
-	margin: 30px;
+	margin: -20px;
 	align-items: center;
+	z-index: 2;
 }
 
 input, textarea {
@@ -31,7 +59,7 @@ input, textarea {
 	width: 60vw;
 	padding: 3px;
 	height: 25px;
-	border: 1px solid #474747;
+	border: 1px solid #47474782;
 	text-indent: 5px;
 }
 
@@ -39,18 +67,73 @@ input, textarea {
 #description {
 	height: 100px;
 	overflow: auto;
-	border-radius: 10px;
+	border-radius: 25px;
 	padding-top: 10px;
-	border: 1px solid #474747;
+	border: 1px solid #47474782;
 	width: 60vw;
 	resize: vertical;
 }
 
 #submit {
-	background-color: #d56b63;
+	background-color: #5aaaa6;
 	color: white;
 	height: 35px;
 	margin-top: 10px;
 	font-size: 15px;
 	font-weight: bold;
+	width: 30vw;
+	box-shadow: 10px;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+label {
+	font-size: 0.9rem;
+
+}
+
+
+.price {
+	font-family: "Josefin Sans", sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	/* align-items: center; */
+	border-radius: 25px;
+	padding: 0.3rem 0.5rem;
+	width: 12vw;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-right: 15px;
+	margin-left: 5px;
+	position: relative;
+}
+
+.capacity {
+	font-family: "Josefin Sans", sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	/* align-items: center; */
+	border-radius: 25px;
+	padding: 0.3rem 0.5rem;
+	width: 10vw;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	position: relative;
+}
+
+.price-capacity {
+	margin-left: 20px;
 }

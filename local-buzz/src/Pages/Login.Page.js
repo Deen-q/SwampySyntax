@@ -2,6 +2,7 @@ import {Button, TextField} from "@mui/material";
 import {useContext, useEffect, useState} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {UserContext} from "../contexts/user.context";
+import "./Login.Page.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ const Login = () => {
   };
 
   return (
-    <form
+    <form className="loginForm"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -82,9 +83,14 @@ const Login = () => {
         margin: "auto",
       }}
     >
-      <h1>Login</h1>
+    <div className='login-x-button'>
+    <Link to= '/' 
+    style={{textDecoration: "none", color: "white"}}>  <button className="closeFormButton"> X </button>
+    </Link>
+    </div>
+      <h1 className="login-h1"> Login</h1>
       <TextField
-        required
+        className="loginInput"
         label='Email'
         type='email'
         variant='outlined'
@@ -94,7 +100,7 @@ const Login = () => {
         style={{marginBottom: "1rem"}}
       />
       <TextField
-        required
+        className="loginInput"
         label='Password'
         type='password'
         variant='outlined'
@@ -103,12 +109,13 @@ const Login = () => {
         onChange={onFormInputChange}
         style={{marginBottom: "1rem"}}
       />
-      <Button variant='contained' color='primary' onClick={onSubmit}>
+      <Button className="loginButton" variant='contained' color='primary' onClick={onSubmit} >
         Login
       </Button>
-      <p>
-        Don't have an account? <Link to='/signup'>Signup</Link>
-      </p>
+      <div className="loginLine">
+      <div className= 'orLine'></div>
+      <p className= "orText">or</p>
+      </div>
     </form>
   );
 };

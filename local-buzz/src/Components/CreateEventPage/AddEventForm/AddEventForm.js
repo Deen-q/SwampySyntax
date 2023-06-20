@@ -3,7 +3,8 @@ import "./AddEventForm.css";
 import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
-import { readAndCompressImage } from 'browser-image-resizer';
+import communityEvent from "../../Data/Images/community-event.png";
+import {Link} from "react-router-dom";
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
@@ -13,7 +14,8 @@ export default function AddEventForm({addNewEvent}) {
   const [firstLineOfAddress, setFirstLineOfAddress] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
-  const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
+  const [capacity, setCapacity] = useState("");
   //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
   const navigate = useNavigate();
 
@@ -28,47 +30,53 @@ export default function AddEventForm({addNewEvent}) {
       firstLineOfAddress: firstLineOfAddress,
       city: city,
       postcode: postcode,
+      price: price,
+      capacity: capacity,
       // changed to hardcoded image for now
-      image: image,
+      image: communityEvent,
     };
 
-    addNewEvent(newEvent);
-    //navigate to the home page automatically after submitting the form (function has been run)
-    navigate("/");
-  }
 
-  const handleImageUpload = async (event) => {
-    const file = event.target.files[0];
+		addNewEvent(newEvent);
+		//navigate to the home page automatically after submitting the form (function has been run)
+		navigate('/');
+	}
   
-    const config = {
-      quality: 0.5, // this is the compression rate (1 means no compression)
-      maxWidth: 500, // the max size of the image width
-      maxHeight: 500, // the max size of the image height
-      autoRotate: true,
-      debug: true,
-    };
-  
-    try {
-      const compressedFile = await readAndCompressImage(file, config);
-      const reader = new FileReader();
-      
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-  
-      reader.readAsDataURL(compressedFile);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-    
+  const handleImageUpload = async event => {
+		const file = event.target.files[0];
+
+		const config = {
+			quality: 0.5, // this is the compression rate (1 means no compression)
+			maxWidth: 500, // the max size of the image width
+			maxHeight: 500, // the max size of the image height
+			autoRotate: true,
+			debug: true,
+		};
+
+		try {
+			const compressedFile = await readAndCompressImage(file, config);
+			const reader = new FileReader();
+
+			reader.onloadend = () => {
+				setImage(reader.result);
+			};
+
+			reader.readAsDataURL(compressedFile);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
   return (
     <div id='event-form-container'>
+    <div className='createEventHeader'>
+    <Link to= '/homepage' 
+    style={{textDecoration: "none", color: "white"}}>  <button className="closeFormButton"> X </button>
+    </Link>
+    </div>
       {/*Run the onSubmit once the form has been filled*/}
       <form onSubmit={handleSubmit}>
-        <h1 className='add-event-title'>Create an Event</h1>
-        {/* <label htmlFor='title'>Title:</label> */}
+        <label htmlFor='title'>Title</label>
         <input
           required
           type='text'
@@ -77,7 +85,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Add Title'
           onChange={(event) => setTitle(event.target.value)}
         ></input>
-        {/* <label htmlFor='description'>Description:</label> */}
+        <label htmlFor='description'>Description</label>
         <textarea
           required
           type='text'
@@ -86,7 +94,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Add Description'
           onChange={(event) => setDescription(event.target.value)}
         ></textarea>
-        {/* <label htmlFor='date'>Date:</label> */}
+        <label htmlFor='date'>Date</label>
         <input
           required
           type='date'
@@ -95,7 +103,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Date'
           onChange={(event) => setDate(event.target.value)}
         ></input>
-        {/* <label htmlFor='time'>Time:</label> */}
+        <label htmlFor='time'>Time</label>
         <input
           required
           type='time'
@@ -104,7 +112,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Time'
           onChange={(event) => setTime(event.target.value)}
         ></input>
-        {/* <label htmlFor='location'>Location:</label> */}
+        <label htmlFor='location'>Address Line 1</label>
         <input
           required
           type='text'
@@ -113,7 +121,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='First Line Of Address'
           onChange={(event) => setFirstLineOfAddress(event.target.value)}
         ></input>
-        {/* <label htmlFor='image'>Image:</label> */}
+        <label htmlFor='image'>City</label>
         <input
           required
           type='text'
@@ -122,6 +130,7 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='City'
           onChange={(event) => setCity(event.target.value)}
         ></input>
+        <label htmlFor='postcode'>Postcode</label>
         <input
           required
           type='text'
@@ -130,20 +139,41 @@ export default function AddEventForm({addNewEvent}) {
           placeholder='Postcode'
           onChange={(event) => setPostcode(event.target.value)}
         ></input>
-        <input
-          type='file'
-          id='image'
-          name='image'
-          placeholder='Upload your image'
-          onChange={(e) => handleImageUpload(e)}
+        <div className='price-capacity'>
+        <label htmlFor='price'>Price</label>
+        <input className="price" 
+          required
+          type='number'
+          id='price'
+          name='price'
+          placeholder='£'
+          onChange={(event) => setPrice(event.target.value)}
         ></input>
-        {/* <label for="tags">Tags:</label>
+        <label htmlFor='capacity'>Capacity</label>
+        <input className= "capacity"
+          required
+          type='number'
+          id='capacity'
+          name='capacity'
+          placeholder='0'
+          onChange={(event) => setCapacity(event.target.value)}
+        ></input>
+        </div>
+        <label htmlFor='image'>Image</label>
+       <input
+					type='file'
+					required
+					id='image'
+					name='image'
+					placeholder='Upload your image'
+					onChange={e => handleImageUpload(e)}></input>
+				{/* <label for="tags">Tags:</label> 
                 <input type="text" id="tags" name="tags" placeholder="Tags for Event"></input>
                 <label for="link">Link:</label>
                 <input type="text" id="link" name="link" placeholder="Link to Event"></input>
                 */}
-        <input type='submit' value='Submit' id='submit'></input>
-      </form>
-    </div>
-  );
+				<input type='submit' value='Submit' id='submit'></input>
+			</form>
+		</div>
+	);
 }
