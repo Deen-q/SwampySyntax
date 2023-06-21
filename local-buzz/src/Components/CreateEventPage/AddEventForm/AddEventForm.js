@@ -6,7 +6,6 @@ import {useNavigate} from "react-router-dom";
 import {Link} from "react-router-dom";
 import {readAndCompressImage} from "browser-image-resizer";
 
-
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -32,11 +31,11 @@ export default function AddEventForm({addNewEvent}) {
       firstLineOfAddress: firstLineOfAddress,
       city: city,
       postcode: postcode,
-      image: image,
       price: price,
       capacity: capacity,
+      // changed to hardcoded image for now
+      // image: communityEvent,
       image: image,
-
     };
 
     addNewEvent(newEvent);

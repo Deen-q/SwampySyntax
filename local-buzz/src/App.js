@@ -1,10 +1,5 @@
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  useResolvedPath,
-} from "react-router-dom";
-import { UserProvider } from "./contexts/user.context";
+import {BrowserRouter, Route, Routes, useResolvedPath} from "react-router-dom";
+import {UserProvider} from "./contexts/user.context";
 import HomePage from "../src/Components/HomePage/HomePage";
 import LandingPage from "../src/Components/LandingPage/LandingPage";
 import Login from "./Pages/Login.Page";
@@ -13,17 +8,16 @@ import Signup from "./Pages/SignUp.Page";
 import CreateEventPage from "./Components/CreateEventPage/CreateEventPage";
 import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import {useEffect, useState} from "react";
 
 // const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
-const REACT_APP_URL = process.env.REACT_APP_URL
+const REACT_APP_URL = process.env.REACT_APP_URL;
 
 function App() {
   // Defining states for filteredData and events
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
-  const [location, setLocation] = useState(null);
+  // const [location, setLocation] = useState(null);
 
   //   useEffect(() => {
   //     const fetchGeolocation = async () => {
@@ -68,7 +62,7 @@ function App() {
     try {
       const response = await fetch(`${REACT_APP_URL}events`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newEvent),
       });
       const data = await response.json();
@@ -88,28 +82,31 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/"
+            path='/'
             element={<LandingPage filteredData={filteredData} />}
           />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/signup' element={<Signup />} />
           {/* We are protecting our Home Page from unauthenticated */}
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
             <Route
               exact
-              path="/homepage"
-              element={<HomePage filteredData={filteredData} />}
+              path='/homepage'
+              element={
+                <HomePage
+                  // user={user}
+                  // joinEvent={joinEvent}
+                  filteredData={filteredData}
+                />
+              }
             />
             <Route
               exact
-              path="/createeventpage"
+              path='/createeventpage'
               element={<CreateEventPage addNewEvent={addNewEvent} />}
             />
-            <Route
-            exact path="/profilePage"
-            element={<ProfilePage />}
-            />
+            <Route exact path='/profilePage' element={<ProfilePage />} />
           </Route>
         </Routes>
       </UserProvider>
