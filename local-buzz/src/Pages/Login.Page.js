@@ -98,6 +98,11 @@ const Login = () => {
 					name='email'
 					value={form.email}
 					onChange={onFormInputChange}
+					onKeyPress={event => {
+						if (event.key === 'Enter') {
+							onSubmit();
+						}
+					}}
 					style={{ marginBottom: '1rem' }}
 				/>
 				<TextField
@@ -108,6 +113,11 @@ const Login = () => {
 					name='password'
 					value={form.password}
 					onChange={onFormInputChange}
+					onKeyPress={event => {
+						if (event.key === 'Enter') {
+							onSubmit();
+						}
+					}}
 					style={{ marginBottom: '1rem' }}
 				/>
 				<Button

@@ -23,6 +23,35 @@ export default function AddEventForm({addNewEvent}) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    //geocode function + address concatonation
+    // const address = '42 Baker Street, NW1 6XE';
+
+    const address = firstLineOfAddress + " " + city + " " +  postcode;
+    
+
+    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+    //does it need to be reactapp.GOOGLE_API_KEY?
+
+// // replace spaces with '+' for URL
+const urlAddress = address.replace(/ /g, '+');
+console.log(urlAddress)
+
+fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'OK') {
+            const latitude = data.results[0].geometry.location.lat;
+            const longitude = data.results[0].geometry.location.lng;
+//             // do something with latitude and longitude
+            console.log(`Line46: Latitude: ${latitude}, Longitude: ${longitude}`);
+        } else {
+            throw new Error(`Geocode error: ${data.status}`);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+    ////////////////////////
+
+
     const newEvent = {
       id: uuidv4(),
       title: title,
