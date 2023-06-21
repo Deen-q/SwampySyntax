@@ -4,12 +4,16 @@
 } */
 
 .SearchIcon {
-  width: 20px;
-  height: auto;
+	width: 20px;
+	height: auto;
 }
 
 .searchContainer {
-  display: flex;
-  align-items: center;
-  margin-top:0.3rem;
+	display: flex;
+	align-items: center;
+	margin-top: 0.3rem;
+}
+
+#search {
+	max-width: 40vw;
 }

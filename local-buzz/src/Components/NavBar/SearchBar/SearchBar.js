@@ -1,28 +1,27 @@
-import "./SearchBar.css";
+import './SearchBar.css';
 
 function SearchBar(props) {
-  return (
-    <div className="searchContainer">
-      <img
-        onClick={props.handleShowSearch}
-        src="https://img.icons8.com/?size=512&id=7695&format=png"
-        alt="Search Icon"
-        className="SearchIcon"
-      />
-
-      {!props.show === true && (
-        <input
-          // alternatively: !show &&; !show means show then the useState is false
-          id="search"
-          // onKeyUp={handleEnterClick} // Commented out because it is not being used
-          type="text"
-          placeholder="Search for an event"
-          value={props.input}
-          onChange={props.handleFilteredData} // Call the handleFilteredData function passed as a prop on input change
-        />
-      )}
-    </div>
-  );
+	return (
+		<div className='searchContainer'>
+			{!props.show === true && (
+				<input
+					// alternatively: !show &&; !show means show then the useState is false
+					id='search'
+					// onKeyUp={handleEnterClick} // Commented out because it is not being used
+					type='text'
+					placeholder='Search for an event'
+					value={props.input}
+					onChange={props.handleFilteredData} // Call the handleFilteredData function passed as a prop on input change
+				/>
+			)}
+			<img
+				onClick={props.handleShowSearch}
+				src='https://img.icons8.com/?size=512&id=7695&format=png'
+				alt='Search Icon'
+				className='SearchIcon'
+			/>
+		</div>
+	);
 }
 export default SearchBar;
 
