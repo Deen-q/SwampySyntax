@@ -1,9 +1,8 @@
-.person-container {
-    display: flex;
-   
-}
+/* .person-container {
+	display: flex;
+} */
 
 .person-container img {
-    margin-left: 11rem;
-    width: 2rem;
+	/* margin-left: 11rem; */
+	width: 2rem;
 }

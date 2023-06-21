@@ -1,8 +1,13 @@
-#navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 3rem;
+#navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: 2rem;
+	margin-right: 2rem;
+	margin-bottom: 3rem;
+}
+
+.navbar-right {
+	display: flex;
+	gap: 2vw;
 }
