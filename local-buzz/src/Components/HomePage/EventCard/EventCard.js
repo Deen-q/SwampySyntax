@@ -131,7 +131,7 @@ function EventCard(props) {
                         src={ticket}
                         alt='ticket-icon'
                       />
-                      <p>{event.spaces} spaces left</p>
+                      <p>{event.capacity} spaces left</p>
                     </div>
                   </div>
                 )}
