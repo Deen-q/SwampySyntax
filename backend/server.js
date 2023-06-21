@@ -16,17 +16,6 @@ app.use(cors());
 // Parses incoming request bodies in a middleware before your handlers, available under the req.body property.
 app.use(express.json());
 
-// app.post('/geolocate', async (req, res) => {
-// 	try {
-// 		const geoResponse = await axios.post(
-// 			`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.GOOGLE_API_KEY}`
-// 		);
-// 		res.json(geoResponse.data);
-// 	} catch (error) {
-// 		res.json({ error: error.toString() });
-// 	}
-// });
-
 // Connect to MongoDB using Mongoose
 mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true, // Allows to use the new MongoDB driver's useNewUrlParser.
@@ -146,6 +135,17 @@ app.delete("/events/:id", async (req, res) => {
     res.json({ message: "Event deleted" });
   } catch (err) {
     return res.status(500).json({ message: err.message });
+  }
+});
+
+app.get("/geolocation", async (req, res) => {
+  try {
+    const geoResponse = await axios.post(
+      `https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.GOOGLE_API_KEY}`
+    );
+    res.json(geoResponse.data);
+  } catch (error) {
+    res.json({ error: error.toString() });
   }
 });
 
