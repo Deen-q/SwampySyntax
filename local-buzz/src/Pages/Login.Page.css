@@ -1,85 +1,88 @@
 * {
 	font-family: 'Josefin Sans', sans-serif;
-	
 }
 
-.login-h1 {
-	margin-top: -10px;
-}
 .loginForm {
+	position: relative;
 	background-color: #fefefe;
 	padding: 10px;
 	border-radius: 25px;
-	margin: 30px 50px;
+	margin: 30px auto;
 	border: 1px solid #474747;
-	margin-top: 20px;
+	width: 80vw;
+	max-width: 500px;
 }
 
 .loginButton {
-font-family: "Josefin Sans", sans-serif;
-font-weight: bold;
-font-size: 13px;
-background-color: #5aaaa6;
-color: white;
-text-decoration: none;
-border: 1px solid #47474782;
-/* align-items: center; */
-border-radius: 25px;
-padding: 0.3rem 0.5rem;
-width: 20vw;
-display: inline-block;
-justify-content: center;
-align-items: center;
-margin-bottom: 30px;
-margin-left: 10px;
-margin-top: 10px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	background-color: #5aaaa6;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	border-radius: 25px;
+	padding: 0.4rem 1rem;
+	width: 25vw;
+	max-width: 120px;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
 }
 
-.login-x-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    justify-content: flex-end;
-    position: relative;
-    z-index: 0;
+/* .login-x-button {
+} */
 
-  }
+.closeFormButton {
+	position: absolute;
+	top: -12px;
+	right: -8px;
+	z-index: 1;
+	background-color: transparent;
+	border: none;
+	color: #474747;
+	font-size: 20px;
+	cursor: pointer;
+}
 
 .loginLine {
-  display: flex;
-  justify-content: center;
-  z-index: 999;  
+	display: flex;
+	justify-content: center;
+	z-index: 999;
 }
 .orLine {
-  width: 65vw;
-  height: 2px;
-  background-color: #47474782;
-  opacity: 50%;
-  position: relative;
-  bottom: 0;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  z-index: 2;
+	width: 75vw;
+	max-width: 500px;
+	height: 2px;
+	background-color: #47474782;
+	opacity: 50%;
+	position: relative;
+	bottom: 0;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	z-index: 2;
 }
 
 .orText {
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: bold;
-  font-size: 17px;
-  color: black;
-  text-decoration: none;
-  border: 1px solid #47474782;
-  background-color: #fefefe;
-  border-width: 2px;
-  border-radius: 45%;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  z-index: 3;
-  position: absolute;
-  left: 49%;
-  top: 54.5%;
-  transform: translate(-50%, -50%);
-  padding: 5px 15px 5px 15px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: bold;
+	font-size: 17px;
+	color: black;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	background-color: #fefefe;
+	border-width: 2px;
+	border-radius: 45%;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	z-index: 3;
+	position: absolute;
+	left: 49%;
+	top: 54.5%;
+	transform: translate(-50%, -50%);
+	padding: 5px 15px 5px 15px;
 }
