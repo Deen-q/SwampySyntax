@@ -9,6 +9,7 @@ import CreateEventPage from "./Components/CreateEventPage/CreateEventPage";
 import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
 import {useEffect, useState} from "react";
+import axios from "axios";
 
 // const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 const REACT_APP_URL = process.env.REACT_APP_URL;
@@ -17,7 +18,7 @@ function App() {
   // Defining states for filteredData and events
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
-  // const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
     const fetchGeolocation = async () => {
