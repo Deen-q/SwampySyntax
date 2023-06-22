@@ -19,7 +19,7 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
   const [location, setLocation] = useState(null);
-
+  console.log(events);
   useEffect(() => {
     const fetchGeolocation = async () => {
       try {
@@ -97,6 +97,7 @@ function App() {
               path='/homepage'
               element={
                 <HomePage
+                  events={events}
                   // user={user}
                   // joinEvent={joinEvent}
                   filteredData={filteredData}
@@ -108,8 +109,7 @@ function App() {
               path='/createeventpage'
               element={<CreateEventPage addNewEvent={addNewEvent} />}
             />
-            <Route exact path="/profilePage" element={<ProfilePage />} />
-
+            <Route exact path='/profilePage' element={<ProfilePage />} />
           </Route>
         </Routes>
       </UserProvider>

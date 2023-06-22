@@ -1,24 +1,26 @@
 import "../../App.css";
-import "./HomePage.css"
-import { Button } from "@mui/material";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
+import "./HomePage.css";
+import {Button} from "@mui/material";
+import {useContext} from "react";
+import {UserContext} from "../../contexts/user.context";
 import CreateEventBtn from "./CreateEventBtn/CreateEventBtn";
 import EventCard from "./EventCard/EventCard";
 import "./HomePage.css";
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 export default function HomePage(props) {
-  const { logOutUser } = useContext(UserContext);
-  const { user } = useContext(UserContext);
+  const {logOutUser} = useContext(UserContext);
+  const {user} = useContext(UserContext);
   console.log(user);
+
+  console.log(props.events + "this is props.events");
 
   async function joinEvent(eventId) {
     try {
       const response = await fetch(`${REACT_APP_URL}events/${eventId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: user.id }),
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({userId: user.id}),
         //if the event with the eventid has the user already in it.
       });
       console.log(response + "this response");
@@ -46,15 +48,17 @@ export default function HomePage(props) {
 
   return (
     <>
-   
       {/* <NavBar handleFilteredData={handleFilteredData} /> */}
-      <h1 className="hello-name">Hello ${"name"}</h1>
-      <p className="welcome-member">Welcome to the community! Let's explore some more.</p>
-      <Button variant="contained" onClick={logOut}>
+      <h1 className='hello-name'>Hello ${"name"}</h1>
+      <p className='welcome-member'>
+        Welcome to the community! Let's explore some more.
+      </p>
+      <Button variant='contained' onClick={logOut}>
         Logout
       </Button>
       <EventCard
-        user={props.user}
+        events={props.events}
+        user={user}
         joinEvent={joinEvent}
         filteredData={props.filteredData}
       />
