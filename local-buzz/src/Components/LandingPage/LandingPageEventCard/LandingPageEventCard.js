@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./LandingPageEventCard.css";
+import "../../HomePage/EventCard/EventCard.css";
 import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
 import date from "../../../assets/icons8-calendar-100.png";
@@ -34,13 +34,13 @@ function LandingPageEventCard(props) {
           (
             event //'?' is 'Optional Chaining' bypasses the error from undefined. It is still undefined, however.
           ) => (
-            <div key={event.id} className='event-card'>
+            <div key={event._id} className='event-card'>
               {/* add click event listener to toggle the description of the clicked event  */}
               <div className='TextBorder'>
                 {/* <div className='img-container'> */}{" "}
                 <img
                   className='event-img'
-                  onClick={() => handleClick(event.id)}
+                  onClick={() => handleClick(event._id)}
                   alt='CardImage'
                   src={event.image}
                 />
@@ -51,7 +51,7 @@ function LandingPageEventCard(props) {
                 <div className='EventDateAndCity'>
                   <img className='img-icon' src={date} alt='date-icon' />
                   <p> {event.date}</p>
-                  {!show[event.id] && (
+                  {!show[event._id] && (
                     <>
                       <img
                         className='img-icon'
@@ -63,7 +63,7 @@ function LandingPageEventCard(props) {
                   )}
                 </div>
                 {/* show the description of the clicked event if the show property is true  */}
-                {show[event.id] && (
+                {show[event._id] && (
                   <div>
                     <div className='EventDateAndCity'>
                       <img className='img-icon' src={clock} alt='date-icon' />
@@ -100,7 +100,7 @@ function LandingPageEventCard(props) {
                         src={ticket}
                         alt='ticket-icon'
                       />
-                      <p>{event.spaces} spaces left</p>
+                      <p>{event.capacity} spaces left</p>
                     </div>
                   </div>
                 )}
