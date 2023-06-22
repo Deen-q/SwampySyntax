@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import "./EventCard.css";
-import Dots from "../../../assets/icons8-3-dots-50.png";
 import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
 import date from "../../../assets/icons8-calendar-100.png";
@@ -72,12 +71,7 @@ function EventCard(props) {
                       Joined
                     </button>
                   )}
-                  <img
-                    className='eventTitle-dots'
-                    onClick={() => handleClick(event._id)}
-                    alt='CardImage'
-                    src={Dots}
-                  />
+                  
                 </div>
                 <div className='EventDateAndCity'>
                   <img className='img-icon' src={date} alt='date-icon' />

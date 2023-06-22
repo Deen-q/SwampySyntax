@@ -66,11 +66,6 @@ p {
   margin-bottom: 5px;
 }
 
-.eventTitle-dots {
-  width: 23px;
-  height: auto;
-  padding-right: 10px;
-}
 
 .EventDateAndCity {
   display: flex;
