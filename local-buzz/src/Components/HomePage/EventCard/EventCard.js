@@ -11,8 +11,9 @@ import ticket from "../../../assets/icons8-ticket-100.png";
 function EventCard(props) {
   // Define state variable for showing event description
   const [show, setShow] = useState({});
-  const [showDescription, setShowDescription] = useState(false);
   const [attending, setAttending] = useState(false);
+
+  console.log(props.user);
 
   function handleAttendingClick(eventId) {
     setAttending((prevAttending) => ({
@@ -29,10 +30,6 @@ function EventCard(props) {
       // the below is an if statement that checks if the eventId is in the show object, if it is then it will return the opposite of the current value of the show property of the eventId, if it isn't then it will return true
       [eventId]: !prevShow[eventId], // toggle the show property of the clicked event id
     }));
-  }
-
-  function handleDescriptionClick() {
-    setShowDescription((prevShowDescription) => !prevShowDescription);
   }
 
   // Render the EventCard component
@@ -59,7 +56,10 @@ function EventCard(props) {
                   {!attending[event._id] && (
                     <button
                       className='JoinButton'
-                      onClick={() => handleAttendingClick(event._id)}
+                      onClick={() => {
+                        handleAttendingClick(event._id);
+                        props.joinEvent(event._id);
+                      }}
                     >
                       Join +
                     </button>
@@ -131,7 +131,7 @@ function EventCard(props) {
                         src={ticket}
                         alt='ticket-icon'
                       />
-                      <p>{event.spaces} spaces left</p>
+                      <p>{event.capacity} spaces left</p>
                     </div>
                   </div>
                 )}
