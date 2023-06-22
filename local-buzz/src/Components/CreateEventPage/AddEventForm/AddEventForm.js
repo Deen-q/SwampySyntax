@@ -17,6 +17,8 @@ export default function AddEventForm({ addNewEvent }) {
 	const [price, setPrice] = useState('');
 	const [capacity, setCapacity] = useState('');
 	const [image, setImage] = useState('');
+	const [latitude, setLatitude] = useState('');
+	const [longitude, setLongitude] = useState('');
 	//useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
 	const navigate = useNavigate();
 
@@ -34,19 +36,38 @@ export default function AddEventForm({ addNewEvent }) {
 		const urlAddress = address.replace(/ /g, '+');
 		console.log(urlAddress);
 
-		let latitude = '';
-		let longitude = '';
+		// let latitude = '';
+		// let longitude = '';
 
 		fetch(
 			`https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${apiKey}`
 		)
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
-				if (data.status === 'OK') {
-					latitude = data.results[0].geometry.location.lat;
-					longitude = data.results[0].geometry.location.lng;
+				// console.log(data);
+				if (data) {
+					setLatitude(data.results[0].geometry.location.lat);
+					setLongitude(data.results[0].geometry.location.lng);
 					//             // do something with latitude and longitude
+					const newEvent = {
+						id: uuidv4(),
+						title: title,
+						description: description,
+						date: date,
+						time: time,
+						firstLineOfAddress: firstLineOfAddress,
+						city: city,
+						postcode: postcode,
+						price: price,
+						capacity: capacity,
+						image: image,
+						latitude: latitude,
+						longitude: longitude,
+					};
+
+					console.log({ newEvent });
+
+					addNewEvent(newEvent);
 					console.log(`Line46: Latitude: ${latitude}, Longitude: ${longitude}`);
 				} else {
 					throw new Error(`Geocode error: ${data.status}`);
@@ -54,27 +75,27 @@ export default function AddEventForm({ addNewEvent }) {
 			})
 			.catch(error => console.error('Error:', error));
 		////////////////////////
-
-		const newEvent = {
-			id: uuidv4(),
-			title: title,
-			description: description,
-			date: date,
-			time: time,
-			firstLineOfAddress: firstLineOfAddress,
-			city: city,
-			postcode: postcode,
-			price: price,
-			capacity: capacity,
-			image: image,
-			latitude: latitude,
-			longitude: longitude,
-		};
-
-		console.log({ newEvent });
-
-		addNewEvent(newEvent);
 		//navigate to the home page automatically after submitting the form (function has been run)
+		/*						const newEvent = {
+						id: uuidv4(),
+						title: title,
+						description: description,
+						date: date,
+						time: time,
+						firstLineOfAddress: firstLineOfAddress,
+						city: city,
+						postcode: postcode,
+						price: price,
+						capacity: capacity,
+						image: image,
+						latitude: latitude,
+						longitude: longitude,
+					};
+
+					console.log({ newEvent });
+
+					addNewEvent(newEvent);
+					console.log(`Line46: Latitude: ${latitude}, Longitude: ${longitude}`);*/
 		navigate('/homepage');
 	}
 
