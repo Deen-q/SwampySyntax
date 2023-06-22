@@ -4,6 +4,7 @@ import {useContext} from "react";
 import {UserContext} from "../../contexts/user.context";
 import CreateEventBtn from "./CreateEventBtn/CreateEventBtn";
 import EventCard from "./EventCard/EventCard";
+import "./HomePage.css";
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 export default function HomePage(props) {
@@ -45,16 +46,18 @@ export default function HomePage(props) {
 
   return (
     <>
+    <h1 className="hello-name">Hello ${"name"}</h1>
+    <p className="welcome-member">Welcome to the community! Let's explore some more.</p>
       {/* <NavBar handleFilteredData={handleFilteredData} /> */}
       <Button variant='contained' onClick={logOut}>
         Logout
       </Button>
-      <CreateEventBtn />
       <EventCard
         user={props.user}
         joinEvent={joinEvent}
         filteredData={props.filteredData}
       />
+      <CreateEventBtn />
     </>
   );
 
