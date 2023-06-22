@@ -12,7 +12,7 @@ const eventSchema = new mongoose.Schema({
   time: String,
   price: String,
   capacity: String,
-  userId: String,
+  joinedUsers: [String],
 });
 
 module.exports = mongoose.model("Event", eventSchema);
