@@ -1,4 +1,5 @@
 import "../../App.css";
+import "./HomePage.css"
 import { Button } from "@mui/material";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
@@ -48,6 +49,8 @@ export default function HomePage(props) {
   return (
     <>
       {/* <NavBar handleFilteredData={handleFilteredData} /> */}
+      <h1 className="hello-name">Hello ${"name"}</h1>
+    <p className="welcome-member">Welcome to the community! Let's explore some more.</p>
       <Button variant="contained" onClick={logOut}>
         Logout
       </Button>

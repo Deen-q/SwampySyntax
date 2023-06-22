@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./EventCard.css";
 import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
@@ -11,8 +11,6 @@ function EventCard(props) {
   // Define state variable for showing event description
   const [show, setShow] = useState({});
   const [attending, setAttending] = useState(false);
-
-  console.log(props.user);
 
   function handleAttendingClick(eventId) {
     setAttending((prevAttending) => ({
@@ -34,55 +32,55 @@ function EventCard(props) {
   // Render the EventCard component
   return (
     <>
-      <div className='EventCardContainer'>
+      <div className="EventCardContainer">
         {props.filteredData?.map(
           (
             event //'?' is 'Optional Chaining' bypasses the error from undefined. It is still undefined, however.
           ) => (
-            <div key={event._id} className='event-card'>
+            <div key={event._id} className="event-card">
               {/* add click event listener to toggle the description of the clicked event  */}
-              <div className='TextBorder'>
-              <div className='JoinButtonContainer'>
-              {!attending[event._id] && (
+              <div className="TextBorder">
+                <div className="JoinButtonContainer">
+                  {!attending[event._id] && (
                     <button
-                      className='JoinButton'
+                      className="JoinButton"
                       onClick={() => {
                         handleAttendingClick(event._id);
                         props.joinEvent(event._id);
                       }}
                     >
-                      + Join 
+                      + Join
                     </button>
                   )}
                   {attending[event._id] && (
                     <button
-                      className='JoinedButton'
+                      className="JoinedButton"
                       onClick={() => handleAttendingClick(event._id)}
                     >
                       Joined
                     </button>
                   )}
-                  </div>
+                </div>
                 {/* <div className='img-container'> */}{" "}
                 <img
-                  className='event-img'
+                  className="event-img"
                   onClick={() => handleClick(event._id)}
-                  alt='CardImage'
+                  alt="CardImage"
                   src={event.image}
                 />
                 {/* </div> */}
-                <div className='EventTitle'>
-                  <h2>{event.title}</h2>  
+                <div className="EventTitle">
+                  <h2>{event.title}</h2>
                 </div>
-                <div className='EventDateAndCity'>
-                  <img className='img-icon' src={date} alt='date-icon' />
+                <div className="EventDateAndCity">
+                  <img className="img-icon" src={date} alt="date-icon" />
                   <p> {event.date}</p>
                   {!show[event._id] && (
                     <>
                       <img
-                        className='img-icon'
+                        className="img-icon"
                         src={address}
-                        alt='address-icon'
+                        alt="address-icon"
                       />{" "}
                       <p>{event.city}</p>
                     </>
@@ -91,40 +89,40 @@ function EventCard(props) {
                 {/* show the description of the clicked event if the show property is true  */}
                 {show[event._id] && (
                   <div>
-                    <div className='EventDateAndCity'>
-                      <img className='img-icon' src={clock} alt='date-icon' />
+                    <div className="EventDateAndCity">
+                      <img className="img-icon" src={clock} alt="date-icon" />
                       <p>{event.time}</p>
                     </div>
-                    <div className='EventDateAndCity'>
+                    <div className="EventDateAndCity">
                       <img
-                        className='img-icon-top'
+                        className="img-icon-top"
                         src={address}
-                        alt='address-icon'
+                        alt="address-icon"
                       />
                       <p>
                         {event.firstLineOfAddress}, {event.city},{" "}
                         {event.postcode}
                       </p>
                     </div>
-                    <div className='EventDateAndCity'>
+                    <div className="EventDateAndCity">
                       <img
-                        className='img-icon-top'
+                        className="img-icon-top"
                         src={speechBubble}
-                        alt='speech-bubble-icon'
+                        alt="speech-bubble-icon"
                       />
-                      <p className='EventDescription'>{event.description}</p>
+                      <p className="EventDescription">{event.description}</p>
                     </div>
-                    <div className='PriceAndSpaces'>
+                    <div className="PriceAndSpaces">
                       <img
-                        className='img-icon-top'
+                        className="img-icon-top"
                         src={coin}
-                        alt='coin-icon'
+                        alt="coin-icon"
                       />
                       <p>£{event.price}</p>
                       <img
-                        className='img-icon-top'
+                        className="img-icon-top"
                         src={ticket}
-                        alt='ticket-icon'
+                        alt="ticket-icon"
                       />
                       <p>{event.capacity} spaces left</p>
                     </div>
