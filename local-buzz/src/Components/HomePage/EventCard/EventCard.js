@@ -42,17 +42,8 @@ function EventCard(props) {
             <div key={event._id} className='event-card'>
               {/* add click event listener to toggle the description of the clicked event  */}
               <div className='TextBorder'>
-                {/* <div className='img-container'> */}{" "}
-                <img
-                  className='event-img'
-                  onClick={() => handleClick(event._id)}
-                  alt='CardImage'
-                  src={event.image}
-                />
-                {/* </div> */}
-                <div className='EventTitleAndDots'>
-                  <h2>{event.title}</h2>
-                  {!attending[event._id] && (
+              <div className='JoinButtonContainer'>
+              {!attending[event._id] && (
                     <button
                       className='JoinButton'
                       onClick={() => {
@@ -60,7 +51,7 @@ function EventCard(props) {
                         props.joinEvent(event._id);
                       }}
                     >
-                      Join +
+                      + Join 
                     </button>
                   )}
                   {attending[event._id] && (
@@ -71,7 +62,17 @@ function EventCard(props) {
                       Joined
                     </button>
                   )}
-                  
+                  </div>
+                {/* <div className='img-container'> */}{" "}
+                <img
+                  className='event-img'
+                  onClick={() => handleClick(event._id)}
+                  alt='CardImage'
+                  src={event.image}
+                />
+                {/* </div> */}
+                <div className='EventTitle'>
+                  <h2>{event.title}</h2>  
                 </div>
                 <div className='EventDateAndCity'>
                   <img className='img-icon' src={date} alt='date-icon' />

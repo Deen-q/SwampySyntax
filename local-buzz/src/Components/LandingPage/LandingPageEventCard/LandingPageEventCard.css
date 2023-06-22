@@ -10,14 +10,14 @@
 
 h2 {
   margin: 5px 7px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #d56b63;
   font-weight: bold;
 }
 
 p {
   margin: 5px 5px 7px 10px;
-  font-size: 1rem;
+  font-size: 0.7rem;
   align-items: center;
 }
 .img-container {
@@ -58,7 +58,7 @@ p {
 .event-img:hover {
   cursor: pointer;
 }
-.EventTitleAndDots {
+.EventTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -115,7 +115,7 @@ p {
     height: auto;
   }
   .event-img,
-  .EventTitleAndDots,
+  .EventTitle,
   .EventDateAndCity,
   .TextBorder,
   .EventCardContainer p {
@@ -141,7 +141,7 @@ p {
     height: auto;
   }
   .event-img,
-  .EventTitleAndDots,
+  .EventTitle,
   .EventDateAndCity,
   .TextBorder,
   .EventCardContainer p {
@@ -154,3 +154,4 @@ p {
     object-fit: cover;
   }
 }
+

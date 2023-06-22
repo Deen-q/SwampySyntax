@@ -45,7 +45,7 @@ function LandingPageEventCard(props) {
                   src={event.image}
                 />
                 {/* </div> */}
-                <div className='EventTitleAndDots'>
+                <div className='EventTitle'>
                   <h2>{event.title}</h2>
                 </div>
                 <div className='EventDateAndCity'>

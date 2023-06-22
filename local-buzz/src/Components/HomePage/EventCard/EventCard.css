@@ -9,6 +9,7 @@
 	width: 81vw;
 }
 
+
 .JoinButton {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: bold;
@@ -18,10 +19,10 @@
 	text-decoration: none;
 	border: 1px solid #47474782;
 	border-radius: 25px;
-	padding: 0.3rem 0.5rem;
-	width: 20vw;
+	padding: 0.2rem;
+	width: 4.3vw;
 	margin-bottom: 30px;
-	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .JoinedButton {
@@ -33,22 +34,22 @@
 	text-decoration: none;
 	border: 1px solid #47474782;
 	border-radius: 25px;
-	padding: 0.3rem 0.5rem;
-	width: 20vw;
+	padding: 0.2rem;
+	width: 5vw;
 	margin-bottom: 30px;
-	margin-left: 5px;
+	margin-right: 5px;
 }
 
 h2 {
 	margin: 5px 7px;
-	font-size: 1.3rem;
+	font-size: 1rem;
 	color: #d56b63;
 	font-weight: bold;
 }
 
 p {
 	margin: 5px 5px 7px 10px;
-	font-size: 1rem;
+	font-size: 0.7rem;
 	align-items: center;
 }
 .img-container {
@@ -77,6 +78,15 @@ p {
 	width: 72vw;
 }
 
+.JoinButtonContainer {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	width: 72vw;
+	margin-top: 1rem;
+	margin-bottom: -3rem;
+}
+
 .event-img {
 	width: 100%;
 	height: 50vw;
@@ -88,15 +98,13 @@ p {
 .event-img:hover {
 	cursor: pointer;
 }
-.EventTitleAndDots {
+.EventTitle {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 72vw;
 	margin-bottom: 5px;
 }
-
-
 
 .EventDateAndCity {
 	display: flex;
@@ -148,7 +156,8 @@ p {
 		height: auto;
 	}
 	.event-img,
-	.EventTitleAndDots,
+	.JoinButtonContainer,
+	.EventTitle,
 	.EventDateAndCity,
 	.TextBorder,
 	.EventCardContainer p {
@@ -174,7 +183,8 @@ p {
 		height: auto;
 	}
 	.event-img,
-	.EventTitleAndDots,
+	.JoinButtonContainer,
+	.EventTitle,
 	.EventDateAndCity,
 	.TextBorder,
 	.EventCardContainer p {
@@ -187,3 +197,4 @@ p {
 		object-fit: cover;
 	}
 }
+
