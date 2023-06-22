@@ -1,21 +1,23 @@
 // Import Mongoose, an Object Data Modeling (ODM) library for MongoDB and Node.js
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  date: String,
-  image: String, //💥💥 Check this and make sure we are converting images to strings
-  firstLineOfAddress: String,
-  city: String,
-  postcode: String,
-  time: String,
-  price: String,
-  capacity: String,
-  joinedUsers: [String],
+	title: String,
+	description: String,
+	date: String,
+	image: String, //💥💥 Check this and make sure we are converting images to strings
+	firstLineOfAddress: String,
+	city: String,
+	postcode: String,
+	time: String,
+	price: String,
+	capacity: String,
+	joinedUsers: [String],
+	latitude: String,
+	longitude: String,
 });
 
-module.exports = mongoose.model("Event", eventSchema);
+module.exports = mongoose.model('Event', eventSchema);
 
 //Detailed notes
 
