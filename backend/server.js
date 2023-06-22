@@ -58,7 +58,7 @@ app.put("/events/:_id", async (req, res) => {
       return res.status(404).json({message: "Cannot find event"});
     }
 
-    event.userId = req.body.user.id;
+    event.userId = req.body.userId;
 
     const updatedEvent = await event.save();
 
