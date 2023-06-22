@@ -10,6 +10,9 @@ const eventSchema = new mongoose.Schema({
   city: String,
   postcode: String,
   time: String,
+  price: String,
+  capacity: String,
+  userId: [String],
 });
 
 module.exports = mongoose.model("Event", eventSchema);
