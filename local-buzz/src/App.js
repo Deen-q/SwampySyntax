@@ -19,18 +19,19 @@ function App() {
   const [events, setEvents] = useState([]);
   // const [location, setLocation] = useState(null);
 
-  //   useEffect(() => {
-  //     const fetchGeolocation = async () => {
-  //       try {
-  //         const response = await axios.post(`${URL}geolocate`);
-  //         setLocation(response.data);
-  //         console.log({ location });
-  //       } catch (error) {
-  //         console.error("Error fetching geolocation", error);
-  //       }
-  //     };
-  //     fetchGeolocation();
-  //   }, []);
+  useEffect(() => {
+    const fetchGeolocation = async () => {
+      try {
+        console.log("fetching geolocation");
+        const response = await axios.get(`${REACT_APP_URL}geolocation`);
+        setLocation(response.data);
+      } catch (error) {
+        console.error("Error fetching geolocation", error);
+      }
+    };
+    fetchGeolocation();
+  }, []);
+  console.log("line41", location ?? "location not loaded yet");
 
   const fetchData = () => {
     fetch(`${REACT_APP_URL}events`)
@@ -106,7 +107,8 @@ function App() {
               path='/createeventpage'
               element={<CreateEventPage addNewEvent={addNewEvent} />}
             />
-            <Route exact path='/profilePage' element={<ProfilePage />} />
+            <Route exact path="/profilePage" element={<ProfilePage />} />
+
           </Route>
         </Routes>
       </UserProvider>

@@ -209,7 +209,6 @@
 // Firstly, you need to include the Google Maps JavaScript API script in your HTML file:
 
 // html
-// Copy code
 // <!DOCTYPE html>
 // <html>
 //   <head>
@@ -225,7 +224,6 @@
 // Then, in your React component:
 
 // jsx
-// Copy code
 // import { useEffect } from 'react';
 
 // function Map({ userLocation, nearbyEvents }) {
@@ -262,8 +260,8 @@
 // You would use this Map component in your app like this:
 
 // jsx
-// Copy code
 // <Map userLocation={userLocation} nearbyEvents={nearbyEvents} />
+
 // This component takes the user's location and an array of nearby events as props, and it displays a map with markers for the user and each event. The user's location marker has a title of 'Your location', and each event marker has a title of the event's name.
 
 // This is a simplified example. In a real application, you would want to add more error checking and handle edge cases, like when the Google Maps API is not loaded. Remember to handle API keys securely and not expose them in client-side code if possible.
