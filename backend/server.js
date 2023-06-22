@@ -45,7 +45,26 @@ app.get("/events", async (req, res) => {
     console.error("Error while handling /events:", err); // Log any errors
 
     // Send error message as JSON response with status 500 (Internal Server Error)
-    res.status(500).json({ message: err.message });
+    res.status(500).json({message: err.message});
+  }
+});
+//define a method that inserts user id to an event when a user clicks on the attend button
+app.put("/events/:_id", async (req, res) => {
+  try {
+    const event = await Event.findById(req.params._id);
+    console.log("event:", event);
+
+    if (event == null) {
+      return res.status(404).json({message: "Cannot find event"});
+    }
+
+    event.userId = req.body.user.id;
+
+    const updatedEvent = await event.save();
+
+    res.json(updatedEvent);
+  } catch (err) {
+    return res.status(500).json({message: err.message});
   }
 });
 
@@ -60,6 +79,9 @@ app.post("/events", async (req, res) => {
     city: req.body.city,
     postcode: req.body.postcode,
     time: req.body.time,
+    price: req.body.price,
+    capacity: req.body.capacity,
+
     // Add other fields here to suit your document structure
   });
 
@@ -67,7 +89,7 @@ app.post("/events", async (req, res) => {
     const newEvent = await event.save();
     res.status(201).json(newEvent);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({message: err.message});
   }
 });
 
@@ -77,7 +99,7 @@ app.patch("/events/:id", async (req, res) => {
     const event = await Event.findById(req.params.id);
 
     if (event == null) {
-      return res.status(404).json({ message: "Cannot find event" });
+      return res.status(404).json({message: "Cannot find event"});
     }
 
     if (req.body.title != null) {
@@ -112,13 +134,21 @@ app.patch("/events/:id", async (req, res) => {
       event.time = req.body.time;
     }
 
+    if (req.body.price != null) {
+      event.price = req.body.price;
+    }
+
+    if (req.body.capacity != null) {
+      event.capacity = req.body.capacity;
+    }
+
     // repeat the above if-condition block for other fields (category, image, etc.)
 
     const updatedEvent = await event.save();
 
     res.json(updatedEvent);
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({message: err.message});
   }
 });
 
@@ -126,15 +156,15 @@ app.patch("/events/:id", async (req, res) => {
 app.delete("/events/:id", async (req, res) => {
   console.log("id:", req.params.id); // 1. Log the id
   try {
-    const result = await Event.deleteOne({ _id: req.params.id });
+    const result = await Event.deleteOne({_id: req.params.id});
     console.log("delete result:", result); // 2. Log the result
     if (result.deletedCount === 0) {
-      return res.status(404).json({ message: "Cannot find event" });
+      return res.status(404).json({message: "Cannot find event"});
     }
 
-    res.json({ message: "Event deleted" });
+    res.json({message: "Event deleted"});
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({message: err.message});
   }
 });
 
