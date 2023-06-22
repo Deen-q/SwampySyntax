@@ -82,7 +82,7 @@ p {
 	display: flex;
 	justify-content: end;
 	align-items: center;
-	width: 72vw;
+	max-width: 72vw;
 	margin-top: 1rem;
 	margin-bottom: -3rem;
 }
@@ -145,6 +145,11 @@ p {
 /* show events in rows of 4 on larger screens */
 
 @media (min-width: 768px) and (max-width: 1200px) {
+	.JoinButtonContainer {
+		width: 72vw; /* Maintain the fixed width for large screens */
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -172,6 +177,11 @@ p {
 }
 
 @media (min-width: 1201px) {
+	.JoinButtonContainer {
+		width: 72vw; /* Maintain the fixed width for large screens */
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
