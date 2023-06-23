@@ -20,9 +20,7 @@ export const UserProvider = ({children}) => {
     return authenticatedUser;
   };
 
-  console.log("user", user);
-
-  // Function to sign up user into our App Service app using their email & password
+   // Function to sign up user into our App Service app using their email & password
   const emailPasswordSignup = async (email, password) => {
     try {
       await app.emailPasswordAuth.registerUser(email, password);
