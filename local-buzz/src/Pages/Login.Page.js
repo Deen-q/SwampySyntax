@@ -120,13 +120,26 @@ const Login = () => {
 					}}
 					style={{ marginBottom: '1rem' }}
 				/>
+
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
 				<Button
 					className='loginButton'
 					variant='contained'
 					color='primary'
-					onClick={onSubmit}>
+					onClick={onSubmit}
+					sx={{
+						backgroundColor: '#5aaaa6',
+						borderRadius: '25px',
+						maxWidth: '50vw',
+						display: 'flex',
+						justifyContent: 'center',
+						padding: '0.5em 3em 0.5em 3em'
+					}}
+					>
 					Login
 				</Button>
+				</div>
+
 				<div className='loginLine'>
 					<div className='orLine'>
 						<p className='orText'>or</p>
