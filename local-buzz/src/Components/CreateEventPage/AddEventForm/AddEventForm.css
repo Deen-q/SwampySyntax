@@ -45,7 +45,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   margin-top: 1.5vw;
   text-align: start;
   z-index: 2;
@@ -93,6 +93,18 @@ label {
   margin-left: 4vw;
 }
 
+/* .price,
+.capacity {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid #47474782;
+  border-radius: 25px;
+  padding: 0.3rem 0.5rem;
+  width: 5vw;
+} */
+
 .price,
 .capacity {
   font-family: "Josefin Sans", sans-serif;
@@ -102,23 +114,9 @@ label {
   border: 1px solid #47474782;
   border-radius: 25px;
   padding: 0.3rem 0.5rem;
-  width: 10vw;
+  width: fit-content; /* Set width based on content */
+  max-width: 5vw; /* Set minimum width to ensure consistency */
+  text-align: start;
 }
 
-.price-capacity {
-  display: flex;
-  /* flex-direction: column; */
-  margin: 0 auto;
-  /* gap: 10px; */
-  justify-content: space-between;
-  align-items: center;
-}
 
-@media (min-width: 500px) {
-  .price-capacity > div {
-    display: flex;
-    width: 15vw;
-    margin-left: 5vw;
-    /* margin-right: 10vw; */
-  }
-}
