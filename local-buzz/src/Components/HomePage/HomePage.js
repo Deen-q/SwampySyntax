@@ -23,7 +23,7 @@ export default function HomePage(props) {
 			});
 			// console.log(response + "this response");
 			const data = await response.json();
-			// console.log(data.userId + "this is line 22");
+			console.log(data)
 		} catch (error) {
 			console.error('Error:', error);
 		}

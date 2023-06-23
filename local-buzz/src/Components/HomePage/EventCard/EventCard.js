@@ -13,12 +13,13 @@ function EventCard(props) {
   const [attending, setAttending] = useState(false);
 
   function handleAttendingClick() {
-    if (props.events[0].joinedUsers == props.user.id) {
+    if (props.events[0].joinedUsers === props.user.id) {
       setAttending(true);
     } else {
       setAttending(false);
     }
   }
+  
 
   // Define function to handle click event on image
   function handleClick(eventId) {
