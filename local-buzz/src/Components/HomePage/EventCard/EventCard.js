@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import "./EventCard.css";
 import clock from "../../../assets/icons8-clock-100.png";
 import address from "../../../assets/icons8-address-100.png";
@@ -12,12 +12,25 @@ function EventCard(props) {
   const [show, setShow] = useState({});
   const [attending, setAttending] = useState(false);
 
-  function handleAttendingClick() {
-    if (props.events[0].joinedUsers === props.user.id) {
-      setAttending(true);
-    } else {
-      setAttending(false);
-    }
+  useEffect(() => {
+    // Create an empty object to store the user's joined events
+    const userJoinedEvents = props.events.reduce((joinedEvents, event) => {
+      // Check if the user's ID is included in the joinedUsers array of the event
+      joinedEvents[event._id] = event.joinedUsers.includes(props.user.id);
+      return joinedEvents;
+    }, {});
+  
+    // Update the attending state with the user's joined events
+    setAttending(userJoinedEvents);
+  }, [props.events, props.user.id]);
+
+  function handleAttendingClick(eventId) {
+    setAttending((prevAttending) => ({
+      ...prevAttending,
+      [eventId]: !prevAttending[eventId],
+    }));
+    // Call the joinEvent function with the event id
+    props.joinEvent(eventId);
   }
   
 
@@ -58,6 +71,7 @@ function EventCard(props) {
                     <button
                       className='JoinedButton'
                       onClick={() => handleAttendingClick(event._id)}
+                      disabled={true}
                     >
                       Joined
                     </button>
