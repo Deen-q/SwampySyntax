@@ -267,3 +267,17 @@
 // This is a simplified example. In a real application, you would want to add more error checking and handle edge cases, like when the Google Maps API is not loaded. Remember to handle API keys securely and not expose them in client-side code if possible.
 
 // If you prefer to use a React-specific library for Google Maps, there are several available, such as @react-google-maps/api and google-maps-react. These libraries provide a more 'React-like' way of working with Google Maps and can be more flexible and easier to integrate into a React application.
+
+//Plan of attack
+
+// ✅ Step 1 when user submits the form with the address, the address is converted to lat and long
+// store lat and long in the database
+
+// Step 2 introduce a filter based on users current location compared to the lat and long of the events
+// hardcode distance to 10mile
+// STRETCH get user to specify distance ie input 10 miles for filter
+// if the distance is less than user input, show the event
+
+// Step 3 show the events on the map
+// use google maps api to show the events on the map
+// use google maps api to show the users current location on the map

@@ -1,79 +1,87 @@
-import {BrowserRouter, Route, Routes, useResolvedPath} from "react-router-dom";
-import {UserProvider} from "./contexts/user.context";
-import HomePage from "../src/Components/HomePage/HomePage";
-import LandingPage from "../src/Components/LandingPage/LandingPage";
-import Login from "./Pages/Login.Page";
-import PrivateRoute from "./Pages/PrivateRoute.Page";
-import Signup from "./Pages/SignUp.Page";
-import CreateEventPage from "./Components/CreateEventPage/CreateEventPage";
-import ProfilePage from "./Components/ProfilePage/profilePage";
-import NavBar from "./Components/NavBar/NavBar";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {
+	BrowserRouter,
+	Route,
+	Routes,
+	useResolvedPath,
+} from 'react-router-dom';
+import { UserProvider } from './contexts/user.context';
+import HomePage from '../src/Components/HomePage/HomePage';
+import LandingPage from '../src/Components/LandingPage/LandingPage';
+import Login from './Pages/Login.Page';
+import PrivateRoute from './Pages/PrivateRoute.Page';
+import Signup from './Pages/SignUp.Page';
+import CreateEventPage from './Components/CreateEventPage/CreateEventPage';
+import ProfilePage from './Components/ProfilePage/profilePage';
+import NavBar from './Components/NavBar/NavBar';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 function App() {
-  // Defining states for filteredData and events
-  const [filteredData, setFilteredData] = useState([]);
-  const [events, setEvents] = useState([]);
-  const [location, setLocation] = useState(null);
-  console.log(events);
-  useEffect(() => {
-    const fetchGeolocation = async () => {
-      try {
-        console.log("fetching geolocation");
-        const response = await axios.get(`${REACT_APP_URL}geolocation`);
-        setLocation(response.data);
-      } catch (error) {
-        console.error("Error fetching geolocation", error);
-      }
-    };
-    fetchGeolocation();
-  }, []);
-  console.log("line41", location ?? "location not loaded yet");
 
-  const fetchData = () => {
-    fetch(`${REACT_APP_URL}events`)
-      .then((response) => response.json())
-      .then((data) => {
-        setFilteredData(data);
-        setEvents(data);
-      })
-      .catch((error) => console.error("Error:", error));
-  };
+	// Defining states for filteredData and events
+	const [filteredData, setFilteredData] = useState([]);
+	const [events, setEvents] = useState([]);
+	const [location, setLocation] = useState(null);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+	useEffect(() => {
+		const fetchGeolocation = async () => {
+			try {
+				console.log('fetching geolocation');
+				const response = await axios.get(`${REACT_APP_URL}geolocation`);
+				setLocation(response.data);
+			} catch (error) {
+				console.error('Error fetching geolocation', error);
+			}
+		};
+		fetchGeolocation();
+	}, []);
 
-  // Function to handle filtered data
-  function handleFilteredData(event) {
-    const inputValue = event.target.value;
-    const filteredData = events.filter((event) =>
-      event.title.toLowerCase().startsWith(inputValue.toLowerCase())
-    );
-    setFilteredData(filteredData);
-  }
-  // this is where we need to make a POST request to the server
-  // to add the new event to the database
-  // and then update the events state with the new event
 
-  async function addNewEvent(newEvent) {
-    try {
-      const response = await fetch(`${REACT_APP_URL}events`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(newEvent),
-      });
-      const data = await response.json();
-      console.log(data);
-      fetchData();
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
+	const fetchData = () => {
+		fetch(`${REACT_APP_URL}events`)
+			.then(response => response.json())
+			.then(data => {
+				setFilteredData(data);
+				setEvents(data);
+			})
+			.catch(error => console.error('Error:', error));
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	// Function to handle filtered data
+	function handleFilteredData(event) {
+		const inputValue = event.target.value;
+		const filteredData = events.filter(event =>
+			event.title.toLowerCase().startsWith(inputValue.toLowerCase())
+		);
+		setFilteredData(filteredData);
+	}
+	// this is where we need to make a POST request to the server
+	// to add the new event to the database
+	// and then update the events state with the new event
+
+	async function addNewEvent(newEvent) {
+		console.log('APP.JS LINE 68 ', newEvent);
+		try {
+			const response = await fetch(`${REACT_APP_URL}events`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(newEvent),
+			});
+			const data = await response.json();
+			console.log(data);
+			fetchData();
+		} catch (error) {
+			console.error('Error:', error);
+		}
+	}
+
 
   return (
     <BrowserRouter>
@@ -115,6 +123,7 @@ function App() {
       </UserProvider>
     </BrowserRouter>
   );
+
 }
 
 export default App;
