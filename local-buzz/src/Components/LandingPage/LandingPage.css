@@ -10,17 +10,14 @@
   border-radius: 25px;
   padding: 0.3rem 0.5rem;
   min-width: 72px;
+  max-width: 140px;
   width: 20vw;
   display: inline-block;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  margin-left: 5px;
+  margin-left: 3vw;
   position: relative;
-}
-
-.landing-page-container {
-  margin-left: 35px;
 }
 
 

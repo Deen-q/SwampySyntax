@@ -52,7 +52,20 @@ export default function HomePage(props) {
       <p className='welcome-member'>
         Welcome to the community! Let's explore some more.
       </p>
-      <Button variant='contained' onClick={logOut}>
+      <Button variant='contained' onClick={logOut} sx={{
+		backgroundColor: '#5aaaa6',
+		borderRadius: '25px',
+		color: 'white',
+		marginBottom: '4vw',
+		width: '4vw',
+		height: '5vw',
+		textTransform: 'capitalize',
+		textTransformFont: 'josefin sans',
+		textTransformWeight: 'bold',
+		maxWidth: '60px',
+		maxHeight: '30px',
+		marginLeft: '75vw',
+	  }}>
         Logout
       </Button>
       <EventCard

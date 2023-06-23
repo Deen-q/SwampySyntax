@@ -54,6 +54,8 @@ export default function ProfilePage() {
                 {/* <div className='img-container'> */}{" "}
                 <img
                   className='event-img'
+                  onMouseOver={() => handleClick(event._id)}
+                  onMouseLeave={() => handleClick(event._id)}
                   onClick={() => handleClick(event._id)}
                   alt='CardImage'
                   src={event.image}
