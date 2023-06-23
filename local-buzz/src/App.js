@@ -20,6 +20,7 @@ import axios from 'axios';
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 function App() {
+
 	// Defining states for filteredData and events
 	const [filteredData, setFilteredData] = useState([]);
 	const [events, setEvents] = useState([]);
@@ -37,6 +38,7 @@ function App() {
 		};
 		fetchGeolocation();
 	}, []);
+
 
 	const fetchData = () => {
 		fetch(`${REACT_APP_URL}events`)
@@ -80,45 +82,48 @@ function App() {
 		}
 	}
 
-	return (
-		<BrowserRouter>
-			{/* We are wrapping our whole app with UserProvider so that */}
-			{/* our user is accessible through out the app from any page*/}
-			<UserProvider>
-				<NavBar handleFilteredData={handleFilteredData} />
-				<Routes>
-					<Route
-						exact
-						path='/'
-						element={<LandingPage filteredData={filteredData} />}
-					/>
-					<Route exact path='/login' element={<Login />} />
-					<Route exact path='/signup' element={<Signup />} />
-					{/* We are protecting our Home Page from unauthenticated */}
-					{/* users by wrapping it with PrivateRoute here. */}
-					<Route element={<PrivateRoute />}>
-						<Route
-							exact
-							path='/homepage'
-							element={
-								<HomePage
-									// user={user}
-									// joinEvent={joinEvent}
-									filteredData={filteredData}
-								/>
-							}
-						/>
-						<Route
-							exact
-							path='/createeventpage'
-							element={<CreateEventPage addNewEvent={addNewEvent} />}
-						/>
-						<Route exact path='/profilePage' element={<ProfilePage />} />
-					</Route>
-				</Routes>
-			</UserProvider>
-		</BrowserRouter>
-	);
+
+  return (
+    <BrowserRouter>
+      {/* We are wrapping our whole app with UserProvider so that */}
+      {/* our user is accessible through out the app from any page*/}
+      <UserProvider>
+        <NavBar handleFilteredData={handleFilteredData} />
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={<LandingPage filteredData={filteredData} />}
+          />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/signup' element={<Signup />} />
+          {/* We are protecting our Home Page from unauthenticated */}
+          {/* users by wrapping it with PrivateRoute here. */}
+          <Route element={<PrivateRoute />}>
+            <Route
+              exact
+              path='/homepage'
+              element={
+                <HomePage
+                  events={events}
+                  // user={user}
+                  // joinEvent={joinEvent}
+                  filteredData={filteredData}
+                />
+              }
+            />
+            <Route
+              exact
+              path='/createeventpage'
+              element={<CreateEventPage addNewEvent={addNewEvent} />}
+            />
+            <Route exact path='/profilePage' element={<ProfilePage />} />
+          </Route>
+        </Routes>
+      </UserProvider>
+    </BrowserRouter>
+  );
+
 }
 
 export default App;

@@ -16,6 +16,17 @@ app.use(cors());
 // Parses incoming request bodies in a middleware before your handlers, available under the req.body property.
 app.use(express.json());
 
+// app.post('/geolocate', async (req, res) => {
+// 	try {
+// 		const geoResponse = await axios.post(
+// 			`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.GOOGLE_API_KEY}`
+// 		);
+// 		res.json(geoResponse.data);
+// 	} catch (error) {
+// 		res.json({ error: error.toString() });
+// 	}
+// });
+
 // Connect to MongoDB using Mongoose
 mongoose.connect(process.env.DB_URI, {
 	useNewUrlParser: true, // Allows to use the new MongoDB driver's useNewUrlParser.
@@ -44,11 +55,15 @@ app.get('/events', async (req, res) => {
 	} catch (err) {
 		console.error('Error while handling /events:', err); // Log any errors
 
-		// Send error message as JSON response with status 500 (Internal Server Error)
-		res.status(500).json({ message: err.message });
-	}
+
+    // Send error message as JSON response with status 500 (Internal Server Error)
+    res.status(500).json({message: err.message});
+  }
+
 });
+
 //define a method that inserts user id to an event when a user clicks on the attend button
+
 app.put('/events/:_id', async (req, res) => {
 	try {
 		const event = await Event.findById(req.params._id);
@@ -99,6 +114,7 @@ app.post('/events', async (req, res) => {
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
+
 });
 
 //Define a method to update a product
@@ -106,9 +122,11 @@ app.patch('/events/:id', async (req, res) => {
 	try {
 		const event = await Event.findById(req.params.id);
 
+
 		if (event == null) {
 			return res.status(404).json({ message: 'Cannot find event' });
 		}
+
 
 		if (req.body.title != null) {
 			event.title = req.body.title;
@@ -154,6 +172,7 @@ app.patch('/events/:id', async (req, res) => {
 
 		const updatedEvent = await event.save();
 
+
 		res.json(updatedEvent);
 	} catch (err) {
 		return res.status(500).json({ message: err.message });
@@ -185,6 +204,7 @@ app.get('/geolocation', async (req, res) => {
 	} catch (error) {
 		res.json({ error: error.toString() });
 	}
+
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

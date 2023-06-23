@@ -29,6 +29,7 @@ export default function HomePage(props) {
 		}
 	}
 
+
 	// This function is called when the user clicks the "Logout" button.
 	const logOut = async () => {
 		try {
@@ -44,24 +45,26 @@ export default function HomePage(props) {
 		}
 	};
 
-	return (
-		<>
-			{/* <NavBar handleFilteredData={handleFilteredData} /> */}
-			<h1 className='hello-name'>Hello ${'name'}</h1>
-			<p className='welcome-member'>
-				Welcome to the community! Let's explore some more.
-			</p>
-			<Button variant='contained' onClick={logOut}>
-				Logout
-			</Button>
-			<CreateEventBtn />
-			<EventCard
-				user={props.user}
-				joinEvent={joinEvent}
-				filteredData={props.filteredData}
-			/>
-		</>
-	);
+  return (
+    <>
+      {/* <NavBar handleFilteredData={handleFilteredData} /> */}
+      <h1 className='hello-name'>Hello ${"name"}</h1>
+      <p className='welcome-member'>
+        Welcome to the community! Let's explore some more.
+      </p>
+      <Button variant='contained' onClick={logOut}>
+        Logout
+      </Button>
+      <EventCard
+        events={props.events}
+        user={user}
+        joinEvent={joinEvent}
+        filteredData={props.filteredData}
+      />
+      <CreateEventBtn />
+    </>
+  );
+
 }
 
 // import CreateEventBtn from './CreateEventBtn/CreateEventBtn';
