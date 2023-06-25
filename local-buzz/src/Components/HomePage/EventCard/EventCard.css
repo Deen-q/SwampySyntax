@@ -163,7 +163,7 @@ p {
 	}
 
 	.event-card.show {
-		margin-bottom: 16vw;
+		margin-bottom: 25vw;
 	}
 	.event-img,
 	.JoinButtonContainer,
@@ -201,7 +201,7 @@ p {
 		height: 20vw;
 	}
 	.event-card.show {
-		margin-bottom: 12vw;
+		margin-bottom: 15vw;
 	}
 
 	.event-img,
