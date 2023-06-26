@@ -21,7 +21,7 @@ function App() {
 	const [location, setLocation] = useState(null);
 
 	console.log(location);
-	
+
 	useEffect(() => {
 		const fetchGeolocation = async () => {
 			try {
@@ -48,6 +48,64 @@ function App() {
 	useEffect(() => {
 		fetchData();
 	}, []);
+
+	/*
+	
+	*/
+	function haversineDistance(location, coords2, isMiles = false) {
+		// Converts degrees to radians
+		function toRad(x) {
+			return (x * Math.PI) / 180;
+		}
+
+		const lon1 = location.longitude;
+		const lat1 = location.latitude;
+
+		const lon2 = coords2.longitude;
+		const lat2 = coords2.latitude;
+
+		// Radius of the Earth in kilometers
+		const R = 6371;
+
+		// Differences in coordinates
+		const x1 = lat2 - lat1;
+		const dLat = toRad(x1);
+		const x2 = lon2 - lon1;
+		const dLon = toRad(x2);
+
+		// Haversine formula
+		const a =
+			Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+			Math.cos(toRad(lat1)) *
+				Math.cos(toRad(lat2)) *
+				Math.sin(dLon / 2) *
+				Math.sin(dLon / 2);
+		const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		const d = R * c;
+
+		// Convert to miles if specified
+		if (isMiles) d /= 1.60934;
+
+		return d;
+	}
+
+	// Let's say we want to find events within 10 kilometers of the user
+	const maxDistance = 10;
+
+	// Filter the events based on their distance from the user
+	const nearbyEvents = events.filter(event => {
+		// Create a location object for the event
+		const eventLocation = {
+			latitude: event.latitude,
+			longitude: event.longitude,
+		};
+
+		// Calculate the distance between the user and the event
+		const distance = haversineDistance(userLocation, eventLocation);
+
+		// Only include the event in the filtered list if it's within the max distance
+		return distance <= maxDistance;
+	});
 
 	// Function to handle filtered data
 	function handleFilteredData(event) {
