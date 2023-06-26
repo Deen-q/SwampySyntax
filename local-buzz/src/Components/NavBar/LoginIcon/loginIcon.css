@@ -1,8 +1,8 @@
-/* .person-container {
-	display: flex;
-} */
-
-.person-container img {
+.personIcon {
 	/* margin-left: 11rem; */
-	width: 2rem;
+	width: 1.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 4px;
 }

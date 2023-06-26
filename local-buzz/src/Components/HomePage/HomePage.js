@@ -5,10 +5,12 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 import CreateEventBtn from './CreateEventBtn/CreateEventBtn';
 import EventCard from './EventCard/EventCard';
+import { useNavigate } from "react-router-dom";
 
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 export default function HomePage(props) {
+	const navigate = useNavigate();
 	const { logOutUser } = useContext(UserContext);
 	const { user } = useContext(UserContext);
 	// console.log(user);
@@ -38,12 +40,15 @@ export default function HomePage(props) {
 			// Now we will refresh the page, and the user will be logged out and
 			// redirected to the login page because of the <PrivateRoute /> component.
 			if (loggedOut) {
-				window.location.reload(true);
+				navigate("/");
 			}
 		} catch (error) {
 			alert(error);
 		}
 	};
+
+	
+		
 
   return (
     <>

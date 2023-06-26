@@ -10,12 +10,12 @@ export default function PersonIcon() {
   const {user} = useContext(UserContext);
 
   return (
-    <div className='person-container'>
+    <>
       {user && (
         <Link to='/profilePage'>
           <img className="personIcon" id='personIcon' src={personIcon} alt='personIcon' />
         </Link>
        )}
-    </div>
+    </>
   );
 }
