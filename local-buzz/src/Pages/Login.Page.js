@@ -29,7 +29,7 @@ const Login = () => {
 	// appropriate page once the authentication is done.
 	const redirectNow = () => {
 		const redirectTo = location.search.replace('?redirectTo=', '');
-		navigate(redirectTo ? redirectTo : '/');
+		navigate(redirectTo ? redirectTo : '/homepage');
 	};
 
 	// Once a user logs in to our app, we don't want to ask them for their
@@ -83,12 +83,10 @@ const Login = () => {
 					maxWidth: '300px',
 					margin: 'auto',
 				}}>
-				{/* <div className='login-x-button'> */}
 				<Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
 					{' '}
 					<button className='closeFormButton'> X </button>
 				</Link>
-				{/* </div> */}
 				<h1 className='login-h1'> Login</h1>
 				<TextField
 					className='loginInput'
@@ -129,11 +127,20 @@ const Login = () => {
 					onClick={onSubmit}
 					sx={{
 						backgroundColor: '#5aaaa6',
+						border: '1px solid #47474782',
 						borderRadius: '25px',
-						maxWidth: '50vw',
 						display: 'flex',
 						justifyContent: 'center',
-						padding: '0.5em 3em 0.5em 3em'
+						padding: '0.5em 3em 0.5em 3em',
+						color: 'white',
+						marginTop: '1vw',
+						width: '4vw',
+						textTransform: 'capitalize',
+						textTransformFont: 'josefin sans',
+						textTransformWeight: 'bold',
+						textTransformSize: '15px',
+						maxWidth: '60px',
+						maxHeight: '30px',
 					}}
 					>
 					Login
@@ -145,6 +152,8 @@ const Login = () => {
 						<p className='orText'>or</p>
 					</div>
 				</div>
+				<Link className="sign-up-button" to='/signup' style={{textDecoration: "none", color: "white"}}> <button>
+          Sign Up </button> </Link>
 			</form>
 		</div>
 	);

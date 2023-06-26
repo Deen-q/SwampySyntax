@@ -5,10 +5,12 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 import CreateEventBtn from './CreateEventBtn/CreateEventBtn';
 import EventCard from './EventCard/EventCard';
+import { useNavigate } from "react-router-dom";
 
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 export default function HomePage(props) {
+	const navigate = useNavigate();
 	const { logOutUser } = useContext(UserContext);
 	const { user } = useContext(UserContext);
 	// console.log(user);
@@ -38,36 +40,43 @@ export default function HomePage(props) {
 			// Now we will refresh the page, and the user will be logged out and
 			// redirected to the login page because of the <PrivateRoute /> component.
 			if (loggedOut) {
-				window.location.reload(true);
+				navigate("/");
 			}
 		} catch (error) {
 			alert(error);
 		}
 	};
 
+	
+		
+
   return (
     <>
+	<div className="header-container">
       {/* <NavBar handleFilteredData={handleFilteredData} /> */}
-      <h1 className='hello-name'>Hello ${"name"}</h1>
+      <h1 className='hello-name'>Hello ${"name"}
+	  <Button variant='contained' onClick={logOut} sx={{
+		backgroundColor: '#5aaaa6',
+		borderRadius: '25px',
+		border: '1px solid #47474782',
+		padding: '0.1rem 0.8rem',
+		color: 'white',
+		textTransform: 'capitalize',
+		fontSize: '0.8rem',
+		fontWeight: 'bold',
+		maxWidth: '100rem',
+		maxHeight: '30px',
+		marginLeft: '3rem',
+		}}>
+        Logout
+      </Button>
+	
+	  </h1>
+	  </div> 
       <p className='welcome-member'>
         Welcome to the community! Let's explore some more.
       </p>
-      <Button variant='contained' onClick={logOut} sx={{
-		backgroundColor: '#5aaaa6',
-		borderRadius: '25px',
-		color: 'white',
-		marginBottom: '4vw',
-		width: '4vw',
-		height: '5vw',
-		textTransform: 'capitalize',
-		textTransformFont: 'josefin sans',
-		textTransformWeight: 'bold',
-		maxWidth: '60px',
-		maxHeight: '30px',
-		marginLeft: '75vw',
-	  }}>
-        Logout
-      </Button>
+	 
       <EventCard
         events={props.events}
         user={user}

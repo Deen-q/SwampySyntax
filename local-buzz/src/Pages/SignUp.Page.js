@@ -43,38 +43,63 @@ const Signup = () => {
  
  return (
   <div className="signUpForm">
- <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
- <div className='signup-x-button'>
-    <Link to= '/' 
-    style={{textDecoration: "none", color: "white"}}>  <button className="closeFormButton"> X </button>
-    </Link>
-    </div>
-   <h1 className="SignUp-h1"> Signup</h1>
-   <TextField
-     label="Email"
-     type="email"
-     variant="outlined"
-     name="email"
-     value={form.email}
-     onInput={onFormInputChange}
-     style={{ marginBottom: "1rem" }}
-   />
-   <TextField
-     label="Password"
-     type="password"
-     variant="outlined"
-     name="password"
-     value={form.password}
-     onInput={onFormInputChange}
-     style={{ marginBottom: "1rem" }}
-   />
-   <Button className="signUpButton"variant="contained" color="primary" onClick={onSubmit}>
-     Signup
-   </Button>
-   <div className="signupLine">
-      <div className= 'orSignupLine'></div>
-      <p className= "orSignupText">or</p>
-    </div>
+      <form 
+          style={{ 
+            display: "flex", 
+            flexDirection: "column", 
+            maxWidth: "300px", 
+            margin: "auto" 
+          }}>
+
+          <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+              {' '}
+              <button className='closeFormButton'> X </button>
+          </Link>
+          <h1 className="SignUp-h1"> Signup</h1>
+          <TextField
+            label="Email"
+            type="email"
+            variant="outlined"
+            name="email"
+            value={form.email}
+            onInput={onFormInputChange}
+            style={{ marginBottom: "1rem" }}
+          />
+          <TextField
+            label="Password"
+            type="password"
+            variant="outlined"
+            name="password"
+            value={form.password}
+            onInput={onFormInputChange}
+            style={{ marginBottom: "1rem" }}
+          />
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button className="signUpButton" variant="contained" color="primary" onClick={onSubmit} sx= {{
+            backgroundColor: '#5aaaa6',
+						border: '1px solid #47474782',
+						borderRadius: '25px',
+						display: 'flex',
+						justifyContent: 'center',
+						padding: '0.5em 3em 0.5em 3em',
+						color: 'white',
+						marginBottom: '4vw',
+						width: '4vw',
+						textTransform: 'capitalize',
+						textTransformFont: 'josefin sans',
+						textTransformWeight: 'bold',
+						maxWidth: '60px',
+						maxHeight: '30px',
+
+          }}>
+            SignUp
+          </Button>
+          </div>
+          <div className='loginLine'>
+					<div className='orLine'>
+						<p className='orText'>or</p>
+					</div>
+				</div>
  </form>
  </div>
 )};
