@@ -49,12 +49,18 @@ function App() {
     fetchData();
   }, []);
 
-  const userLocation = location;
+  // const userLocation = location;
 
-  console.log(userLocation);
+  // console.log(userLocation);
 
   useEffect(() => {
-    function haversineDistance(eventLocation, userLocation, isMiles = false) {
+    const userLocation = {latitude: 40.7128, longitude: -74.0060}
+    const events = [
+  { id: 1, name: 'Event 1', latitude: 40.7128, longitude: -74.0060 },
+  { id: 2, name: 'Event 2', latitude: 55.2528, longitude: -1.718 },
+  // ... other events ...
+];
+    function haversineDistance(events, userLocation, isMiles = false) {
       // Converts degrees to radians
       function toRad(x) {
         return (x * Math.PI) / 180;
@@ -64,16 +70,16 @@ function App() {
       let radius = 6371;
 
       // Differences in coordinates
-      let x1 = eventLocation.latitude - userLocation.lat;
+      let x1 = events.latitude - userLocation.latitude;
       let dLat = toRad(x1);
-      let x2 = eventLocation.longitude - userLocation.lng;
+      let x2 = events.longitude - userLocation.longitude;
       let dLon = toRad(x2);
       console.log(x1);
 
       // Haversine formula
       let haversine =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(eventLocation.latitude)) *
+        Math.cos(toRad(events.latitude)) *
           Math.cos(toRad(userLocation.longitude)) *
           Math.sin(dLon / 2) *
           Math.sin(dLon / 2);
@@ -87,11 +93,11 @@ function App() {
       return diameter;
     }
 
-    const maxDistance = 1000;
+    const maxDistance = 1;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
-        latitude: event.latitude,
-        longitude: event.longitude,
+        latitude: Number(event.latitude),
+        longitude: Number(event.longitude),
       };
       const distance = haversineDistance(userLocation, eventLocation);
 
