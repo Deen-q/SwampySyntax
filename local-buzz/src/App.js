@@ -49,12 +49,12 @@ function App() {
     fetchData();
   }, []);
 
-  // const userLocation = location;
-
-  // console.log(userLocation);
-
+  let userLatitude = location.lat
+  let userLongitude = location.lng;
+  
   useEffect(() => {
-    const userLocation = {latitude: 40.7128, longitude: -74.0060}
+    const userLocation = {latitude: `${userLatitude}`, longitude: `${userLongitude}`}
+    
     const events = [
   { id: 1, name: 'Event 1', latitude: 40.7128, longitude: -74.0060 },
   { id: 2, name: 'Event 2', latitude: 55.2528, longitude: -1.718 },
@@ -74,7 +74,6 @@ function App() {
       let dLat = toRad(x1);
       let x2 = events.longitude - userLocation.longitude;
       let dLon = toRad(x2);
-      console.log(x1);
 
       // Haversine formula
       let haversine =
@@ -86,14 +85,14 @@ function App() {
 
       let c = 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
       let diameter = radius * c;
-      console.log(diameter);
+    
       // Convert to miles if specified
       if (isMiles) diameter /= 1.60934;
 
       return diameter;
     }
 
-    const maxDistance = 1;
+    const maxDistance = 200;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
