@@ -10,22 +10,15 @@ import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {LocationContext} from "./Components/CreateEventPage/AddEventForm/AddEventForm";
-import {useContext} from "react";
 
 // const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 function App() {
-  const {latitude, longitude} = useContext(LocationContext);
-
-  console.log(latitude, longitude);
-
   // Defining states for filteredData and events
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
   const [location, setLocation] = useState(null);
-  const [localEvents, setLocalEvents] = useState([]);
 
   console.log(location);
 
@@ -57,8 +50,8 @@ function App() {
   }, []);
 
   const eventLocation = {
-    latitude: latitude,
-    longitude: longitude,
+    latitude: events.latitude,
+    longitude: events.longitude,
   };
 
   const userLocation = location;
@@ -100,7 +93,6 @@ function App() {
 
     return distance <= maxDistance;
   });
-  setLocalEvents(nearbyEvents);
 
   function handleFilteredData(event) {
     const inputValue = event.target.value;

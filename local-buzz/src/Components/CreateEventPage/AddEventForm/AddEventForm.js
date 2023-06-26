@@ -6,9 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {Link} from "react-router-dom";
 import {readAndCompressImage} from "browser-image-resizer";
 
-export const LocationContext = createContext();
-
-export const LocationProvider = ({children}) => {};
+export const LocationContext = createContext(null);
 
 export default function AddEventForm({addNewEvent}) {
   const [title, setTitle] = useState("");
