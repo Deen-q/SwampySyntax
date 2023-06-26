@@ -19,45 +19,39 @@ export default function AddEventForm({ addNewEvent }) {
   const [image, setImage] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  //useNavigate is a hook that allows us to navigate to a different page. useNavigate can be used within a function.
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  
   const navigate = useNavigate();
   
-  const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-// let newEvent = {};
-
   function handleSubmit(event) {
     event.preventDefault();
     const address = firstLineOfAddress + ' ' + city + ' ' + postcode;
-
-    // replace spaces with '+' for URL
     const urlAddress = address.replace(/ /g, '+');
     console.log(urlAddress);
 
     fetch(
-    	`https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${apiKey}&sensor=false`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
     )
-    	.then(response => response.json())
-    	.then(data => {
-    		// console.log(data);
-    		if (data) {
-          console.log(data);
-          const latitude2 = data.results[0].geometry.location.lat;
-          const longitude2 = data.results[0].geometry.location.lng;
-    			setLatitude(latitude2);
-    			setLongitude(longitude2);
-          console.log(`Line 46: Latitude: ${latitude}, Longitude: ${longitude}`);
-    			// do something with latitude and longitude
-    			
-    		} else {
-          throw new Error(`Geocode error: ${data.status}`);
-    		}
-    	})
-    	.catch(error => console.error('Error:', error));
-           
-      navigate("/homepage");
-    }
-    useEffect(() => {
-      // Create newEvent object within useEffect
+    .then(response => response.json())
+    .then(data => {
+      
+      if (data && data.results && data.results[0] && data.results[0].geometry) {
+        const latitude2 = data.results[0].geometry.location.lat;
+        const longitude2 = data.results[0].geometry.location.lng;
+        setLatitude(latitude2);
+        console.log (latitude2);
+        setLongitude(longitude2);
+        setIsFormSubmitted(true);
+      } else {
+        throw new Error(`Geocode error: ${data.status}`);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+
+  }
+  
+  useEffect(() => {
+    if(isFormSubmitted) {
       const newEvent = {
         id: uuidv4(),
         title: title,
@@ -74,18 +68,19 @@ export default function AddEventForm({ addNewEvent }) {
         longitude: longitude,
       };
       
-      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       addNewEvent(newEvent);
-    }, [latitude, longitude,]);
-    
+      setIsFormSubmitted(false);
+      navigate("/homepage");
+    }
+  }, [isFormSubmitted]);
       
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
 
     const config = {
-      quality: 0.5, // this is the compression rate (1 means no compression)
-      maxWidth: 500, // the max size of the image width
-      maxHeight: 500, // the max size of the image height
+      quality: 0.5, 
+      maxWidth: 500, 
+      maxHeight: 500, 
       autoRotate: true,
       debug: true,
     };
@@ -103,6 +98,7 @@ export default function AddEventForm({ addNewEvent }) {
       console.log(error);
     }
   };
+
 
   return (
     <div id="event-form-container">
