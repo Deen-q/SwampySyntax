@@ -6,9 +6,15 @@
    }
    
    .welcome-member {
-    margin: 5px 5px 20px 50px;
+    margin: 1rem 2rem 2rem 4rem;
     text-align: left;
     font-size: 1rem;
        color: #000000;
        opacity: 50%;
    }
+
+   .header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
