@@ -34,7 +34,11 @@ function LandingPageEventCard(props) {
           (
             event //'?' is 'Optional Chaining' bypasses the error from undefined. It is still undefined, however.
           ) => (
-            <div key={event._id} className='event-card'>
+            <div
+              key={event._id}
+              className={show[event._id] ? "event-card show" : "event-card"}
+            >
+            {/* <div key={event._id} className='event-card'> */}
               {/* add click event listener to toggle the description of the clicked event  */}
               <div className='TextBorder'>
                 {/* <div className='img-container'> */}{" "}
