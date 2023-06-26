@@ -17,3 +17,7 @@
 #search {
 	max-width: 40vw;
 }
+
+.SearchIcon:hover {
+	cursor: pointer;
+}
