@@ -88,6 +88,10 @@ textarea {
   max-width: 300px;
 }
 
+#submit:hover {
+  cursor: pointer;
+}
+
 label {
   font-size: 0.9rem;
   margin-left: 4vw;
