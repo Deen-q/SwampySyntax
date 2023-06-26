@@ -19,7 +19,9 @@ function App() {
 	const [filteredData, setFilteredData] = useState([]);
 	const [events, setEvents] = useState([]);
 	const [location, setLocation] = useState(null);
+
 	console.log(location);
+	
 	useEffect(() => {
 		const fetchGeolocation = async () => {
 			try {
