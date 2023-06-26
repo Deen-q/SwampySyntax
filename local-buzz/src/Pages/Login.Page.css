@@ -12,7 +12,6 @@
 	width: 80vw;
 	max-width: 500px;
 	display: flex;
-	/* align-items: center; */
 }
 
 /* BELOW prevents the use of sx in JS */
@@ -36,8 +35,7 @@
 	margin-top: 10px;
 } */
 
-/* .login-x-button {
-} */
+
 
 .closeFormButton {
 	position: absolute;
@@ -85,33 +83,35 @@
 	z-index: 3;
 	position: absolute;
 	left: 49%;
-	top: 54.5%;
+	top: -0.4vw;
 	transform: translate(-50%, -50%);
 	padding: 5px 15px 5px 15px;
 }
 
 .sign-up-button button {
-	font-family: "Josefin Sans", sans-serif;
+	font-family: 'Josefin Sans', sans-serif;
 	font-weight: bold;
 	font-size: 15px;
 	background-color: #5aaaa6;
 	color: white;
 	text-decoration: none;
 	border: 1px solid #47474782;
-	/* align-items: center; */
 	border-radius: 25px;
-	padding: 0.3rem 0.5rem;
-	min-width: 72px;
-	max-width: 140px;
-	width: 20vw;
+	padding: 0.4rem 0rem;
+	width: 10vw;
+	max-width: 1rem;
+	min-width: 5rem;
 	display: inline-block;
 	justify-content: center;
-	align-items: center;
-	margin-bottom: 30px;
-	margin-left: 25vw;
-	position: relative;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
   }
 
+.sign-up-button {
+	display: flex;
+	justify-content: center;
+}
   .sign-up-button button:hover {
 	cursor: pointer;
   }

@@ -52,27 +52,31 @@ export default function HomePage(props) {
 
   return (
     <>
+	<div className="header-container">
       {/* <NavBar handleFilteredData={handleFilteredData} /> */}
-      <h1 className='hello-name'>Hello ${"name"}</h1>
+      <h1 className='hello-name'>Hello ${"name"}
+	  <Button variant='contained' onClick={logOut} sx={{
+		backgroundColor: '#5aaaa6',
+		borderRadius: '25px',
+		border: '1px solid #47474782',
+		padding: '0.1rem 0.8rem',
+		color: 'white',
+		textTransform: 'capitalize',
+		fontSize: '0.8rem',
+		fontWeight: 'bold',
+		maxWidth: '100rem',
+		maxHeight: '30px',
+		marginLeft: '3rem',
+		}}>
+        Logout
+      </Button>
+	
+	  </h1>
+	  </div> 
       <p className='welcome-member'>
         Welcome to the community! Let's explore some more.
       </p>
-      <Button variant='contained' onClick={logOut} sx={{
-		backgroundColor: '#5aaaa6',
-		borderRadius: '25px',
-		color: 'white',
-		marginBottom: '4vw',
-		width: '4vw',
-		height: '5vw',
-		textTransform: 'capitalize',
-		textTransformFont: 'josefin sans',
-		textTransformWeight: 'bold',
-		maxWidth: '60px',
-		maxHeight: '30px',
-		marginLeft: '75vw',
-	  }}>
-        Logout
-      </Button>
+	 
       <EventCard
         events={props.events}
         user={user}

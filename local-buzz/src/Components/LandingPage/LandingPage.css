@@ -6,6 +6,7 @@
   color: white;
   text-decoration: none;
   border: 1px solid #47474782;
+  box-shadow: 10px;
   /* align-items: center; */
   border-radius: 25px;
   padding: 0.3rem 0.5rem;
@@ -15,12 +16,29 @@
   display: inline-block;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
-  margin-left: 3vw;
+  margin-bottom: 3rem;
+  margin-left: 13vw;
+  margin-right: -10vw;
   position: relative;
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .landing-page button {
+    margin-left: 7vw;
+  margin-right: -6vw;
+  }
+}
+
+@media (min-width: 1201px) {
+  .landing-page button {
+    margin-left: 5vw;
+  margin-right: -4vw;
+  }
 }
 
 .landing-page button:hover {
   cursor: pointer;
+   transform: scale(0.98);
 }
 
