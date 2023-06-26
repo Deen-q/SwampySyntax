@@ -1,126 +1,122 @@
 .EventCardContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 7vw;
-  width: 81vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6vw;
+	/* margin-bottom: 7vw; */
+	width: 81vw;
+	margin-left: auto;
+	margin-right: auto;
+	height: 40vw;
 }
 
 .JoinButton {
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  background-color: #5aaaa6;
-  color: white;
-  text-decoration: none;
-  border: 1px solid #47474782;
-  border-radius: 25px;
-  padding: 0.2rem;
-  width: 4rem;
-
-  margin-bottom: 4rem;
-  margin-right: 5px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	background-color: #5aaaa6;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	border-radius: 25px;
+	padding: 0.2rem;
+	width: 4rem;
+	margin-bottom: 4rem;
+	margin-right: 5px;
 }
 
 .JoinedButton {
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  background-color: #d56b63;
-  color: white;
-  text-decoration: none;
-  border: 1px solid #47474782;
-  border-radius: 25px;
-  padding: 0.2rem;
-  width: 5vw;
-  min-width: 72px;
-  margin-bottom: 4rem;
-  margin-right: 5px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	background-color: #d56b63;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	border-radius: 25px;
+	padding: 0.2rem;
+	width: 5vw;
+	min-width: 72px;
+	margin-bottom: 4rem;
+	margin-right: 5px;
 }
 
 h2 {
-  margin: 5px 7px;
-  font-size: 1rem;
-  color: #d56b63;
-  font-weight: bold;
+	margin: 5px 7px;
+	font-size: 1rem;
+	color: #d56b63;
+	font-weight: bold;
 }
 
 p {
-  margin: 5px 5px 7px 10px;
-  font-size: 0.7rem;
-  align-items: center;
-}
-.img-container {
-  width: 72vw;
-  height: auto;
+	margin: 5px 5px 7px 10px;
+	font-size: 0.7rem;
+	align-items: center;
 }
 
 .img-icon {
-  width: 20px;
-  height: auto;
-  margin-left: 7px;
-  margin-bottom: 5px;
-  align-items: center;
+	width: 20px;
+	height: auto;
+	margin-left: 7px;
+	margin-bottom: 5px;
+	align-items: center;
 }
 
 .img-icon-top {
-  width: 20px;
-  height: auto;
-  margin-top: 5px;
-  margin-left: 7px;
-  margin-bottom: 5px;
-  align-items: flex-start;
+	width: 20px;
+	height: auto;
+	margin-top: 5px;
+	margin-left: 7px;
+	margin-bottom: 5px;
+	align-items: flex-start;
 }
 
 .EventCardContainer p {
-  width: 72vw;
+	width: 72vw;
 }
 
 .JoinButtonContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  max-width: 72vw;
-  margin-top: 1rem;
-  margin-bottom: -3rem;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	max-width: 72vw;
+	margin-top: 2vw;
+	margin-bottom: -3rem;
 }
 
 .event-img {
-  width: 100%;
-  height: 50vw;
-  object-fit: cover;
-  border-bottom: 1px solid #47474782;
-  border-radius: 19px 19px 0 0;
+	width: 100%;
+	object-fit: cover;
+	height: 50vw;
+	border-bottom: 1px solid #47474782;
+	border-radius: 19px 19px 19px 19px;
 }
 
 .event-img:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 .EventTitle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 72vw;
-  margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 72vw;
+	margin-bottom: 5px;
 }
 
 .EventDateAndCity {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 
-  align-items: flex-start;
-  width: 72vw;
-  /* margin-bottom: 5px; */
+	align-items: flex-start;
+	width: 72vw;
+	margin-bottom: 5px;
 }
 
 .EventAddressAndPostcode {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 72vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 72vw;
 }
 
 .TextBorder {
@@ -133,78 +129,93 @@ p {
 }
 
 .EventDescription {
-  margin-bottom: 10px;
-  line-height: 1.4;
+	margin-bottom: 10px;
+	line-height: 1.4;
 }
 
 .PriceAndSpaces {
-  display: flex;
-  flex-direction: row;
-  padding: 0px 0px 10px 0px;
+	display: flex;
+	flex-direction: row;
+	padding: 0px 0px 10px 0px;
 }
 
 /* show events in rows of 4 on larger screens */
 
 @media (min-width: 768px) and (max-width: 1200px) {
-  .JoinButtonContainer {
-    width: 72vw; /* Maintain the fixed width for large screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .EventCardContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: flex-start;
-  }
+	.JoinButtonContainer {
+		width: 72vw; /* Maintain the fixed width for large screens */
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.EventCardContainer {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: flex-start;
+		gap: 6vw;
+		margin-left: 6vw;
+		margin-right: auto;
+	}
 
-  .event-card {
-    max-width: 40vw;
-    height: auto;
-  }
-  .event-img,
-  .JoinButtonContainer,
-  .EventTitle,
-  .EventDateAndCity,
-  .TextBorder,
-  .EventCardContainer p {
-    max-width: 40vw;
-  }
+	.event-card {
+		max-width: 40vw;
+		height: 40vw;
+		margin-bottom: 4vw;
+	}
 
-  .event-img {
-    width: auto;
-    height: 30vw;
-    object-fit: cover;
-  }
+	.event-card.show {
+		margin-bottom: 25vw;
+	}
+	.event-img,
+	.JoinButtonContainer,
+	.EventTitle,
+	.EventDateAndCity,
+	.TextBorder,
+	.EventCardContainer p {
+		max-width: 40vw;
+	}
+
+	.event-img {
+		width: 100%;
+		height: 30vw;
+		object-fit: cover;
+	}
 }
 
 @media (min-width: 1201px) {
-  .JoinButtonContainer {
-    width: 72vw; /* Maintain the fixed width for large screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .EventCardContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: flex-start;
-  }
+	.JoinButtonContainer {
+		width: 72vw; /* Maintain the fixed width for large screens */
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.EventCardContainer {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		align-items: flex-start;
+		gap: 8vw;
+		margin-left: 4vw;
+		margin-right: auto;
+	}
 
-  .event-card {
-    max-width: 20vw;
-    height: auto;
-  }
-  .event-img,
-  .JoinButtonContainer,
-  .EventTitle,
-  .EventDateAndCity,
-  .TextBorder,
-  .EventCardContainer p {
-    max-width: 20vw;
-  }
+	.event-card {
+		max-width: 15vw;
+		height: 20vw;
+	}
+	.event-card.show {
+		margin-bottom: 15vw;
+	}
 
-  .event-img {
-    width: auto;
-    height: 15vw;
-    object-fit: cover;
-  }
+	.event-img,
+	.JoinButtonContainer,
+	.EventTitle,
+	.EventDateAndCity,
+	.TextBorder,
+	.EventCardContainer p {
+		max-width: 20vw;
+	}
+
+	.event-img {
+		width: auto;
+		height: 15vw;
+		object-fit: cover;
+	}
 }

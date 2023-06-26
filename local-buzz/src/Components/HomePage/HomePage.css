@@ -1,14 +1,14 @@
 .hello-name {
-    margin: 5px 5px 20px 70px;
+    margin: 5px 5px 20px 50px;
+    text-align: left;
     font-size: 1.5rem;
-    align-items: center;
        color: #000000;
    }
    
    .welcome-member {
-    margin: 5px 5px 20px 70px;
+    margin: 5px 5px 20px 50px;
+    text-align: left;
     font-size: 1rem;
-    align-items: center;
        color: #000000;
        opacity: 50%;
    }
