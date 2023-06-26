@@ -145,6 +145,8 @@ const Login = () => {
 						<p className='orText'>or</p>
 					</div>
 				</div>
+				<Link className="sign-up-button" to='/signup' style={{textDecoration: "none", color: "white"}}> <button>
+          Sign Up </button> </Link>
 			</form>
 		</div>
 	);
