@@ -80,7 +80,7 @@ p {
 	justify-content: flex-end;
 	align-items: center;
 	max-width: 72vw;
-	margin-top: 2vw;
+	margin-top: 4vw;
 	margin-bottom: -3rem;
 }
 
@@ -90,7 +90,6 @@ p {
 	height: 50vw;
 	border-bottom: 1px solid #47474782;
 	border-radius: 19px 19px 19px 19px;
-	margin-top: 5vw;
 }
 
 .event-img:hover {
@@ -125,13 +124,21 @@ p {
 	border-radius: 20px;
 	width: 72vw;
 	background-color: #ffffff;
-	padding: 0px 10px;
+	padding: 0px 25px;
 	box-shadow: 3px 3px 3px 0px rgb(132, 132, 132);
 }
 
 .EventDescription {
 	margin-bottom: 10px;
 	line-height: 1.4;
+}
+
+.EventDescriptionShort {
+	margin-bottom: 10px;
+	line-height: 1.4;
+	color: black;
+	font-size: 12px;
+	
 }
 
 .PriceAndSpaces {
@@ -172,7 +179,7 @@ p {
 	.EventDateAndCity,
 	.TextBorder,
 	.EventCardContainer p {
-		max-width: 40vw;
+		max-width: 35vw;
 	}
 
 	.event-img {
@@ -192,7 +199,7 @@ p {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		align-items: flex-start;
-		gap: 8vw;
+		gap: 9vw;
 		margin-left: 4vw;
 		margin-right: auto;
 	}
@@ -211,7 +218,7 @@ p {
 	.EventDateAndCity,
 	.TextBorder,
 	.EventCardContainer p {
-		max-width: 20vw;
+		max-width: 18vw;
 	}
 
 	.event-img {

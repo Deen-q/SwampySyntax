@@ -7,6 +7,7 @@ import date from "../../../assets/icons8-calendar-100.png";
 // import coin from "../../../assets/icons8-coin-100.png";
 // import ticket from "../../../assets/icons8-ticket-100.png";
 import { useNavigate } from "react-router-dom";
+import "./LandingPageEventCard.css";
 
 function LandingPageEventCard(props) {
   const navigate = useNavigate();
@@ -43,9 +44,13 @@ function LandingPageEventCard(props) {
             {/* <div key={event._id} className='event-card'> */}
               {/* add click event listener to toggle the description of the clicked event  */}
               <div className='TextBorder'>
+              <h4 className="EventDescriptionShort">
+                {event.description.split(" ").slice(0, 10).join(" ")}
+                {/* Display only the first 10 words of the description */}
+              ...</h4>
                 {/* <div className='img-container'> */}{" "}
                 <img
-                  className='event-img'
+                  className='event-img' id="event-img"
                   onClick={() => navigate(`/login`)}
                   alt='CardImage'
                   src={event.image}
@@ -57,6 +62,7 @@ function LandingPageEventCard(props) {
                 <div className='EventDateAndCity'>
                   <img className='img-icon' src={date} alt='date-icon' />
                   <p> {event.date}</p>
+                  
                  <img className= 'img-icon' src={address} alt='address-icon' />
                   <p> {event.city}</p>
                 </div>
