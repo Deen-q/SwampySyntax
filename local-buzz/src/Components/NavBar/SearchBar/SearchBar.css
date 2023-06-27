@@ -17,6 +17,8 @@
 #search {
 	max-width: 40vw;
 	max-height: 15px;
+	touch-action: manipulation;
+  	user-select: none;
 }
 
 .SearchIcon:hover {
