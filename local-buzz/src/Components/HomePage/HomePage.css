@@ -35,6 +35,10 @@
 	display: inline-block;
 	width: 25vw;
 	transition: transform 0.2s ease;
+	/* POSSIBLE EXTRA CSS TO KEEP BUTTON TEXT ON ONE LINE */
+	/* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 .map-view:hover {

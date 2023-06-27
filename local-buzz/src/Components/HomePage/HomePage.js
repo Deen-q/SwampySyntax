@@ -78,6 +78,10 @@ export default function HomePage(props) {
 						minWidth: '100px',
 						width: '25vw',
 						boxShadow: '0px 3px 5px 0px rgba(0,0,0,0.75)',
+						// POSSIBLE EXTRA CSS TO KEEP BUTTON TEXT ON ONE LINE
+						// whiteSpace:'nowrap',
+						// overflow:'hidden',
+						// textOverflow:'ellipsis',
 					}}>
 					Logout
 				</Button>
