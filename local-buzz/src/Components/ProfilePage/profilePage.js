@@ -44,6 +44,7 @@ export default function ProfilePage() {
 	return (
 		<>
 			<h1 className='myEvents'>My Events</h1>
+			<h2 className='profileWelcomeMsg'>Welcome. Here are your saved events.</h2>
 			<div className='EventCardContainer'>
 				{joinedEvents.map(
 					(

@@ -1,3 +1,5 @@
-.myEvents {
+.myEvents, .profileWelcomeMsg {
 	margin-left: 3vw;
+	color: #5aaaa6;
 }
+
