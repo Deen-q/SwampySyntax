@@ -19,41 +19,44 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
   const [location, setLocation] = useState(null);
+  const [userLat, setUserLat] = useState(null);
+  const [userLng, setUserLng] = useState(null);
 
-  console.log(location);
-
-  useEffect(() => {
+ useEffect(() => {
     const fetchGeolocation = async () => {
       try {
         console.log("fetching geolocation");
         const response = await axios.get(`${REACT_APP_URL}geolocation`);
-        setLocation(response.data);
+        setLocation(response.data.location);
+        setUserLat(response.data.location.lat);
+        setUserLng(response.data.location.lng);
       } catch (error) {
         console.error("Error fetching geolocation", error);
       }
     };
     fetchGeolocation();
   }, []);
-
+  
   const fetchData = () => {
     fetch(`${REACT_APP_URL}events`)
-      .then((response) => response.json())
-      .then((data) => {
-        setFilteredData(data);
-        setEvents(data);
-      })
-      .catch((error) => console.error("Error:", error));
+    .then((response) => response.json())
+    .then((data) => {
+      setFilteredData(data);
+      setEvents(data);
+    })
+    .catch((error) => console.error("Error:", error));
   };
-
+  
   useEffect(() => {
     fetchData();
   }, []);
-console.log(location)
+  console.log(location)
+  
   // let userLatitude = location.lat
   // let userLongitude = location.lng;
-  
-  useEffect(() => {
-    const userLocation = { latitude: 40.7128, longitude: -74.0060 }
+  console.log(userLat, userLng)
+useEffect(() => {
+    const userLocation = { latitude: userLat, longitude: userLng }
 
     function haversineDistance(event, userLocation, isMiles = false) {
       // Converts degrees to radians
@@ -87,7 +90,7 @@ console.log(location)
       return diameter;
     }
 
-    const maxDistance = 9000;
+    const maxDistance = 100;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
@@ -101,7 +104,7 @@ console.log(location)
 
     // Update the filteredData state with nearbyEvents
     setFilteredData(nearbyEvents);
-  }, [events, location]);
+  }, [events, location, userLat, userLng]);
 
   function handleFilteredData(event) {
     const inputValue = event.target.value;
