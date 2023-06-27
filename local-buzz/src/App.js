@@ -92,7 +92,7 @@ useEffect(() => {
       return diameter;
     }
 
-    const maxDistance = 10;
+    const maxDistance = 100;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
