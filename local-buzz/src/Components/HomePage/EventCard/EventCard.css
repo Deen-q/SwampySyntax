@@ -8,6 +8,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	height: 40vw;
+	margin-bottom: 730vw;
 }
 
 .JoinButton {
@@ -21,7 +22,7 @@
 	border-radius: 25px;
 	padding: 0.2rem;
 	width: 4rem;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 	margin-right: 5px;
 }
 
@@ -37,7 +38,7 @@
 	padding: 0.2rem;
 	width: 5vw;
 	min-width: 72px;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 	margin-right: 5px;
 }
 
@@ -80,8 +81,8 @@ p {
 	justify-content: flex-end;
 	align-items: center;
 	max-width: 72vw;
-	margin-top: 2vw;
-	margin-bottom: -3rem;
+	margin-top: 4vw;
+	margin-bottom: -3rem; 
 }
 
 .event-img {
@@ -90,7 +91,6 @@ p {
 	height: 50vw;
 	border-bottom: 1px solid #47474782;
 	border-radius: 19px 19px 19px 19px;
-	margin-top: 5vw;
 }
 
 .event-img:hover {
@@ -125,13 +125,21 @@ p {
 	border-radius: 20px;
 	width: 72vw;
 	background-color: #ffffff;
-	padding: 0px 10px;
+	padding: 0px 25px;
 	box-shadow: 3px 3px 3px 0px rgb(132, 132, 132);
 }
 
 .EventDescription {
 	margin-bottom: 10px;
 	line-height: 1.4;
+}
+
+.EventDescriptionShort {
+	margin-bottom: 10px;
+	line-height: 1.4;
+	color: black;
+	font-size: 12px;
+	
 }
 
 .PriceAndSpaces {
@@ -147,7 +155,12 @@ p {
 		width: 72vw; /* Maintain the fixed width for large screens */
 		margin-left: auto;
 		margin-right: auto;
+	} 
+
+	.JoinButton, .JoinedButton {
+		margin-bottom: 2rem;
 	}
+
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -155,16 +168,17 @@ p {
 		gap: 6vw;
 		margin-left: 6vw;
 		margin-right: auto;
+		margin-bottom: 180vw;
 	}
 
 	.event-card {
 		max-width: 40vw;
 		height: 40vw;
-		margin-bottom: 4vw;
+		margin-bottom: 8vw;
 	}
 
 	.event-card.show {
-		margin-bottom: 25vw;
+		margin-bottom: 28vw;
 	}
 	.event-img,
 	.JoinButtonContainer,
@@ -172,7 +186,7 @@ p {
 	.EventDateAndCity,
 	.TextBorder,
 	.EventCardContainer p {
-		max-width: 40vw;
+		max-width: 35vw;
 	}
 
 	.event-img {
@@ -187,22 +201,31 @@ p {
 		width: 72vw; /* Maintain the fixed width for large screens */
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: 2vw;
+		margin-bottom: -5rem;
 	}
+
+	.JoinButton, .JoinedButton {
+		margin-bottom: 2rem;
+	}
+
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		align-items: flex-start;
-		gap: 8vw;
+		gap: 9vw;
 		margin-left: 4vw;
 		margin-right: auto;
+		margin-bottom: 30vw;
 	}
 
 	.event-card {
 		max-width: 15vw;
 		height: 20vw;
+		margin-bottom: 1vw;
 	}
 	.event-card.show {
-		margin-bottom: 15vw;
+		margin-bottom: 13vw;
 	}
 
 	.event-img,
@@ -211,7 +234,7 @@ p {
 	.EventDateAndCity,
 	.TextBorder,
 	.EventCardContainer p {
-		max-width: 20vw;
+		max-width: 18vw;
 	}
 
 	.event-img {

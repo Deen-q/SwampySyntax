@@ -53,6 +53,7 @@ export default function HomePage(props) {
 
   return (
     <>
+
       <div className="header-container">
         {/* <NavBar handleFilteredData={handleFilteredData} /> */}
         <h1 className="hello-name">
@@ -93,15 +94,3 @@ export default function HomePage(props) {
     </>
   );
 }
-
-// import CreateEventBtn from './CreateEventBtn/CreateEventBtn';
-// import EventCard from './EventCard/EventCard';
-
-// export default function HomePage(props) {
-// 	return (
-// 		<div>
-// 		<CreateEventBtn/>
-// 		<EventCard filteredData={props.filteredData} />
-// 		</div>
-// 	);
-// }
