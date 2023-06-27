@@ -1,0 +1,36 @@
+* {
+	font-family: 'Josefin Sans', sans-serif;
+	
+}
+
+.signUpForm {
+	position: relative;
+	background-color: #fefefe;
+	padding: 10px;
+	border-radius: 25px;
+	margin: 30px auto;
+	border: 1px solid #474747;
+	width: 80vw;
+	max-width: 500px;
+	display: flex;
+}
+/* 
+.signUpButton {
+font-family: "Josefin Sans", sans-serif;
+font-weight: bold;
+font-size: 13px;
+background-color: #5aaaa6;
+color: white;
+text-decoration: none;
+border: 1px solid #47474782;
+border-radius: 25px;
+padding: 0.3rem 0.5rem;
+width: 20vw;
+display: inline-block;
+justify-content: center;
+align-items: center;
+margin-bottom: 30px;
+margin-left: 10px;
+margin-top: 10px;
+} */
+
