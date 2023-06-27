@@ -27,7 +27,7 @@ function App() {
       try {
         console.log("fetching geolocation");
         const response = await axios.get(`${REACT_APP_URL}geolocation`);
-        setLocation(response.data.location);
+        setLocation(response.data);
       } catch (error) {
         console.error("Error fetching geolocation", error);
       }
@@ -48,12 +48,12 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-
-  let userLatitude = location.lat
-  let userLongitude = location.lng;
+console.log(location)
+  // let userLatitude = location.lat
+  // let userLongitude = location.lng;
   
   useEffect(() => {
-    const userLocation = {latitude: `${userLatitude}`, longitude: `${userLongitude}`}
+    const userLocation = { latitude: 40.7128, longitude: -74.0060 }
 
     function haversineDistance(event, userLocation, isMiles = false) {
       // Converts degrees to radians
@@ -101,7 +101,7 @@ function App() {
 
     // Update the filteredData state with nearbyEvents
     setFilteredData(nearbyEvents);
-  }, [events, location, userLatitude, userLongitude]);
+  }, [events, location]);
 
   function handleFilteredData(event) {
     const inputValue = event.target.value;
