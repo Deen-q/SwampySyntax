@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const REACT_APP_GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 function Map({ userLocation, nearbyEvents }) {
  console.log(nearbyEvents)
-  const [map, setMap] = useState(null);
   const mapRef = useRef();
 
   useEffect(() => {
@@ -33,7 +32,6 @@ function Map({ userLocation, nearbyEvents }) {
         });
       });
 
-      setMap(initMap);
      };
      script.onerror = () => {
       console.error('Error loading Google Maps API.');
