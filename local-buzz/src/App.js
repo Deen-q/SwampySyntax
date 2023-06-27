@@ -27,7 +27,7 @@ function App() {
       try {
         console.log("fetching geolocation");
         const response = await axios.get(`${REACT_APP_URL}geolocation`);
-        setLocation(response.data.location);
+        setLocation(response.data);
       } catch (error) {
         console.error("Error fetching geolocation", error);
       }
@@ -48,19 +48,14 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-
-  // const userLocation = location;
-
-  // console.log(userLocation);
-
+console.log(location)
+  // let userLatitude = location.lat
+  // let userLongitude = location.lng;
+  
   useEffect(() => {
-    const userLocation = {latitude: 40.7128, longitude: -74.0060}
-    const events = [
-  { id: 1, name: 'Event 1', latitude: 40.7128, longitude: -74.0060 },
-  { id: 2, name: 'Event 2', latitude: 55.2528, longitude: -1.718 },
-  // ... other events ...
-];
-    function haversineDistance(events, userLocation, isMiles = false) {
+    const userLocation = { latitude: 40.7128, longitude: -74.0060 }
+
+    function haversineDistance(event, userLocation, isMiles = false) {
       // Converts degrees to radians
       function toRad(x) {
         return (x * Math.PI) / 180;
@@ -70,42 +65,43 @@ function App() {
       let radius = 6371;
 
       // Differences in coordinates
-      let x1 = events.latitude - userLocation.latitude;
+      let x1 = event.latitude - userLocation.latitude;
       let dLat = toRad(x1);
-      let x2 = events.longitude - userLocation.longitude;
+      let x2 = event.longitude - userLocation.longitude;
       let dLon = toRad(x2);
-      console.log(x1);
 
       // Haversine formula
       let haversine =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(events.latitude)) *
+        Math.cos(toRad(event.latitude)) *
           Math.cos(toRad(userLocation.longitude)) *
           Math.sin(dLon / 2) *
           Math.sin(dLon / 2);
 
       let c = 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
       let diameter = radius * c;
-      console.log(diameter);
+    
       // Convert to miles if specified
       if (isMiles) diameter /= 1.60934;
 
       return diameter;
     }
 
-    const maxDistance = 1;
+    const maxDistance = 9000;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
         longitude: Number(event.longitude),
       };
-      const distance = haversineDistance(userLocation, eventLocation);
+      const distance = haversineDistance(eventLocation, userLocation);
 
       return distance <= maxDistance;
     });
     console.log(nearbyEvents);
-    // Update the filteredData state or perform any other necessary actions based on nearbyEvents
-  }, [location]);
+
+    // Update the filteredData state with nearbyEvents
+    setFilteredData(nearbyEvents);
+  }, [events, location]);
 
   function handleFilteredData(event) {
     const inputValue = event.target.value;

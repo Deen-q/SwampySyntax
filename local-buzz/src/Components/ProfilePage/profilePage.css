@@ -1,7 +1,8 @@
-.myEvents {
+.myEvents, .profileWelcomeMsg {
 	margin-left: 3vw;
+	color: #5aaaa6;
 }
 
 .event-img{
-	margin-top: 10vw
+	margin-top: 5vw
 }
