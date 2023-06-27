@@ -161,6 +161,12 @@ p {
 		margin-bottom: 2rem;
 	}
 
+	.JoinButton:hover, .JoinedButton:hover {
+		
+		cursor: pointer;
+transform: scale(0.98);
+	}
+
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);

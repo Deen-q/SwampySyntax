@@ -37,6 +37,7 @@
 
 
 
+
 .closeFormButton {
 	position: absolute;
 	top: -12px;
@@ -99,8 +100,9 @@
 	border-radius: 25px;
 	padding: 0.4rem 0rem;
 	width: 10vw;
-	max-width: 1rem;
+	max-width: 60px;
 	min-width: 5rem;
+	max-height: 30px;
 	display: inline-block;
 	justify-content: center;
 	margin-bottom: 10px;
@@ -114,4 +116,6 @@
 }
   .sign-up-button button:hover {
 	cursor: pointer;
+	transform: scale(0.98);
+	background-color: #1565c0;
   }

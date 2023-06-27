@@ -61,6 +61,8 @@ textarea {
   text-indent: 5px;
   max-width: 400px;
   align-self: center;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 #description {

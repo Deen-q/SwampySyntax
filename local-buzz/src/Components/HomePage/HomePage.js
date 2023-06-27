@@ -46,43 +46,46 @@ export default function HomePage(props) {
     }
   };
 
-		function mapPage() {
-			navigate("/Map");
-		}
-
+  function mapPage() {
+    navigate("/Map");
+  }
 
   return (
     <>
-
       <div className="header-container">
         {/* <NavBar handleFilteredData={handleFilteredData} /> */}
-        <h1 className="hello-name">
-          Hello ${"name"}
-          <Button
-            variant="contained"
-            onClick={logOut}
-            sx={{
-              backgroundColor: "#5aaaa6",
-              borderRadius: "25px",
-              border: "1px solid #47474782",
-              padding: "0.1rem 0.8rem",
-              color: "white",
-              textTransform: "capitalize",
-              fontSize: "0.8rem",
-              fontWeight: "bold",
-              maxWidth: "100rem",
-              maxHeight: "30px",
-              marginLeft: "3rem",
-            }}
-          >
-            Logout
-          </Button>
-        </h1>
-								<button	className="Map-View" onClick={mapPage}>Map View</button>
+
+        <button className="map-view" onClick={mapPage}>
+          Map View
+        </button>
+        
+        <Button
+          variant="contained"
+          onClick={logOut}
+          sx={{
+            backgroundColor: "#5aaaa6",
+            borderRadius: "25px",
+            border: "1px solid #47474782",
+            padding: "0.1rem 0.8rem",
+            color: "white",
+            textTransform: "capitalize",
+            fontSize: "0.8rem",
+            fontWeight: "bold",
+            maxWidth: "140px",
+            maxHeight: "30px",
+            marginLeft: "3rem",
+            minWidth: "100px",
+            width: "25vw",
+            boxShadow: "0px 3px 5px 0px rgba(0,0,0,0.75)"
+          }}
+        >
+          Logout
+        </Button>
+        
       </div>
       <p className="welcome-member">
-        Welcome to the community! Let's explore some more.
-      </p>
+          Welcome to the community! Let's explore some more.
+        </p>
 
       <EventCard
         events={props.events}
