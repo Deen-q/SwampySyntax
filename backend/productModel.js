@@ -13,8 +13,8 @@ const eventSchema = new mongoose.Schema({
 	price: String,
 	capacity: String,
 	joinedUsers: [String],
-	latitude: String,
-	longitude: String,
+	latitude: Number,
+	longitude: Number,
 });
 
 module.exports = mongoose.model('Event', eventSchema);
