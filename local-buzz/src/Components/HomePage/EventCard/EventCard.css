@@ -8,6 +8,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	height: 40vw;
+	margin-bottom: 730vw;
 }
 
 .JoinButton {
@@ -21,7 +22,7 @@
 	border-radius: 25px;
 	padding: 0.2rem;
 	width: 4rem;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 	margin-right: 5px;
 }
 
@@ -37,7 +38,7 @@
 	padding: 0.2rem;
 	width: 5vw;
 	min-width: 72px;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 	margin-right: 5px;
 }
 
@@ -81,7 +82,7 @@ p {
 	align-items: center;
 	max-width: 72vw;
 	margin-top: 4vw;
-	margin-bottom: -3rem;
+	margin-bottom: -3rem; 
 }
 
 .event-img {
@@ -154,7 +155,12 @@ p {
 		width: 72vw; /* Maintain the fixed width for large screens */
 		margin-left: auto;
 		margin-right: auto;
+	} 
+
+	.JoinButton, .JoinedButton {
+		margin-bottom: 2rem;
 	}
+
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -162,16 +168,17 @@ p {
 		gap: 6vw;
 		margin-left: 6vw;
 		margin-right: auto;
+		margin-bottom: 180vw;
 	}
 
 	.event-card {
 		max-width: 40vw;
 		height: 40vw;
-		margin-bottom: 4vw;
+		margin-bottom: 8vw;
 	}
 
 	.event-card.show {
-		margin-bottom: 25vw;
+		margin-bottom: 28vw;
 	}
 	.event-img,
 	.JoinButtonContainer,
@@ -194,7 +201,14 @@ p {
 		width: 72vw; /* Maintain the fixed width for large screens */
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: 2vw;
+		margin-bottom: -5rem;
 	}
+
+	.JoinButton, .JoinedButton {
+		margin-bottom: 2rem;
+	}
+
 	.EventCardContainer {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -202,14 +216,16 @@ p {
 		gap: 9vw;
 		margin-left: 4vw;
 		margin-right: auto;
+		margin-bottom: 30vw;
 	}
 
 	.event-card {
 		max-width: 15vw;
 		height: 20vw;
+		margin-bottom: 1vw;
 	}
 	.event-card.show {
-		margin-bottom: 15vw;
+		margin-bottom: 13vw;
 	}
 
 	.event-img,
