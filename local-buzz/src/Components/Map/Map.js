@@ -2,11 +2,12 @@ import { useEffect, useRef } from "react";
 
 const REACT_APP_GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
-function Map({ userLocation, nearbyEvents }) {
+function Map({ userLat, userLng, nearbyEvents }) {
  console.log(nearbyEvents)
-  const mapRef = useRef();
-
-  useEffect(() => {
+ const mapRef = useRef();
+ 
+ useEffect(() => {
+  const userLocation = { lat: userLat, lng: userLng };
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GOOGLE_API_KEY}`;
     script.onload = () => {
@@ -42,7 +43,7 @@ function Map({ userLocation, nearbyEvents }) {
     return () => {
       document.body.removeChild(script);
     };
-  }, [userLocation, nearbyEvents]);
+  }, [nearbyEvents, userLat, userLng]);
 
   return <div ref={mapRef} style={{ width: "100%", height: "800px" }} />;
 }

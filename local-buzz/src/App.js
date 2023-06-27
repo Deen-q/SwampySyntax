@@ -9,36 +9,40 @@ import CreateEventPage from "./Components/CreateEventPage/CreateEventPage";
 import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import Map from "./Components/Map/Map";
 
-// const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+// const REACT_APP_GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const REACT_APP_URL = process.env.REACT_APP_URL;
 
 function App() {
   // Defining states for filteredData and events
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
-  const [location, setLocation] = useState(null);
+  // const [location, setLocation] = useState(null);
   const [userLat, setUserLat] = useState(null);
   const [userLng, setUserLng] = useState(null);
   // const [nearbyEvents, setNearbyEvents] = useState([]);
 
- useEffect(() => {
-    const fetchGeolocation = async () => {
-      try {
-        console.log("fetching geolocation");
-        const response = await axios.get(`${REACT_APP_URL}geolocation`);
-        setLocation(response.data.location);
-        setUserLat(response.data.location.lat);
-        setUserLng(response.data.location.lng);
-      } catch (error) {
-        console.error("Error fetching geolocation", error);
-      }
-    };
-    fetchGeolocation();
-  }, []);
-  
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  console.log("Geolocation not supported");
+}
+
+function success(position) {
+  console.log(position)
+  setUserLat(position.coords.latitude)
+  setUserLng(position.coords.longitude)
+  // setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude})
+  console.log(`Latitude: ${userLat}, Longitude: ${userLng}`);
+ 
+}
+
+function error() {
+  console.log("Unable to retrieve your location");
+}
+
   const fetchData = () => {
     fetch(`${REACT_APP_URL}events`)
     .then((response) => response.json())
@@ -52,11 +56,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(location)
-  
-  // let userLatitude = location.lat
-  // let userLongitude = location.lng;
-  console.log(userLat, userLng)
+    
 useEffect(() => {
     const userLocation = { latitude: userLat, longitude: userLng }
 
@@ -92,7 +92,7 @@ useEffect(() => {
       return diameter;
     }
 
-    const maxDistance = 100;
+    const maxDistance = 900;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
@@ -105,7 +105,7 @@ useEffect(() => {
    
     // Update the filteredData state with nearbyEvents
     setFilteredData(nearbyEvents);
-  }, [events, location, userLat, userLng]);
+  }, [events, userLat, userLng]);
 
   function handleFilteredData(event) {
     const inputValue = event.target.value;
@@ -149,7 +149,7 @@ useEffect(() => {
               path='/homepage'
               element={<HomePage events={events} filteredData={filteredData} />}
             />
-            <Route exact path='/Map' element={<Map userLocation={location} nearbyEvents={filteredData}/>} />
+            <Route exact path='/Map' element={<Map userLng={userLng} userLat ={userLat} nearbyEvents={filteredData}/>} />
             <Route
               exact
               path='/createeventpage'
