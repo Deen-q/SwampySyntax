@@ -10,6 +10,7 @@ import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Map from "./Components/Map/Map";
 
 // const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 const REACT_APP_URL = process.env.REACT_APP_URL;
@@ -21,6 +22,7 @@ function App() {
   const [location, setLocation] = useState(null);
   const [userLat, setUserLat] = useState(null);
   const [userLng, setUserLng] = useState(null);
+  // const [nearbyEvents, setNearbyEvents] = useState([]);
 
  useEffect(() => {
     const fetchGeolocation = async () => {
@@ -90,7 +92,7 @@ useEffect(() => {
       return diameter;
     }
 
-    const maxDistance = 100;
+    const maxDistance = 9000;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
@@ -100,8 +102,7 @@ useEffect(() => {
 
       return distance <= maxDistance;
     });
-    console.log(nearbyEvents);
-
+   
     // Update the filteredData state with nearbyEvents
     setFilteredData(nearbyEvents);
   }, [events, location, userLat, userLng]);
@@ -148,6 +149,7 @@ useEffect(() => {
               path='/homepage'
               element={<HomePage events={events} filteredData={filteredData} />}
             />
+            <Route exact path='/Map' element={<Map userLocation={location} nearbyEvents={filteredData}/>} />
             <Route
               exact
               path='/createeventpage'
