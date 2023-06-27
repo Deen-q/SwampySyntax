@@ -54,7 +54,7 @@ export default function HomePage(props) {
     <>
 	<div className="header-container">
       {/* <NavBar handleFilteredData={handleFilteredData} /> */}
-      <h1 className='hello-name'>Hello ${"name"}
+      <h1 className='hello-name'>Hello
 	  <Button variant='contained' onClick={logOut} sx={{
 		backgroundColor: '#5aaaa6',
 		borderRadius: '25px',
