@@ -195,16 +195,4 @@ app.delete('/events/:id', async (req, res) => {
 	}
 });
 
-app.get('/geolocation', async (req, res) => {
-	try {
-		const geoResponse = await axios.post(
-			`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.GOOGLE_API_KEY}`
-		);
-		res.json(geoResponse.data);
-	} catch (error) {
-		res.json({ error: error.toString() });
-	}
-
-});
-
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
