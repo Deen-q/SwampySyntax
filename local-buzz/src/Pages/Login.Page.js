@@ -90,7 +90,7 @@ const Login = () => {
 				<h1 className='login-h1'> Login</h1>
 				<TextField
 					className='loginInput'
-					label='Email'
+					placeholder='Email'
 					type='email'
 					variant='outlined'
 					name='email'
@@ -104,7 +104,7 @@ const Login = () => {
 				/>
 				<TextField
 					className='loginInput'
-					label='Password'
+					placeholder='Password'
 					type='password'
 					variant='outlined'
 					name='password'
