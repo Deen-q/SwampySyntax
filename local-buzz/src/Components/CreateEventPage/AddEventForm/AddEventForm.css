@@ -44,7 +44,7 @@
 form {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 15px;
 	/* justify-content: space-around; */
 	margin-top: 1.5vw;
 	text-align: start;
@@ -81,7 +81,7 @@ textarea {
 	color: white;
 	height: 35px;
 	margin-top: 10px;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bold;
 	width: 30vw;
 	box-shadow: 10px;
@@ -103,7 +103,7 @@ label {
 .capacity {
   font-family: "Josefin Sans", sans-serif;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
   border: 1px solid #47474782;
   border-radius: 25px;
@@ -115,7 +115,7 @@ label {
 .capacity {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 15px;
 	text-decoration: none;
 	border: 1px solid #47474782;
 	border-radius: 25px;
