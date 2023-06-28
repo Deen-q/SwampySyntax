@@ -14,13 +14,9 @@ export default function LandingPage(props) {
 				style={{
 					textDecoration: 'none',
 					color: 'white',
-					minWidth: '80px',
+					minWidth: '100px',
 					display: 'inline-block',
-					/* POSSIBLE EXTRA CSS TO KEEP BUTTON TEXT ON ONE LINE */
-					whiteSpace: "nowrap",
-					overflow:"hidden",
-					textOverflow:"ellipsis",
-				}}>
+								}}>
 				<button>Login </button>{' '}
 			</Link>
 			<Link
@@ -28,12 +24,9 @@ export default function LandingPage(props) {
 				style={{
 					textDecoration: 'none',
 					color: 'white',
-					minWidth: '80px',
+					minWidth: '100px',
 					display: 'inline-block',
-					/* POSSIBLE EXTRA CSS TO KEEP BUTTON TEXT ON ONE LINE */
-					whiteSpace:'nowrap',
-					overflow:'hidden',
-					textOverflow:'ellipsis'
+					
 				}}>
 				{' '}
 				<button>Sign Up </button>{' '}
