@@ -17,9 +17,9 @@ export default function LandingPage(props) {
 					minWidth: '80px',
 					display: 'inline-block',
 					/* POSSIBLE EXTRA CSS TO KEEP BUTTON TEXT ON ONE LINE */
-					// whiteSpace:nowrap;
-					// overflow:hidden;
-					// textOverflow:ellipsis;
+					whiteSpace: "nowrap",
+					overflow:"hidden",
+					textOverflow:"ellipsis",
 				}}>
 				<button>Login </button>{' '}
 			</Link>
@@ -31,9 +31,9 @@ export default function LandingPage(props) {
 					minWidth: '80px',
 					display: 'inline-block',
 					/* POSSIBLE EXTRA CSS TO KEEP BUTTON TEXT ON ONE LINE */
-					// whiteSpace:'nowrap',
-					// overflow:'hidden',
-					// textOverflow:'ellipsis'
+					whiteSpace:'nowrap',
+					overflow:'hidden',
+					textOverflow:'ellipsis'
 				}}>
 				{' '}
 				<button>Sign Up </button>{' '}
