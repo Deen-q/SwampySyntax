@@ -88,7 +88,7 @@ const Login = () => {
 					<button className='closeFormButton'> X </button>
 				</Link>
 				<h1 className='login-h1'> Login</h1>
-				<TextField
+				<input
 					className='loginInput'
 					placeholder='Email'
 					type='email'
@@ -102,7 +102,7 @@ const Login = () => {
 						}
 					}}
 				/>
-				<TextField
+				<input
 					className='loginInput'
 					placeholder='Password'
 					type='password'

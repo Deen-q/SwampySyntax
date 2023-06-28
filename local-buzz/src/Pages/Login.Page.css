@@ -14,30 +14,6 @@
 	display: flex;
 }
 
-/* BELOW prevents the use of sx in JS */
-/* .loginButton {
-	font-family: 'Josefin Sans', sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	background-color: #5aaaa6;
-	color: white;
-	text-decoration: none;
-	border: 1px solid #47474782;
-	border-radius: 25px;
-	padding: 0.4rem 1rem;
-	width: 25vw;
-	max-width: 120px;
-	display: inline-block;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-top: 10px;
-} */
-
-
-
-
 .closeFormButton {
 	position: absolute;
 	top: -12px;
@@ -108,14 +84,21 @@
 	margin-bottom: 10px;
 	margin-left: 10px;
 	margin-top: 10px;
-  }
+}
 
 .sign-up-button {
 	display: flex;
 	justify-content: center;
 }
-  .sign-up-button button:hover {
+.sign-up-button button:hover {
 	cursor: pointer;
 	transform: scale(0.98);
 	background-color: #1565c0;
-  }
+}
+
+.loginInput {
+	-webkit-user-select: text; /* Chrome, Opera, Safari */
+	-moz-user-select: text; /* Firefox 2+ */
+	-ms-user-select: text; /* IE 10+ */
+	user-select: text; /* Standard syntax */
+}
