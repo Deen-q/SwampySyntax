@@ -62,7 +62,7 @@ export default function HomePage(props) {
 				<Button
 					variant='contained'
 					onClick={logOut}
-					sx={{
+					sx={{fontFamily: 'josefin sans',
 						display: 'inline-block',
 						backgroundColor: '#5aaaa6',
 						borderRadius: '25px',
