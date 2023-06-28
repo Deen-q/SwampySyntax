@@ -70,9 +70,10 @@ export default function HomePage(props) {
 						padding: '0.1rem 0.8rem',
 						color: 'white',
 						textTransform: 'capitalize',
-						fontSize: '0.8rem',
+						fontSize: '1rem',
 						fontWeight: 'bold',
 						maxHeight: '30px',
+						minHeight: '30px',
 						marginLeft: '3rem',
 						maxWidth: '140px',
 						minWidth: '100px',
@@ -83,7 +84,7 @@ export default function HomePage(props) {
 				</Button>
 			</div>
 			<p className='welcome-member'>
-				Welcome to the community! Let's explore some more.
+				Welcome to the community!<br></br> Let's explore some more.
 			</p>
 
 			<EventCard
