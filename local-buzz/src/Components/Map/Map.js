@@ -8,6 +8,7 @@ function Map({ userLat, userLng, nearbyEvents }) {
  
  useEffect(() => {
   const userLocation = { lat: userLat, lng: userLng };
+
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GOOGLE_API_KEY}`;
     script.onload = () => {
@@ -18,18 +19,22 @@ function Map({ userLat, userLng, nearbyEvents }) {
       });
 
       // Create a marker for the user's location
+      
       new window.google.maps.Marker({
-        position: userLocation,
-        map: initMap,
-        title: "Your location",
+       position: userLocation,
+       map: initMap,
+       // label: "Your location",
       });
-
+      
       // Create a marker for each nearby event
       nearbyEvents.forEach((event) => {
+       const image =
+     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
         new window.google.maps.Marker({
           position: { lat: Number(event.latitude), lng: Number(event.longitude) },
           map: initMap,
-          title: event.name,
+          icon: image,
+          // label: event.title,
         });
       });
 
