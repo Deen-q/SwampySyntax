@@ -88,9 +88,9 @@ const Login = () => {
 					<button className='closeFormButton'> X </button>
 				</Link>
 				<h1 className='login-h1'> Login</h1>
-				<TextField
+				<input
 					className='loginInput'
-					label='Email'
+					placeholder='Email'
 					type='email'
 					variant='outlined'
 					name='email'
@@ -101,11 +101,10 @@ const Login = () => {
 							onSubmit();
 						}
 					}}
-					style={{ marginBottom: '1rem' }}
 				/>
-				<TextField
+				<input
 					className='loginInput'
-					label='Password'
+					placeholder='Password'
 					type='password'
 					variant='outlined'
 					name='password'
@@ -116,35 +115,34 @@ const Login = () => {
 							onSubmit();
 						}
 					}}
-					style={{ marginBottom: '1rem' }}
 				/>
 
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
-				<Button
-					className='loginButton'
-					variant='contained'
-					color='primary'
-					onClick={onSubmit}
-					sx={{
-						backgroundColor: '#5aaaa6',
-						border: '1px solid #47474782',
-						borderRadius: '25px',
-						display: 'flex',
-						justifyContent: 'center',
-						padding: '0.5em 3em 0.5em 3em',
-						color: 'white',
-						marginTop: '1vw',
-						width: '4vw',
-						textTransform: 'capitalize',
-						textTransformFont: 'josefin sans',
-						textTransformWeight: 'bold',
-						textTransformSize: '15px',
-						maxWidth: '60px',
-						maxHeight: '30px',
-					}}
-					>
-					Login
-				</Button>
+					<Button
+						className='loginButton'
+						variant='contained'
+						color='primary'
+						onClick={onSubmit}
+						sx={{
+							backgroundColor: '#5aaaa6',
+							border: '1px solid #47474782',
+							borderRadius: '25px',
+							display: 'flex',
+							justifyContent: 'center',
+							padding: '0.5em 3em 0.5em 3em',
+							color: 'white',
+							marginTop: '1vw',
+							width: '4vw',
+							textTransform: 'capitalize',
+							textTransformFont: 'josefin sans',
+							textTransformWeight: 'bold',
+							textTransformSize: '15px',
+							maxWidth: '60px',
+							maxHeight: '30px',
+							fontWeight: 'bold',
+						}}>
+						Login
+					</Button>
 				</div>
 
 				<div className='loginLine'>
@@ -152,8 +150,13 @@ const Login = () => {
 						<p className='orText'>or</p>
 					</div>
 				</div>
-				<Link className="sign-up-button" to='/signup' style={{textDecoration: "none", color: "white"}}> <button>
-          Sign Up </button> </Link>
+				<Link
+					className='sign-up-button'
+					to='/signup'
+					style={{ textDecoration: 'none', color: 'white' }}>
+					{' '}
+					<button>Sign Up </button>{' '}
+				</Link>
 			</form>
 		</div>
 	);

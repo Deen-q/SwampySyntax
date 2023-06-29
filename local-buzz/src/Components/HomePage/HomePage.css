@@ -1,20 +1,48 @@
 .hello-name {
-    margin: 5px 5px 20px 50px;
-    text-align: left;
-    font-size: 1.5rem;
-       color: #000000;
-   }
-   
-   .welcome-member {
-    margin: 1rem 2rem 2rem 4rem;
-    text-align: left;
-    font-size: 1rem;
-       color: #000000;
-       opacity: 50%;
-   }
-
-   .header-container {
-    display: flex;
-    justify-content: space-between;
+	margin: 5px 5px 20px 50px;
+	text-align: left;
+	font-size: 1.5rem;
+	color: #000000;
 }
 
+.welcome-member {
+	margin: 1.8rem 1rem 2rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	color: #000000;
+	opacity: 50%;
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.map-view {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: bold;
+	font-size: 1rem;
+	background-color: #5aaaa6;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #47474782;
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+	/* align-items: center; */
+	border-radius: 25px;
+	padding: 0.1rem 0.8rem;
+	min-width: 100px;
+	max-width: 140px;
+	display: inline-block;
+	max-height: 30px;
+	min-height: 30px;
+	/* width: 25vw; */
+	transition: transform 0.2s ease;
+	
+}
+
+.map-view:hover {
+	cursor: pointer;
+	transform: scale(0.98);
+	background-color: #1565c0;
+}

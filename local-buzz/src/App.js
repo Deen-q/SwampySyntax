@@ -8,113 +8,85 @@ import Signup from "./Pages/SignUp.Page";
 import CreateEventPage from "./Components/CreateEventPage/CreateEventPage";
 import ProfilePage from "./Components/ProfilePage/profilePage";
 import NavBar from "./Components/NavBar/NavBar";
-import {useEffect, useState} from "react";
-import axios from "axios";
-
-// const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
-const REACT_APP_URL = process.env.REACT_APP_URL;
-
-function App() {
-  // Defining states for filteredData and events
+import {useEffect, useState, useCallback} from "react";
+import Map from "./Components/Map/Map";
+ const REACT_APP_URL = process.env.REACT_APP_URL;
+ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [events, setEvents] = useState([]);
-  const [location, setLocation] = useState(null);
   const [userLat, setUserLat] = useState(null);
   const [userLng, setUserLng] = useState(null);
-
- useEffect(() => {
-    const fetchGeolocation = async () => {
-      try {
-        console.log("fetching geolocation");
-        const response = await axios.get(`${REACT_APP_URL}geolocation`);
-        setLocation(response.data.location);
-        setUserLat(response.data.location.lat);
-        setUserLng(response.data.location.lng);
-      } catch (error) {
-        console.error("Error fetching geolocation", error);
-      }
-    };
-    fetchGeolocation();
-  }, []);
-  
-  const fetchData = () => {
-    fetch(`${REACT_APP_URL}events`)
-    .then((response) => response.json())
-    .then((data) => {
-      setFilteredData(data);
-      setEvents(data);
-    })
-    .catch((error) => console.error("Error:", error));
-  };
-  
-  useEffect(() => {
-    fetchData();
-  }, []);
-  console.log(location)
-  
-  // let userLatitude = location.lat
-  // let userLongitude = location.lng;
-  console.log(userLat, userLng)
-useEffect(() => {
-    const userLocation = { latitude: userLat, longitude: userLng }
-
-    function haversineDistance(event, userLocation, isMiles = false) {
-      // Converts degrees to radians
-      function toRad(x) {
-        return (x * Math.PI) / 180;
-      }
-
-      // Radius of the Earth in kilometers
-      let radius = 6371;
-
-      // Differences in coordinates
-      let x1 = event.latitude - userLocation.latitude;
-      let dLat = toRad(x1);
-      let x2 = event.longitude - userLocation.longitude;
-      let dLon = toRad(x2);
-
-      // Haversine formula
-      let haversine =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(event.latitude)) *
-          Math.cos(toRad(userLocation.longitude)) *
-          Math.sin(dLon / 2) *
-          Math.sin(dLon / 2);
-
-      let c = 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
-      let diameter = radius * c;
-    
-      // Convert to miles if specified
-      if (isMiles) diameter /= 1.60934;
-
-      return diameter;
+   useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log("Geolocation not supported");
     }
-
-    const maxDistance = 100;
+     function success(position) {
+      console.log(position);
+      setUserLat(position.coords.latitude);
+      setUserLng(position.coords.longitude);
+      console.log(`Latitude: ${userLat}, Longitude: ${userLng}`);
+    }
+     function error() {
+      console.log("Unable to retrieve your location");
+    }
+  }, []);
+   const fetchData = useCallback(() => {
+    if (!REACT_APP_URL) return;
+    fetch(`${REACT_APP_URL}events`)
+      .then((response) => response.json())
+      .then((data) => {
+        setFilteredData(data);
+        setEvents(data);
+      })
+      .catch((error) => console.error("Error:", error));
+  }, []);
+   useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+   // Move haversineDistance function outside of useEffect
+  const haversineDistance = useCallback((event, userLocation, isMiles = false) => {
+    function toRad(x) {
+      return (x * Math.PI) / 180;
+    }
+     let radius = 6371;
+    let x1 = event.latitude - userLocation.latitude;
+    let dLat = toRad(x1);
+    let x2 = event.longitude - userLocation.longitude;
+    let dLon = toRad(x2);
+     let haversine =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(event.latitude)) *
+        Math.cos(toRad(userLocation.longitude)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+     let c = 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
+    let diameter = radius * c;
+     if (isMiles) diameter /= 1.60934;
+     return diameter;
+  }, []);
+   useEffect(() => {
+    const userLocation = { latitude: userLat, longitude: userLng }
+    const maxDistance = 900;
     const nearbyEvents = events.filter((event) => {
       const eventLocation = {
         latitude: Number(event.latitude),
         longitude: Number(event.longitude),
       };
       const distance = haversineDistance(eventLocation, userLocation);
-
-      return distance <= maxDistance;
+       return distance <= maxDistance;
     });
-    console.log(nearbyEvents);
-
-    // Update the filteredData state with nearbyEvents
-    setFilteredData(nearbyEvents);
-  }, [events, location, userLat, userLng]);
-
-  function handleFilteredData(event) {
+     setFilteredData(nearbyEvents);
+  }, [events, userLat, userLng, haversineDistance]);
+   function handleFilteredData(event) {
     const inputValue = event.target.value;
     const filteredData = events.filter((event) =>
       event.title.toLowerCase().startsWith(inputValue.toLowerCase())
     );
     setFilteredData(filteredData);
   }
-
-  async function addNewEvent(newEvent) {
+   const addNewEvent = useCallback(async (newEvent) => {
     console.log("APP.JS LINE 68 ", newEvent);
     try {
       const response = await fetch(`${REACT_APP_URL}events`, {
@@ -128,9 +100,8 @@ useEffect(() => {
     } catch (error) {
       console.error("Error:", error);
     }
-  }
-
-  return (
+  }, [fetchData]);
+   return (
     <BrowserRouter>
       <UserProvider>
         <NavBar handleFilteredData={handleFilteredData} />
@@ -148,6 +119,7 @@ useEffect(() => {
               path='/homepage'
               element={<HomePage events={events} filteredData={filteredData} />}
             />
+            <Route exact path='/Map' element={<Map userLng={userLng} userLat ={userLat} nearbyEvents={filteredData}/>} />
             <Route
               exact
               path='/createeventpage'
@@ -160,5 +132,4 @@ useEffect(() => {
     </BrowserRouter>
   );
 }
-
-export default App;
+ export default App;
