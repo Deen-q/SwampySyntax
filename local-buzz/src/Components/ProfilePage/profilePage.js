@@ -16,28 +16,33 @@ export default function ProfilePage() {
   const [joinedEvents, setJoinedEvents] = useState([]);
   const { user } = useContext(UserContext);
 
-  const fetchData = () => {
-    fetch(`${REACT_APP_URL}events`)
-      .then((response) => response.json())
-      .then((data) => {
-        const filteredJoinedEvents = data.filter((event) =>
-          event.joinedUsers.includes(user.id)
-        );
-        setJoinedEvents(filteredJoinedEvents);
-      })
-      .catch((error) => console.error("Error:", error));
-  };
-
   useEffect(() => {
+    const controller = new AbortController();
+    const fetchData = () => {
+      fetch(`${REACT_APP_URL}events`, { signal: controller.signal })
+        .then((response) => response.json())
+        .then((data) => {
+          const filteredJoinedEvents = data.filter((event) =>
+            event.joinedUsers.includes(user.id)
+          );
+          setJoinedEvents(filteredJoinedEvents);
+        })
+        .catch((error) => {
+          if (error.name === "AbortError") return;
+          console.error("Error:", error);
+        });
+    };
+
     fetchData();
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   function handleClick(eventId) {
-    // Update the show state variable to toggle the description of the clicked event
     setShow((prevShow) => ({
-      ...prevShow, // copy the previous state object
-      // the below is an if statement that checks if the eventId is in the show object, if it is then it will return the opposite of the current value of the show property of the eventId, if it isn't then it will return true
-      [eventId]: !prevShow[eventId], // toggle the show property of the clicked event id
+      ...prevShow,
+      [eventId]: !prevShow[eventId],
     }));
   }
 
