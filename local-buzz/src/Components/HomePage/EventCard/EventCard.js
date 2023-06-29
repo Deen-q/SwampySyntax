@@ -63,7 +63,7 @@ function EventCard(props) {
                       className="JoinButton"
                       onClick={() => {
                         handleAttendingClick(event._id);
-                        props.joinEvent(event._id);
+                        // props.joinEvent(event._id);
                       }}
                     >
                       + Join
