@@ -30,7 +30,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   function handleClick(eventId) {
     // Update the show state variable to toggle the description of the clicked event
