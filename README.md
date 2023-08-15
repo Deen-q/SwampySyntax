@@ -4,11 +4,12 @@
 
 A full stack, mobile-first events app to foster meaningful connections within your local community.
 <br>
-PLEASE USE THIS LOGIN:
-<br>
+## Login (please use this when trying the app)
 Email: pretend@gmail.com
 <br>
 Password: pretend (LOWER CASE p)
+<br>
+The events may take time to load, depending on your internet and if the db is 'warmed up' (i.e., recently refreshed...!).
 
 ## Problem Statement
 
@@ -40,7 +41,7 @@ LocalBuzz is [hosted on Netlify](https://local-buzz.netlify.app)
 
 NOTE: Please [enable your location services](https://docs.buddypunch.com/en/articles/919258-how-to-enable-location-services-for-chrome-safari-edge-and-android-ios-devices-gps-setting) by following the instructions for your device.
 
-We recommend that you use google chrome if using the app on desktop.
+We recommend that you use Google Chrome if using the app on desktop.
 
 On mobile devices, you will have the best experience on either an iOS, Android or Windows system.
 
