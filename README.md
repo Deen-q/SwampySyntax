@@ -3,6 +3,12 @@
 ## Overview
 
 A full stack, mobile-first events app to foster meaningful connections within your local community.
+<br>
+PLEASE USE THIS LOGIN:
+<br>
+Email: pretend@gmail.com
+<br>
+Password: pretend (LOWER CASE p)
 
 ## Problem Statement
 
