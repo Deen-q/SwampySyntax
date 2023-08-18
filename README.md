@@ -1,5 +1,5 @@
 # LocalBuzz
-
+@ https://local-buzz.netlify.app/
 ## Overview
 
 A full stack, mobile-first events app to foster meaningful connections within your local community.
