@@ -4,6 +4,7 @@
 
 A full stack, mobile-first events app to foster meaningful connections within your local community.
 <br>
+Use 'npm start' if you would like to run it locally.
 ## Login (please use this when trying the app)
 Email: pretend@gmail.com
 <br>
