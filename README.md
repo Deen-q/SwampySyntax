@@ -1,5 +1,7 @@
 # LocalBuzz
 @ https://local-buzz.netlify.app/
+<br>
+Use 'npm start' to run it locally!
 ## Overview
 
 A full stack, mobile-first events app to foster meaningful connections within your local community.
