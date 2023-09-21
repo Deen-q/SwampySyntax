@@ -2,17 +2,20 @@
 @ https://local-buzz.netlify.app/
 <br>
 Use 'npm start' to run it locally!
-## Overview
 
-A full stack, mobile-first events app to foster meaningful connections within your local community.
-<br>
-Use 'npm start' if you would like to run it locally.
-## Login (please use this when trying the app)
+## Login (PLEASE USE THIS WHEN DEMOING THE HOSTED SITE)
 Email: pretend@gmail.com
 <br>
 Password: pretend (LOWER CASE p)
 <br>
 The events may take time to load, depending on your internet and if the db is 'warmed up' (i.e., recently refreshed...!).
+
+## Overview
+
+A full stack, mobile-first events app to foster meaningful connections within your local community.
+<br>
+<br>
+Use 'npm start' if you would like to run it locally.
 
 ## Problem Statement
 
