@@ -42,7 +42,9 @@ the betterment of their neighbourhoods.”
 ![app-demo](./LocalBuzz-demo.gif)
 <br>
 <br>
-There's also our <a href="https://www.youtube.com/watch?v=70ITr3OtF5g" target="_blank" rel="noopener">demo</a> video, if you'd like (the backup video for when we presented our journey in front of prospective employers)!
+There's also our [demo video](https://www.youtube.com/watch?v=70ITr3OtF5g) (right-click and select "Open link in new tab"; 'rel="noopener"' does not work on GitHub).
+<br>
+(The backup video for when we presented our journey in front of prospective employers).
 
 ## How to Use
 
